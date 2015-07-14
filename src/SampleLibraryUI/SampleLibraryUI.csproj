@@ -35,47 +35,45 @@
   <ItemGroup>
     <Reference Include="CoreNodeModelsWpf">
       <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\CoreNodeModelsWpf.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DSCoreNodesUI">
       <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\DSCoreNodesUI.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoCore">
       <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\DynamoCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="DynamoCoreWpf">
       <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\DynamoCoreWpf.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.Prism.Interactivity, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Practices.Prism.Interactivity.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="ProtoCore">
       <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.8.2\lib\net40\ProtoCore.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ProtoGeometry">
       <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\ProtoGeometry.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="ProtoInterface">
       <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\ProtoInterface.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -107,13 +105,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SampleLibraryZeroTouch\SampleLibraryZeroTouch.csproj">
-      <Project>{bd13c4dc-9045-4e49-b637-b6182b0e3a7f}</Project>
-      <Name>SampleLibraryZeroTouch</Name>
-      <Private>False</Private>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -126,6 +117,13 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SampleLibraryZeroTouch\SampleLibraryZeroTouch.csproj">
+      <Project>{bd13c4dc-9045-4e49-b637-b6182b0e3a7f}</Project>
+      <Name>SampleLibraryZeroTouch</Name>
+      <Private>False</Private>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
