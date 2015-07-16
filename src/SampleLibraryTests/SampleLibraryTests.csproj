@@ -120,13 +120,5 @@
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
-    <ItemGroup>
-      <Dlls Include="$(OutDir)*.dll" />
-      <Pdbs Include="$(OutDir)*.pdb" />
-      <Dyns Include="$(OutDir)*.dyn" />
-    </ItemGroup>
-    <Copy SourceFiles="@(Dlls)" DestinationFolder="$(SolutionDir)..\bin\$(Platform)\$(Configuration)\0.8\packages\Dynamo Samples\bin\" />
-    <Copy SourceFiles="@(Pdbs)" DestinationFolder="$(SolutionDir)..\bin\$(Platform)\$(Configuration)\0.8\packages\Dynamo Samples\bin\" />
-    <Copy SourceFiles="@(Dyns)" DestinationFolder="$(SolutionDir)..\bin\$(Platform)\$(Configuration)\0.8\packages\Dynamo Samples\extra\" />
   </Target>
 </Project>

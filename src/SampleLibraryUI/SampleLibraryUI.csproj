@@ -138,14 +138,8 @@
   </Target>
   <Target Name="AfterBuild">
     <ItemGroup>
-      <Dlls Include="$(OutDir)*.dll" />
-      <Pdbs Include="$(OutDir)*.pdb" />
-      <Xmls Include="$(OutDir)*.xml" />
-      <Res Include="$(OutDir)en-US\*.*" />
+      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;" />
     </ItemGroup>
-    <Copy SourceFiles="@(Dlls)" DestinationFolder="$(SolutionDir)..\bin\$(Platform)\$(Configuration)\0.8\packages\Dynamo Samples\bin\" />
-    <Copy SourceFiles="@(Pdbs)" DestinationFolder="$(SolutionDir)..\bin\$(Platform)\$(Configuration)\0.8\packages\Dynamo Samples\bin\" />
-    <Copy SourceFiles="@(Xmls)" DestinationFolder="$(SolutionDir)..\bin\$(Platform)\$(Configuration)\0.8\packages\Dynamo Samples\bin\" />
-    <Copy SourceFiles="@(Res)" DestinationFolder="$(SolutionDir)..\bin\$(Platform)\$(Configuration)\0.8\packages\Dynamo Samples\bin\en-US\" />
+    <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\packages\Dynamo Samples\bin\" />
   </Target>
 </Project>
