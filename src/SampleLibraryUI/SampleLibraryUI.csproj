@@ -2,12 +2,15 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
+    <UICulture>en-US</UICulture>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{0A4B4EEA-8FAB-4AC8-90D4-27DBC5B0CF2A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SamplesLibraryUI</RootNamespace>
+    <RootNamespace>SampleLibraryUI</RootNamespace>
     <AssemblyName>SampleLibraryUI</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -138,8 +141,10 @@
   </Target>
   <Target Name="AfterBuild">
     <ItemGroup>
-      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;" />
+      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)\SampleLibraryUI.dll.config" />
+      <ResourceFiles Include="$(OutDir)\en-US\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\packages\Dynamo Samples\bin\" />
+    <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(SolutionDir)..\packages\Dynamo Samples\bin\en-US" />
   </Target>
 </Project>

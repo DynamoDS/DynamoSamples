@@ -7,10 +7,11 @@ using Dynamo.Models;
 using Dynamo.UI.Commands;
 using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
+using SampleLibraryUI.Controls;
+using SampleLibraryUI.Properties;
 using SampleLibraryZeroTouch;
-using SamplesLibraryUI.Properties;
 
-namespace SamplesLibraryUI.Examples
+namespace SampleLibraryUI.Examples
 {
      /*
       * This exmple shows how to create a UI node for Dynamo
@@ -43,7 +44,7 @@ namespace SamplesLibraryUI.Examples
 
     // The description will display in the tooltip
     // and in the help window for the node.
-    [NodeDescription("CustomNodeModelDescription",typeof(SamplesLibraryUI.Properties.Resources))]
+    [NodeDescription("CustomNodeModelDescription",typeof(SampleLibraryUI.Properties.Resources))]
 
     // Add the IsDesignScriptCompatible attribute to ensure
     // that it gets loaded in Dynamo.

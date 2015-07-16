@@ -4,7 +4,7 @@ using Dynamo.Models;
 using Dynamo.Utilities;
 using ProtoCore.AST.AssociativeAST;
 
-namespace SamplesLibraryUI.Examples
+namespace SampleLibraryUI.Examples
 {
     [NodeName("Drop Down Example")]
     [NodeDescription("An example drop down node.")]
