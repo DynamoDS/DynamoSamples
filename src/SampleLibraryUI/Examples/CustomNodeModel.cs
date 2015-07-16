@@ -40,7 +40,7 @@ namespace SampleLibraryUI.Examples
     // node will be organized in the library. You can
     // specify your own category or use one of the 
     // built-ins provided in BuiltInNodeCategories.
-    [NodeCategory("Sample Nodes")]
+    [NodeCategory("SampleLibraryUI.Examples")]
 
     // The description will display in the tooltip
     // and in the help window for the node.
