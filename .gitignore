@@ -133,6 +133,9 @@ publish/
 ## TODO: If you have NuGet Package Restore enabled, uncomment the next line
 #packages/
 
+src/packages/
+!src/packages/repositories.config
+
 # Windows Azure Build Output
 csx
 *.build.csdef
@@ -215,5 +218,3 @@ pip-log.txt
 #Mr Developer
 .mr.developer.cfg
 
-/src/packages/
-!packages/repositories.config
