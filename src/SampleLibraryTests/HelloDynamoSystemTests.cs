@@ -1,4 +1,5 @@
-﻿using SystemTestServices;
+﻿using System.Collections.Generic;
+using SystemTestServices;
 
 using Autodesk.DesignScript.Runtime;
 
@@ -28,6 +29,23 @@ namespace SampleLibraryTests
     [IsVisibleInDynamoLibrary(false)]
     public class HelloDynamoSystemTests : SystemTestBase
     {
+        /// <summary>
+        /// The GetLibrariesToPreload method can be overridden in your test 
+        /// suite to add libraries for preload. By default, SystemTestBase does
+        /// not preload any libaries. This improves startup performance of Dynamo
+        /// for testing, but may mean that your workflow will not operate as expected. 
+        /// Add the libaries that your workflow requires to the 'libraries' list.
+        /// </summary>
+        /// <param name="libraries">A list of Dynamo assemblies that will be loaded when Dynamo starts.</param>
+        protected override void GetLibrariesToPreload(List<string> libraries)
+        {
+            // For example, if you wanted to load the geometry library, you
+            // could uncomment the following line.
+
+            //libraries.Add("ProtoGeometry.dll");
+            base.GetLibrariesToPreload(libraries);
+        }
+
         // The RequiresSTA attribute is required by
         // NUNit to run tests that use the UI.
         [Test, RequiresSTA]
