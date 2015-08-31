@@ -7,8 +7,6 @@ A collection of samples demonstrating how to develop libraries for Dynamo.
 
 These samples make use of the Dynamo NuGet packages. NuGet should take care of restoring these packages if they are not available on your system at build time. 
 
-**NOTE: This samples library is a work in progress. It will become fully functional with Dynamo 0.8.2.**
-
 # Building the Samples
 
 - Clone the repository.
