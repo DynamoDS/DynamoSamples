@@ -9,3 +9,6 @@ build:
   verbosity: normal
   
 test: off
+
+before_build:
+  - nuget restore .\src\DynamoSamples.2013.sln
