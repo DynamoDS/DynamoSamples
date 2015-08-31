@@ -5,7 +5,7 @@
 # Dynamo Samples
 A collection of samples demonstrating how to develop libraries for Dynamo.
 
-These samples make use of the Dynamo NuGet packages. NuGet should take care of restoring these packages if they are not available on your system at build time. 
+These samples make use of the [Dynamo NuGet packages](https://www.nuget.org/packages?q=DynamoVisualProgramming). NuGet should take care of restoring these packages if they are not available on your system at build time. 
 
 # Building the Samples
 
