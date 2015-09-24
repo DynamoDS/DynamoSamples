@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SampleLibraryZeroTouch</RootNamespace>
     <AssemblyName>SampleLibraryZeroTouch</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Debug\$(UICulture)\SampleLibraryZeroTouch.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,19 +32,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\$(UICulture)\SampleLibraryZeroTouch.XML</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamoServices">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\DynamoServices.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DynamoServices, Version=0.8.3.2666, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.9.0.0\lib\net45\DynamoServices.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ProtoGeometry">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\ProtoGeometry.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.9.0.0\lib\net45\ProtoGeometry.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="ProtoInterface">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.8.2\lib\net40\ProtoInterface.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="ProtoInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.0.9.0.0\lib\net45\ProtoInterface.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
