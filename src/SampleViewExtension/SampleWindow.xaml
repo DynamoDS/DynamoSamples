@@ -6,10 +6,10 @@
              xmlns:local="clr-namespace:SampleViewExtension"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300"
-            Width="300" Height="100">
+            Width="500" Height="100">
     <Grid Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
-            <Label Width="300" Content="{Binding SelectedNodesText}"/>
+            <TextBlock HorizontalAlignment="Stretch" Text="{Binding SelectedNodesText}" FontWeight="Bold" FontSize="24"/>
     </Grid>
 </Window>
