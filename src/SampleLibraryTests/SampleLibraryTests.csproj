@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SampleLibraryTests</RootNamespace>
     <AssemblyName>SampleLibraryTests</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,21 +30,20 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamoCore, Version=0.8.2.1540, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\DynamoCore.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DynamoCore, Version=0.8.3.2657, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.0.9.0.0\lib\net45\DynamoCore.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoShapeManager">
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\DynamoShapeManager.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DynamoShapeManager, Version=0.8.3.2657, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.0.9.0.0\lib\net45\DynamoShapeManager.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoUtilities, Version=0.8.2.1540, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\DynamoUtilities.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="DynamoUtilities, Version=0.8.3.2657, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.0.9.0.0\lib\net45\DynamoUtilities.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
@@ -66,20 +66,17 @@
       <HintPath>..\packages\NUnit.2.6.3\lib\nunit.framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ProtoCore, Version=0.8.2.1540, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\ProtoCore.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="ProtoCore, Version=0.8.3.2657, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.0.9.0.0\lib\net45\ProtoCore.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\ProtoGeometry.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\DynamoVisualProgramming.Core.0.9.0.0\lib\net45\ProtoGeometry.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="ProtoInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\ProtoInterface.dll</HintPath>
-      <Private>False</Private>
+      <HintPath>..\packages\DynamoVisualProgramming.Core.0.9.0.0\lib\net45\ProtoInterface.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -87,15 +84,13 @@
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="SystemTestServices, Version=0.8.2.1540, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\SystemTestServices.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="SystemTestServices, Version=0.8.3.2666, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.9.0.0\lib\net45\SystemTestServices.dll</HintPath>
+      <Private>True</Private>
     </Reference>
-    <Reference Include="TestServices, Version=0.8.2.1540, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.8.2\lib\net40\TestServices.dll</HintPath>
-      <Private>False</Private>
+    <Reference Include="TestServices, Version=0.8.3.2666, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Tests.0.9.0.0\lib\net45\TestServices.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
   <ItemGroup>
