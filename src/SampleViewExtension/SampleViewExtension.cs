@@ -63,8 +63,21 @@ namespace SampleViewExtension
         {
         }
 
-        public string UniqueId => Guid.NewGuid().ToString();
+        public string UniqueId
+        {
+            get
+            {
+                return Guid.NewGuid().ToString();
+            }  
+        } 
 
-        public string Name => "Sample View Extension";
+        public string Name
+        {
+            get
+            {
+                return "Sample View Extension";
+            }
+        } 
+
     }
 }

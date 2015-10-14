@@ -10,7 +10,7 @@ namespace SampleViewExtension
         private string selectedNodesText = "Begin selecting ";
         private ReadyParams readyParams;
 
-        public string SelectedNodesText => $"There are {readyParams.CurrentWorkspaceModel.Nodes.Count()} nodes in the workspace.";
+        public string SelectedNodesText = @"There are {readyParams.CurrentWorkspaceModel.Nodes.Count()} nodes in the workspace.";
 
         public SampleWindowViewModel(ReadyParams p)
         {
