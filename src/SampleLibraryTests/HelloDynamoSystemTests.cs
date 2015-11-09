@@ -2,8 +2,7 @@
 using SystemTestServices;
 
 using Autodesk.DesignScript.Runtime;
-
-using Dynamo.Nodes;
+using Dynamo.Graph.Nodes.ZeroTouch;
 using Dynamo.Tests;
 
 using NUnit.Framework;

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Linq;
 using Dynamo.Core;
 using Dynamo.Extensions;
+using Dynamo.Graph.Nodes;
 
 namespace SampleViewExtension
 {
@@ -19,7 +19,7 @@ namespace SampleViewExtension
             p.CurrentWorkspaceModel.NodeRemoved += CurrentWorkspaceModel_NodesChanged;
         }
 
-        private void CurrentWorkspaceModel_NodesChanged(Dynamo.Models.NodeModel obj)
+        private void CurrentWorkspaceModel_NodesChanged(NodeModel obj)
         {
             RaisePropertyChanged("SelectedNodesText");
         }
