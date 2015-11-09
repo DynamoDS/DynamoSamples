@@ -11,7 +11,7 @@ These samples make use of the [Dynamo NuGet packages](https://www.nuget.org/pack
 
 - Clone the repository.
 - Choose a branch:
-  - The master branch of Dynamo Samples corresponds to the master branch of Dynamo. To build against a specific version, choose that versions branch. I.e. 0.8.0, 0.9.0, etc.
+  - The master branch of Dynamo Samples corresponds to the master branch of Dynamo. To build against a specific version, choose that version's branch. I.e. 0.8.0, 0.9.0, etc.
 - In VisualStudio 2013 or greater, open DynamoSamples.2013.sln.
 - Build the Debug/Any CPU configuration.
 - The `dynamo_package` folder at the root of the repository will now have the built libraries. The `Dynamo Samples` folder in that directory can be copied directly to your Dynamo packages directory:`C:\Users\<you>\AppData\Roaming\Dynamo\0.8\packages`.
