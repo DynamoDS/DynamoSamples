@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Interfaces;
 using Autodesk.DesignScript.Runtime;
@@ -109,6 +110,18 @@ namespace SampleLibraryZeroTouch.Examples
             }
 
             return new BasicExample(x, y, z);
+        }
+
+        /// <summary>
+        /// Another example of a static constructor which
+        /// uses a parameter with a default value. The default value
+        /// is provided as a design script expression.
+        /// </summary>
+        /// <param name="point">A point.</param>
+        /// <returns>A BasicExample object.</returns>
+        public static BasicExample Create([DefaultArgumentAttribute("Point.ByCoordinates(5,5,5);")]Point point)
+        {
+            return new BasicExample(point.X, point.Y, point.Z);
         }
 
         /// <summary>
