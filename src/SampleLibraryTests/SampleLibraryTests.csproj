@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-   <ImportGroup Label="PropertySheets">
+  <ImportGroup Label="PropertySheets">
     <Import Project="$(SolutionDir)/Config/CS.props" />
   </ImportGroup>
   <PropertyGroup>
@@ -36,31 +36,31 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CoreNodeModels, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CoreNodeModels">
       <HintPath>$(DynamoWpfUIPath)\CoreNodeModels.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CoreNodeModelsWpf, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="CoreNodeModelsWpf">
       <HintPath>$(DynamoWpfUIPath)\CoreNodeModelsWpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoCore, Version=1.0.0.944, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DynamoCore">
       <HintPath>$(DynamoCorePath)\DynamoCore.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoCoreWpf, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DynamoCoreWpf">
       <HintPath>$(DynamoWpfUIPath)\DynamoCoreWpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoServices, Version=1.0.0.983, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DynamoServices">
       <HintPath>$(DynamoServicesPath)\DynamoServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoShapeManager, Version=1.0.0.944, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DynamoShapeManager">
       <HintPath>$(DynamoCorePath)\DynamoShapeManager.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoUtilities, Version=1.0.0.944, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="DynamoUtilities">
       <HintPath>$(DynamoCorePath)\DynamoUtilities.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -88,11 +88,11 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="ProtoCore, Version=1.0.0.944, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ProtoCore">
       <HintPath>$(DynamoCorePath)\ProtoCore.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="ProtoGeometry">
       <HintPath>$(DynamoCorePath)\ProtoGeometry.dll</HintPath>
       <Private>True</Private>
     </Reference>
@@ -103,11 +103,11 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xaml" />
-    <Reference Include="SystemTestServices, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SystemTestServices">
       <HintPath>$(DynamoTestPackagePath)\SystemTestServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="TestServices, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="TestServices">
       <HintPath>$(DynamoTestPackagePath)\TestServices.dll</HintPath>
       <Private>True</Private>
     </Reference>

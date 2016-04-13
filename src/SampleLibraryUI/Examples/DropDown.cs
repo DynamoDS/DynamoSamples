@@ -13,7 +13,7 @@ namespace SampleLibraryUI.Examples
     {
         public DropDownExample() : base("item"){}
 
-        public override void PopulateItems()
+        protected override SelectionState PopulateItemsCore(string currentSelection)
         {
             // The Items collection contains the elements
             // that appear in the list. For this example, we
@@ -40,6 +40,7 @@ namespace SampleLibraryUI.Examples
             // has a pre-selection.
 
             SelectedIndex = 0;
+            return SelectionState.Done;
         }
 
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
