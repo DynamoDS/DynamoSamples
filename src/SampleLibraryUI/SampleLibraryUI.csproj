@@ -42,11 +42,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreNodeModels, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.9.1\lib\net45\CoreNodeModels.dll</HintPath>
+      <HintPath>$(DynamoWpfUIPath)\CoreNodeModels.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CoreNodeModelsWpf, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.9.1\lib\net45\CoreNodeModelsWpf.dll</HintPath>
+      <HintPath>$(DynamoWpfUIPath)\CoreNodeModelsWpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DynamoCore, Version=1.0.0.944, Culture=neutral, processorArchitecture=MSIL">
@@ -54,7 +54,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="DynamoCoreWpf, Version=1.0.0.536, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.WpfUILibrary.0.9.1\lib\net45\DynamoCoreWpf.dll</HintPath>
+      <HintPath>$(DynamoWpfUIPath)\DynamoCoreWpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DynamoServices, Version=1.0.0.944, Culture=neutral, processorArchitecture=MSIL">
