@@ -93,7 +93,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="ProtoGeometry">
-      <HintPath>$(DynamoCorePath)\ProtoGeometry.dll</HintPath>
+      <HintPath>$(DynamoZeroTouchPath)\ProtoGeometry.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
