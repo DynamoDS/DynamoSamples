@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<PropertyGroup>
+	<DYNAMOAPI Condition="'$(DYNAMOAPI)' == ''">$(SolutionDir)..\..\Dynamo\bin\$(Platform)\$(Configuration)</DYNAMOAPI>
+	<DynamoCorePath Condition = "'$(DynamoCorePath)'== ''">$(DYNAMOAPI)</DynamoCorePath>
+	<DynamoZeroTouchPath Condition = "'$(DynamoZeroTouchPath)' == ''">$(DYNAMOAPI)</DynamoZeroTouchPath>
+	<DynamoWpfUIPath Condition = "'$(DynamoWpfUIPath)' == ''">$(DYNAMOAPI)</DynamoWpfUIPath>
+	<DynamoWpfUINodesPath Condition = "'$(DynamoWpfUINodesPath)' == ''">$(DYNAMOAPI)\nodes</DynamoWpfUINodesPath>
+	<DynamoServicesPath Condition = "'$(DynamoServicesPath)' == ''">$(DYNAMOAPI)</DynamoServicesPath>
+	<DynamoTestPackagePath Condition = "'$(DynamoTestPackagePath)' == ''">$(DYNAMOAPI)</DynamoTestPackagePath>
+</PropertyGroup>
+</Project>
