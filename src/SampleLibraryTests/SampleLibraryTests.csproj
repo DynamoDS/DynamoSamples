@@ -37,11 +37,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreNodeModels">
-      <HintPath>$(DynamoWpfUIPath)\CoreNodeModels.dll</HintPath>
+      <HintPath>$(DynamoWpfUINodesPath)\CoreNodeModels.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CoreNodeModelsWpf">
-      <HintPath>$(DynamoWpfUIPath)\CoreNodeModelsWpf.dll</HintPath>
+      <HintPath>$(DynamoWpfUINodesPath)\CoreNodeModelsWpf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DynamoCore">
