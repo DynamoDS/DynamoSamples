@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CoreNodeModels">
-      <HintPath>$(DynamoWpfUIPath)\CoreNodeModels.dll</HintPath>
+      <HintPath>$(DynamoWpfUINodesPath)\CoreNodeModels.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CoreNodeModelsWpf">
