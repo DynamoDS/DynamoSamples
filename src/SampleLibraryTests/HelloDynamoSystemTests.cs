@@ -20,9 +20,11 @@ namespace SampleLibraryTests
     /// IMPORTANT! 
     /// System tests have dependencies on Dynamo core dlls. In 
     /// order for these tests to work, your test dll needs to be 
-    /// located in the Dynamo core directory. Set your build
-    /// output path to your Dynamo core directory, or add a copy step that
-    /// moves the output from this project to the Dynamo core directory.
+    /// located in the Dynamo core directory. The project currently assumes
+    /// that Dynamo is built in a directory adjacent to the DynamoSamples
+    /// repository, so a relative path is set to the debug build folder for Dynamo.
+    /// If your setup is different, then you will need to explicitly set the output path
+    /// to your Dynamo installation directory.
     /// </summary>
     [TestFixture]
     [IsVisibleInDynamoLibrary(false)]
