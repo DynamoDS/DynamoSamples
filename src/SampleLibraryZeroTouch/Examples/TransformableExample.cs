@@ -12,43 +12,66 @@ namespace SampleLibraryZeroTouch.Examples
     {
         public Geometry Geometry { get; private set; }
         private CoordinateSystem transform { get; set; }
+
+        //want to hide this constructor
+        [Autodesk.DesignScript.Runtime.IsVisibleInDynamoLibrary(false)]
+        public TransformableExample(Geometry geo)
+        {
+            Geometry = geo;
+            //initial transform is just at the origin
+            transform = CoordinateSystem.ByOrigin(0, 0, 0);
+        }
+
      /// <summary>
-     /// 
+     /// An object which knows how to draw itself in the background preview and uses a transform to take 
+     /// advantage of the GPU to alter that background visualization. The original geometry remains unaltered,
+     /// only the visualization is transformed.
      /// </summary>
      /// <param name="geometry"> a geometry object</param>
      /// <returns></returns>
         public static TransformableExample byGeometry(Autodesk.DesignScript.Geometry.Geometry geometry)
         {
-            var newTransformableThing = new TransformableExample()
-            {
-                Geometry = geometry,
-                transform = CoordinateSystem.ByOrigin(0, 0, 0)
-            };
-
+            var newTransformableThing = new TransformableExample(geometry);
             return newTransformableThing;
         }
 
+        /// <summary>
+        /// this method sets the transform on the object and returns a reference to the object so
+        /// the tessellate method is called and the new visualization shows in the background preview
+        /// </summary>
+        /// <param name="transform"></param>
+        /// <returns></returns>
         public TransformableExample TransformObject(CoordinateSystem transform)
         {
             this.transform = transform;
             return this;
         }
 
+        /// <summary>
+        /// this method is actually called by Dynamo when it attempts to render the TransformableExample 
+        /// class.
+        /// </summary>
+        /// <param name="package"></param>
+        /// <param name="parameters"></param>
+        //hide this method from search
+        [Autodesk.DesignScript.Runtime.IsVisibleInDynamoLibrary(false)]
+
         public void Tessellate(IRenderPackage package, TessellationParameters parameters)
         {
-            //could increase performance by cacheing this tesselation
+            //could increase performance further by cacheing this tesselation
             Geometry.Tessellate(package, parameters);
 
             //we use reflection here because this API was added in Dynamo 1.1 and might not exist for a user in Dynamo 1.0
             //if you do not care about ensuring comptability of your zero touch node with 1.0 you can just call SetTransform directly
             //by casting the rendering package to ITransformable.
+            
             //look for the method SetTransform with the double[] argument list.
             var method = package.GetType().
             GetMethod("SetTransform", System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance,
                     null,
                     new[] { typeof(double[]) }, null);
 
-            //if the method exists call it using our transform.
+            //if the method exists call it using our current transform.
             if (method != null)
             {
                 method.Invoke(package, new object[] { new double[]
@@ -63,8 +86,7 @@ namespace SampleLibraryZeroTouch.Examples
 
     }
 
-   //TODO(change this to fader);
-    public class PeriodicIncrement
+    public static class PeriodicIncrement
     {
         private static double value = 0;
        
