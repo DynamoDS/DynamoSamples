@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="Examples\ColorExample.cs" />
     <Compile Include="Examples\BasicExample.cs" />
+    <Compile Include="Examples\TransformableExample.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Examples\PeriodicUpdateExample.cs" />
     <Compile Include="Utils\SampleUtilities.cs" />
