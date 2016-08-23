@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 
 namespace SampleLibraryZeroTouch.Examples
 {
+    /// <summary>
+    /// An object which knows how to draw itself in the background preview and uses a transform to take 
+    /// advantage of the GPU to alter that background visualization. The original geometry remains unaltered,
+    /// only the visualization is transformed.
+    /// </summary>
     public class TransformableExample : IGraphicItem
     {
         public Geometry Geometry { get; private set; }
@@ -23,21 +28,19 @@ namespace SampleLibraryZeroTouch.Examples
         }
 
      /// <summary>
-     /// An object which knows how to draw itself in the background preview and uses a transform to take 
-     /// advantage of the GPU to alter that background visualization. The original geometry remains unaltered,
-     /// only the visualization is transformed.
+     /// Create a TranformableExample class which stores a Geometry object and a Transform.
      /// </summary>
      /// <param name="geometry"> a geometry object</param>
      /// <returns></returns>
-        public static TransformableExample byGeometry(Autodesk.DesignScript.Geometry.Geometry geometry)
+        public static TransformableExample ByGeometry(Autodesk.DesignScript.Geometry.Geometry geometry)
         {
             var newTransformableThing = new TransformableExample(geometry);
             return newTransformableThing;
         }
 
         /// <summary>
-        /// this method sets the transform on the object and returns a reference to the object so
-        /// the tessellate method is called and the new visualization shows in the background preview
+        /// This method sets the transform on the object and returns a reference to the object so
+        /// the tessellate method is called and the new visualization shows in the background preview.
         /// </summary>
         /// <param name="transform"></param>
         /// <returns></returns>
@@ -48,7 +51,7 @@ namespace SampleLibraryZeroTouch.Examples
         }
 
         /// <summary>
-        /// this method is actually called by Dynamo when it attempts to render the TransformableExample 
+        /// This method is actually called by Dynamo when it attempts to render the TransformableExample. 
         /// class.
         /// </summary>
         /// <param name="package"></param>
