@@ -105,6 +105,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\System.Windows.Interactivity.dll</HintPath>
       <Private>False</Private>
@@ -148,9 +149,9 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SampleLibraryUIImages.resx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +160,10 @@
       <Name>SampleLibraryZeroTouch</Name>
       <Private>False</Private>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\SampleLibraryUI.Examples.CustomNodeModel.Large.png" />
+    <None Include="Resources\SampleLibraryUI.Examples.CustomNodeModel.Small.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
@@ -172,9 +177,20 @@
   <Target Name="BeforeBuild">
   </Target>
   <Target Name="AfterBuild">
+    <!-- Get System.Drawing.dll -->
+    <GetReferenceAssemblyPaths TargetFrameworkMoniker=".NETFramework, Version=v2.0">
+      <Output TaskParameter="FullFrameworkReferenceAssemblyPaths" PropertyName="FrameworkAssembliesPath" />
+    </GetReferenceAssemblyPaths>
+    <!-- Get assembly -->
+    <GetAssemblyIdentity AssemblyFiles="$(OutDir)$(TargetName).dll">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyInfo" />
+    </GetAssemblyIdentity>
+    <!-- Generate customization dll -->
+    <GenerateResource UseSourcePath="true" Sources="$(ProjectDir)\Resources\SampleLibraryUIImages.resx" OutputResources="$(ProjectDir)\Resources\SampleLibraryUIImages.resources" References="$(FrameworkAssembliesPath)System.Drawing.dll" />
+    <AL TargetType="library" EmbedResources="$(ProjectDir)\Resources\SampleLibraryUIImages.resources" OutputAssembly="$(OutDir)\SampleLibraryUI.customization.dll" Version="%(AssemblyInfo.Version)" />
     <ItemGroup>
-      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)\SampleLibraryUI.dll.config" />
-      <ResourceFiles Include="$(OutDir)\en-US\*.*" />
+      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)\SampleLibraryUI.customization.dll" />
+      <ResourceFiles Include="$(OutDir)\en-US\*.*;$(OutDir)\SampleLibraryUI.customization.dll" />
     </ItemGroup>
     <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\" />
     <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\en-US" />
