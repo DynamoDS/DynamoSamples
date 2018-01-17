@@ -5,11 +5,16 @@ namespace SampleLibraryUI.Controls
     /// <summary>
     /// Interaction logic for HellowDynamoControl.xaml
     /// </summary>
-    public partial class HelloDynamoControl : UserControl
+    public partial class SliderControl : UserControl
     {
-        public HelloDynamoControl()
+        public SliderControl()
         {
             InitializeComponent();
+        }
+
+        private void Slider_ValueChanged(object sender, System.Windows.RoutedPropertyChangedEventArgs<double> e)
+        {
+
         }
     }
 }

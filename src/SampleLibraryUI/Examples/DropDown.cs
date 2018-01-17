@@ -3,6 +3,7 @@ using CoreNodeModels;
 using Dynamo.Graph.Nodes;
 using Dynamo.Utilities;
 using ProtoCore.AST.AssociativeAST;
+using Newtonsoft.Json;
 
 namespace SampleLibraryUI.Examples
 {
@@ -12,6 +13,9 @@ namespace SampleLibraryUI.Examples
     public class DropDownExample : DSDropDownBase
     {
         public DropDownExample() : base("item"){}
+
+        [JsonConstructor]
+        public DropDownExample(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base("item") { }
 
         protected override SelectionState PopulateItemsCore(string currentSelection)
         {

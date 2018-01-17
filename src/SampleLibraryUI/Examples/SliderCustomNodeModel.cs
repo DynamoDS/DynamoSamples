@@ -10,6 +10,7 @@ using ProtoCore.AST.AssociativeAST;
 using SampleLibraryUI.Controls;
 using SampleLibraryUI.Properties;
 using SampleLibraryZeroTouch;
+using Newtonsoft.Json;
 
 namespace SampleLibraryUI.Examples
 {
@@ -34,27 +35,30 @@ namespace SampleLibraryUI.Examples
 
     // The NodeName attribute is what will display on 
     // top of the node in Dynamo
-    [NodeName("Custom Node Model")]
-
+    [NodeName("Slider Custom Node Model")]
     // The NodeCategory attribute determines how your
     // node will be organized in the library. You can
-    // specify your own category or use one of the 
-    // built-ins provided in BuiltInNodeCategories.
+    // specify your own category or by default the class
+    // structure will be used.  You can no longer 
+    // add packages or custom nodes to one of the 
+    // built-in OOTB library categories.
     [NodeCategory("SampleLibraryUI.Examples")]
-
     // The description will display in the tooltip
     // and in the help window for the node.
-    [NodeDescription("CustomNodeModelDescription",typeof(SampleLibraryUI.Properties.Resources))]
-
+    [NodeDescription("A sample UI node which displays custom UI.")]
+    // Specifying InPort and OutPort types simply
+    // adds these types to the help window for the
+    // node when hovering the name in the library.
+    //[InPortTypes("double")]
+    [OutPortTypes("double", "double")]
     // Add the IsDesignScriptCompatible attribute to ensure
     // that it gets loaded in Dynamo.
     [IsDesignScriptCompatible]
-    public class CustomNodeModel : NodeModel
+    public class SliderCustomNodeModel : NodeModel
     {
         #region private members
 
-        private string message;
-        private double awesome;
+        private double sliderValue;
 
         #endregion
 
@@ -62,44 +66,19 @@ namespace SampleLibraryUI.Examples
 
         /// <summary>
         /// A value that will be bound to our
-        /// custom UI's awesome slider.
+        /// custom UI's slider.
         /// </summary>
-        public double Awesome
+        public double SliderValue
         {
-            get { return awesome; }
+            get { return sliderValue; }
             set
             {
-                awesome = value;
-                RaisePropertyChanged("Awesome");
+                sliderValue = value;
+                RaisePropertyChanged("SliderValue");
 
                 OnNodeModified();
             }
         }
-
-        /// <summary>
-        /// A message that will appear on the button
-        /// on our node.
-        /// </summary>
-        public string Message
-        {
-            get { return message; }
-            set
-            {
-                message = value;
-
-                // Raise a property changed notification
-                // to alert the UI that an element needs
-                // an update.
-                RaisePropertyChanged("NodeMessage");
-            }
-        }
-
-        /// <summary>
-        /// DelegateCommand objects allow you to bind
-        /// UI interaction to methods on your data context.
-        /// </summary>
-        [IsVisibleInDynamoLibrary(false)]
-        public DelegateCommand MessageCommand { get; set; }
 
         #endregion
 
@@ -110,18 +89,18 @@ namespace SampleLibraryUI.Examples
         /// the input and output ports and specify the argument
         /// lacing.
         /// </summary>
-        public CustomNodeModel()
+        public SliderCustomNodeModel()
         {
             // When you create a UI node, you need to do the
             // work of setting up the ports yourself. To do this,
-            // you can populate the InPortData and the OutPortData
+            // you can populate the InPorts and the OutPorts
             // collections with PortData objects describing your ports.
-            InPortData.Add(new PortData("something", Resources.CustomNodeModePortDataInputToolTip));
+            //InPorts.Add(new PortModel(PortType.Input, this, new PortData("something", Resources.CustomNodeModelPortDataInputToolTip)));
 
             // Nodes can have an arbitrary number of inputs and outputs.
             // If you want more ports, just create more PortData objects.
-            OutPortData.Add(new PortData("something", Resources.CustomNodeModePortDataOutputToolTip));
-            OutPortData.Add(new PortData("some awesome", Resources.CustomNodeModePortDataOutputToolTip));
+            OutPorts.Add(new PortModel(PortType.Output, this, new PortData("upper value", "returns a 0-10 double value")));
+            OutPorts.Add(new PortModel(PortType.Output, this, new PortData("lower value", "returns a 0-100 double value")));
 
             // This call is required to ensure that your ports are
             // properly created.
@@ -130,20 +109,17 @@ namespace SampleLibraryUI.Examples
             // The arugment lacing is the way in which Dynamo handles
             // inputs of lists. If you don't want your node to
             // support argument lacing, you can set this to LacingStrategy.Disabled.
-            ArgumentLacing = LacingStrategy.CrossProduct;
+            ArgumentLacing = LacingStrategy.Auto;
 
-            // We create a DelegateCommand object which will be 
-            // bound to our button in our custom UI. Clicking the button 
-            // will call the ShowMessage method.
-            MessageCommand = new DelegateCommand(ShowMessage, CanShowMessage);
-
-            // Setting our property here will trigger a 
-            // property change notification and the UI 
-            // will be updated to reflect the new value.
-            Message = "Say 'Hello Dynamo!'";
-
-            Awesome = 1;
+            // Set initial slider value
+            sliderValue = 4;
         }
+
+        // Starting with Dynamo v2.0 you must add Json constructors for all nodeModel
+        // dervived nodes to support the move from an Xml to Json file format.  Failing to
+        // do so will result in incorrect ports being generated upon serialization/deserialization.
+        [JsonConstructor]
+        SliderCustomNodeModel(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts) { }
 
         #endregion
 
@@ -170,10 +146,10 @@ namespace SampleLibraryUI.Examples
             // need to convey a failure of this node, then use
             // AstFactory.BuildNullNode to pass out null.
 
-            // We create a DoubleNode to wrap the value 'awesome' that
+            // We create a DoubleNode to wrap the value 'sliderValue' that
             // we've stored in a private member.
 
-            var doubleNode = AstFactory.BuildDoubleNode(awesome);
+            var doubleNode = AstFactory.BuildDoubleNode(sliderValue);
 
             // A FunctionCallNode can be used to represent the calling of a 
             // function in the AST. The method specified here must live in 
@@ -192,34 +168,17 @@ namespace SampleLibraryUI.Examples
                 // In these assignments, GetAstIdentifierForOutputIndex finds 
                 // the unique identifier which represents an output on this node
                 // and 'assigns' that variable the expression that you create.
-                
+
                 // For the first node, we'll just pass through the 
                 // input provided to this node.
                 AstFactory.BuildAssignment(
-                    GetAstIdentifierForOutputIndex(0), funcNode),
+                    GetAstIdentifierForOutputIndex(0), AstFactory.BuildDoubleNode(sliderValue)),
 
                 // For the second node, we'll build a double node that 
-                // passes along our value for awesome.
+                // passes along our value for multipled value.
                 AstFactory.BuildAssignment(
-                    GetAstIdentifierForOutputIndex(1),
-                    AstFactory.BuildDoubleNode(awesome))
+                    GetAstIdentifierForOutputIndex(1), funcNode)
             };
-        }
-
-        #endregion
-
-        #region command methods
-
-        private static bool CanShowMessage(object obj)
-        {
-            // I can't think of any reason you wouldn't want to say Hello Dynamo!
-            // so I'll just return true.
-            return true;
-        }
-
-        private static void ShowMessage(object obj)
-        {
-            MessageBox.Show("Hello Dynamo!");
         }
 
         #endregion
@@ -228,7 +187,7 @@ namespace SampleLibraryUI.Examples
     /// <summary>
     ///     View customizer for CustomNodeModel Node Model.
     /// </summary>
-    public class CustomNodeModelNodeViewCustomization : INodeViewCustomization<CustomNodeModel>
+    public class SliderCustomNodeModelNodeViewCustomization : INodeViewCustomization<SliderCustomNodeModel>
     {
         /// <summary>
         /// At run-time, this method is called during the node 
@@ -239,7 +198,7 @@ namespace SampleLibraryUI.Examples
         /// </summary>
         /// <param name="model">The NodeModel representing the node's core logic.</param>
         /// <param name="nodeView">The NodeView representing the node in the graph.</param>
-        public void CustomizeView(CustomNodeModel model, NodeView nodeView)
+        public void CustomizeView(SliderCustomNodeModel model, NodeView nodeView)
         {
             // The view variable is a reference to the node's view.
             // In the middle of the node is a grid called the InputGrid.
@@ -248,13 +207,13 @@ namespace SampleLibraryUI.Examples
 
             // Create an instance of our custom UI class (defined in xaml),
             // and put it into the input grid.
-            var helloDynamoControl = new HelloDynamoControl();
-            nodeView.inputGrid.Children.Add(helloDynamoControl);
+            var sliderControl = new SliderControl();
+            nodeView.inputGrid.Children.Add(sliderControl);
 
             // Set the data context for our control to be this class.
             // Properties in this class which are data bound will raise 
             // property change notifications which will update the UI.
-            helloDynamoControl.DataContext = model;
+            sliderControl.DataContext = model;
         }
 
         /// <summary>
