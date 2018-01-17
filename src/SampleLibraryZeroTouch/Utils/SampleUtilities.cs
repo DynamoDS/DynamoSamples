@@ -11,7 +11,19 @@ namespace SampleLibraryZeroTouch
         [IsVisibleInDynamoLibrary(false)]
         public static double MultiplyInputByNumber(double input)
         {
-            return input * 42;
+            return input * 10;
+        }
+
+        [IsVisibleInDynamoLibrary(false)]
+        public static string DescribeButtonMessage(string input)
+        {
+            return "Button displays: " + input;
+        }
+
+        [IsVisibleInDynamoLibrary(false)]
+        public static string DescribeWindowMessage(string input)
+        {
+            return "Window displays: " + input;
         }
     }
 }

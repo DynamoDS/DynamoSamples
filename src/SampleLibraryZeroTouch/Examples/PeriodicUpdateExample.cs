@@ -3,7 +3,7 @@ using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Interfaces;
 using Autodesk.DesignScript.Runtime;
 
-namespace SampleLibraryZeroTouch.Examples
+namespace Examples
 {
     // This sample demonstrates the use of the CanUpdatePeriodically
     // attribute. Placing an instance of the PeriodicUpdateExample.PointField 

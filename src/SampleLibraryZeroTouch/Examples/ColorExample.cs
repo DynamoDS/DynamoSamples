@@ -1,7 +1,7 @@
 ﻿using Autodesk.DesignScript.Interfaces;
 using Autodesk.DesignScript.Runtime;
 
-namespace SampleLibraryZeroTouch.Examples
+namespace Examples
 {
     public class CustomRenderExample : IGraphicItem
     {
