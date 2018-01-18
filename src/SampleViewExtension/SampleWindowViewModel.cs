@@ -7,10 +7,32 @@ namespace SampleViewExtension
 {
     public class SampleWindowViewModel : NotificationObject, IDisposable
     {
-        private string selectedNodesText = "Begin selecting ";
+        private string activeNodeTypes;
         private ReadyParams readyParams;
 
-        public string SelectedNodesText = @"There are {readyParams.CurrentWorkspaceModel.Nodes.Count()} nodes in the workspace.";
+        // Displays active nodes in the workspace
+        public string ActiveNodeTypes
+        {
+            get
+            {
+                activeNodeTypes = getNodeTypes();
+                return activeNodeTypes;
+            }
+        }
+
+        // Helper function that builds string of active nodes
+        public string getNodeTypes()
+        {
+            string output = "Active nodes:\n";
+
+            foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
+            {
+                string nickName = node.Name;
+                output += nickName + "\n";
+            }
+
+            return output;
+        }
 
         public SampleWindowViewModel(ReadyParams p)
         {
@@ -21,7 +43,7 @@ namespace SampleViewExtension
 
         private void CurrentWorkspaceModel_NodesChanged(NodeModel obj)
         {
-            RaisePropertyChanged("SelectedNodesText");
+            RaisePropertyChanged("ActiveNodeTypes");
         }
 
         public void Dispose()
