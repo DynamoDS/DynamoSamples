@@ -111,7 +111,7 @@ namespace SampleLibraryUI.Examples
             // support argument lacing, you can set this to LacingStrategy.Disabled.
             ArgumentLacing = LacingStrategy.Auto;
 
-            // Set initial slider value
+            // Set initial slider value.
             sliderValue = 4;
         }
 
