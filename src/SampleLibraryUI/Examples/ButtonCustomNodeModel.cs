@@ -10,7 +10,6 @@ using Dynamo.UI.Commands;
 using Dynamo.Wpf;
 using ProtoCore.AST.AssociativeAST;
 using SampleLibraryUI.Controls;
-using SampleLibraryUI.Properties;
 using SampleLibraryZeroTouch;
 using Newtonsoft.Json;
 
@@ -56,6 +55,9 @@ namespace SampleLibraryUI.Examples
         #region private members
 
         private string buttonText;
+        private string windowText;
+        private const string defaultButtonText = "Default Button Text";
+        private const string defaultWindowText = "Default Window Text";
 
         #endregion
 
@@ -83,12 +85,20 @@ namespace SampleLibraryUI.Examples
         /// Text that will appear in the message
         /// box when button is pressed.
         /// </summary>
-        public string WindowText { get; set; }
+        public string WindowText
+        {
+            get { return windowText; }
+            set
+            {
+                windowText = value;
+            }
+        }
 
         /// <summary>
         /// DelegateCommand objects allow you to bind
         /// UI interaction to methods on your data context.
         /// </summary>
+        [JsonIgnore]
         [IsVisibleInDynamoLibrary(false)]
         public DelegateCommand ButtonCommand { get; set; }
 
@@ -118,6 +128,9 @@ namespace SampleLibraryUI.Examples
             // properly created.
             RegisterAllPorts();
 
+            // Listen for input port disconnection to trigger button UI update
+            this.PortDisconnected += ButtonCustomNodeModel_PortDisconnected;
+
             // The arugment lacing is the way in which Dynamo handles
             // inputs of lists. If you don't want your node to
             // support argument lacing, you can set this to LacingStrategy.Disabled.
@@ -131,18 +144,31 @@ namespace SampleLibraryUI.Examples
             // Setting our property here will trigger a 
             // property change notification and the UI 
             // will be updated to reflect the new value.
-            ButtonText = "Default Button Text";
-            WindowText = "Default Window Text";
+            ButtonText = defaultButtonText;
+            WindowText = defaultWindowText;
         }
 
         // Starting with Dynamo v2.0 you must add Json constructors for all nodeModel
         // dervived nodes to support the move from an Xml to Json file format.  Failing to
         // do so will result in incorrect ports being generated upon serialization/deserialization.
         [JsonConstructor]
-        ButtonCustomNodeModel(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts) { }
+        ButtonCustomNodeModel(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts)
+        {
+            this.PortDisconnected += ButtonCustomNodeModel_PortDisconnected;
+            ButtonCommand = new DelegateCommand(ShowMessage, CanShowMessage);
+        }
+
+        // Restore default button/window text and trigger UI update
+        private void ButtonCustomNodeModel_PortDisconnected(PortModel obj)
+        {
+            ButtonText = defaultButtonText;
+            WindowText = defaultWindowText;
+            RaisePropertyChanged("ButtonText");
+        }
 
         #endregion
 
+        // Use the VMDataBridge to safely retrieve our input values
         #region databridge callback
         /// <summary>
         /// Register the data bridge callback.
@@ -171,14 +197,14 @@ namespace SampleLibraryUI.Examples
         private void DataBridgeCallback(object data)
         {
             ArrayList inputs = data as ArrayList;
-            var str = "";
+            string inputText = "";
             foreach (var input in inputs)
             {
-                str += input.ToString() + " ";
+                inputText += input.ToString() + " ";
             }
 
-            WindowText = ("Data bridge callback of node " + GUID.ToString().Substring(0, 5) + ": " + str);
-            ButtonText = str;
+            WindowText = ("Data bridge callback of node " + GUID.ToString().Substring(0, 5) + ": " + inputText);
+            ButtonText = inputText;
         }
         #endregion
 
@@ -204,12 +230,15 @@ namespace SampleLibraryUI.Examples
             // Do not throw an exception during AST creation. If you
             // need to convey a failure of this node, then use
             // AstFactory.BuildNullNode to pass out null.
-            // We create a DoubleNode to wrap the value 'sliderValue' that
-            // we've stored in a private member.
 
+            // If inputs are not connected return null
             if (!InPorts[0].Connectors.Any())
             {
-                return new[] { AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), AstFactory.BuildNullNode()) };
+                return new[] 
+                {
+                    AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(0), AstFactory.BuildNullNode()),
+                    AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(1), AstFactory.BuildNullNode()),
+                };
             }
 
             // A FunctionCallNode can be used to represent the calling of a 
@@ -219,15 +248,15 @@ namespace SampleLibraryUI.Examples
             // If the method can't be found, you'll get a "De-referencing a 
             // non -pointer warning."
 
-            var buttonFuncNode =
+            AssociativeNode buttonFuncNode =
                 AstFactory.BuildFunctionCall(
                     new Func<string, string>(SampleUtilities.DescribeButtonMessage),
                     new List<AssociativeNode> { inputAstNodes[0] });
 
-            var windowFuncNode =
+            AssociativeNode windowFuncNode =
                 AstFactory.BuildFunctionCall(
-                    new Func<string, string>(SampleUtilities.DescribeWindowMessage),
-                    new List<AssociativeNode> { AstFactory.BuildStringNode(WindowText) });
+                    new Func<string, string, string>(SampleUtilities.DescribeWindowMessage),
+                    new List<AssociativeNode> { AstFactory.BuildStringNode(GUID.ToString()), inputAstNodes[0] });
 
             // Using the AstFactory class, we can build AstNode objects
             // that assign doubles, assign function calls, build expression lists, etc.
@@ -242,7 +271,7 @@ namespace SampleLibraryUI.Examples
                         AstFactory.BuildIdentifier(AstIdentifierBase + "_dummy"),
                         VMDataBridge.DataBridge.GenerateBridgeDataAst(GUID.ToString(), AstFactory.BuildExprList(inputAstNodes))),
 
-               AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(1), windowFuncNode),
+                AstFactory.BuildAssignment(GetAstIdentifierForOutputIndex(1), windowFuncNode),
                     AstFactory.BuildAssignment(
                         AstFactory.BuildIdentifier(AstIdentifierBase + "_dummy"),
                         VMDataBridge.DataBridge.GenerateBridgeDataAst(GUID.ToString(), AstFactory.BuildExprList(inputAstNodes)))
@@ -254,8 +283,6 @@ namespace SampleLibraryUI.Examples
         #region command methods
         private bool CanShowMessage(object obj)
         {
-            // I can't think of any reason you wouldn't want to say Hello Dynamo!
-            // so I'll just return true.
             return true;
         }
 

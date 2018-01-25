@@ -21,9 +21,9 @@ namespace SampleLibraryZeroTouch
         }
 
         [IsVisibleInDynamoLibrary(false)]
-        public static string DescribeWindowMessage(string input)
+        public static string DescribeWindowMessage(string GUID, string input)
         {
-            return "Window displays: " + input;
+            return "Data bridge callback of node " + GUID.Substring(0, 5) + ": " + input;
         }
     }
 }
