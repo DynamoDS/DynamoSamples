@@ -14,8 +14,13 @@ namespace SampleLibraryUI.Examples
     {
         public DropDownExample() : base("item"){}
 
+        // Starting with Dynamo v2.0 you must add Json constructors for all nodeModel
+        // dervived nodes to support the move from an Xml to Json file format.  Failing to
+        // do so will result in incorrect ports being generated upon serialization/deserialization.
+        // This constructor is called when opening a Json graph. We must also pass the deserialized 
+        // ports with the json constructor and then call the base class passing the ports as parameters.
         [JsonConstructor]
-        public DropDownExample(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base("item") { }
+        public DropDownExample(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base("item", inPorts, outPorts) { }
 
         protected override SelectionState PopulateItemsCore(string currentSelection)
         {
