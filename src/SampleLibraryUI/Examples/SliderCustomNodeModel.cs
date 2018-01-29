@@ -87,7 +87,8 @@ namespace SampleLibraryUI.Examples
         /// <summary>
         /// The constructor for a NodeModel is used to create
         /// the input and output ports and specify the argument
-        /// lacing.
+        /// lacing. It gets invoked when the node is added to 
+        /// the graph from the library or through copy/paste.
         /// </summary>
         public SliderCustomNodeModel()
         {
@@ -95,7 +96,6 @@ namespace SampleLibraryUI.Examples
             // work of setting up the ports yourself. To do this,
             // you can populate the InPorts and the OutPorts
             // collections with PortData objects describing your ports.
-            //InPorts.Add(new PortModel(PortType.Input, this, new PortData("something", Resources.CustomNodeModelPortDataInputToolTip)));
 
             // Nodes can have an arbitrary number of inputs and outputs.
             // If you want more ports, just create more PortData objects.
@@ -109,7 +109,7 @@ namespace SampleLibraryUI.Examples
             // The arugment lacing is the way in which Dynamo handles
             // inputs of lists. If you don't want your node to
             // support argument lacing, you can set this to LacingStrategy.Disabled.
-            ArgumentLacing = LacingStrategy.Auto;
+            ArgumentLacing = LacingStrategy.Disabled;
 
             // Set initial slider value.
             sliderValue = 4;
@@ -118,6 +118,7 @@ namespace SampleLibraryUI.Examples
         // Starting with Dynamo v2.0 you must add Json constructors for all nodeModel
         // dervived nodes to support the move from an Xml to Json file format.  Failing to
         // do so will result in incorrect ports being generated upon serialization/deserialization.
+        // This constructor is called when opening a Json graph.
         [JsonConstructor]
         SliderCustomNodeModel(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts) { }
 
@@ -126,10 +127,9 @@ namespace SampleLibraryUI.Examples
         #region public methods
 
         /// <summary>
-        /// If this method is not overriden, Dynamo will, by default
-        /// pass data through this node. But we wouldn't be here if
-        /// we just wanted to pass data through the node, so let's 
-        /// try using the data.
+        /// BuildOutputAst is where the outputs of this node are calculated.
+        /// This method is used to do the work that a compiler usually does 
+        /// by parsing the inputs List inputAstNodes into an abstract syntax tree.
         /// </summary>
         /// <param name="inputAstNodes"></param>
         /// <returns></returns>
@@ -210,7 +210,7 @@ namespace SampleLibraryUI.Examples
             var sliderControl = new SliderControl();
             nodeView.inputGrid.Children.Add(sliderControl);
 
-            // Set the data context for our control to be this class.
+            // Set the data context for our control to be the node model.
             // Properties in this class which are data bound will raise 
             // property change notifications which will update the UI.
             sliderControl.DataContext = model;

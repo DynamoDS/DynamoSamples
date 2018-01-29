@@ -8,6 +8,7 @@
              Height="50" Width="150">
     <Grid Name="CustomUIGrid">
         <StackPanel>
+            <!--Binding to our DelegateCommand which shows our message when the button is clicked-->
             <Button Command="{Binding ButtonCommand}" Height="40" Margin="5,5,5,5" Background="LightBlue" >
                 <TextBlock Text="{Binding ButtonText}"></TextBlock>
             </Button>

@@ -3,7 +3,7 @@
 namespace SampleLibraryUI.Controls
 {
     /// <summary>
-    /// Interaction logic for HellowDynamoControl.xaml
+    /// Interaction logic for SliderControl.xaml
     /// </summary>
     public partial class SliderControl : UserControl
     {

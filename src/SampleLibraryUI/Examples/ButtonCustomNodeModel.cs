@@ -109,7 +109,8 @@ namespace SampleLibraryUI.Examples
         /// <summary>
         /// The constructor for a NodeModel is used to create
         /// the input and output ports and specify the argument
-        /// lacing.
+        /// lacing. It gets invoked when the node is added to 
+        /// the graph from the library or through copy/paste.
         /// </summary>
         public ButtonCustomNodeModel()
         {
@@ -151,6 +152,7 @@ namespace SampleLibraryUI.Examples
         // Starting with Dynamo v2.0 you must add Json constructors for all nodeModel
         // dervived nodes to support the move from an Xml to Json file format.  Failing to
         // do so will result in incorrect ports being generated upon serialization/deserialization.
+        // This constructor is called when opening a Json graph.
         [JsonConstructor]
         ButtonCustomNodeModel(IEnumerable<PortModel> inPorts, IEnumerable<PortModel> outPorts) : base(inPorts, outPorts)
         {
@@ -190,8 +192,10 @@ namespace SampleLibraryUI.Examples
 
         /// <summary>
         /// Callback method for DataBridge mechanism.
-        /// This callback only gets called once after the BuildOutputAst Function is executed 
-        /// This callback casts the response data object.
+        /// This callback only gets called when 
+        ///     - The AST is executed
+        ///     - After the BuildOutputAST function is executed 
+        ///     - The AST is fully built
         /// </summary>
         /// <param name="data">The data passed through the data bridge.</param>
         private void DataBridgeCallback(object data)
@@ -211,10 +215,9 @@ namespace SampleLibraryUI.Examples
         #region public methods
 
         /// <summary>
-        /// If this method is not overriden, Dynamo will, by default
-        /// pass data through this node. But we wouldn't be here if
-        /// we just wanted to pass data through the node, so let's 
-        /// try using the data.
+        /// BuildOutputAst is where the outputs of this node are calculated.
+        /// This method is used to do the work that a compiler usually does 
+        /// by parsing the inputs List inputAstNodes into an abstract syntax tree.
         /// </summary>
         /// <param name="inputAstNodes"></param>
         /// <returns></returns>
@@ -320,7 +323,7 @@ namespace SampleLibraryUI.Examples
             var buttonControl = new ButtonControl();
             nodeView.inputGrid.Children.Add(buttonControl);
 
-            // Set the data context for our control to be this class.
+            // Set the data context for our control to be the node model.
             // Properties in this class which are data bound will raise 
             // property change notifications which will update the UI.
             buttonControl.DataContext = model;
