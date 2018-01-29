@@ -38,18 +38,18 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DynamoServices, Version=2.0.0.3766, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.0.0-beta3766\lib\net45\DynamoServices.dll</HintPath>
+    <Reference Include="DynamoServices, Version=2.0.0.3907, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.0.0-beta3907\lib\net45\DynamoServices.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DynamoUnits, Version=2.0.0.3766, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.0.0-beta3766\lib\net45\DynamoUnits.dll</HintPath>
+    <Reference Include="DynamoUnits, Version=2.0.0.3907, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.0.0-beta3907\lib\net45\DynamoUnits.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="ProtoGeometry, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.0.0-beta3766\lib\net45\ProtoGeometry.dll</HintPath>
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.0.0-beta3907\lib\net45\ProtoGeometry.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -70,7 +70,6 @@
     <Compile Include="Examples\TraceExample.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
