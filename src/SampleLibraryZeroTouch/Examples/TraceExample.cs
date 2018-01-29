@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 using Autodesk.DesignScript.Runtime;
 using DynamoServices;
 
-namespace SampleLibraryZeroTouch.Examples
+namespace Examples
 {
     /// <summary>
     /// This is the item that we will store in our data store.

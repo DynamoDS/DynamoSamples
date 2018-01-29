@@ -36,7 +36,9 @@ namespace SampleLibraryTests
     // inherit from GeometricTestBase, and you do not need
     // to supply a config file with the core Dynamo install
     // location.
-    
+
+    // Wiki => https://github.com/DynamoDS/Dynamo/wiki/Writing-Unit-Test-Libraries-for-Dynamo
+
     [TestFixture]
     [IsVisibleInDynamoLibrary(false)]
     class HelloDynamoZeroTouchTests : GeometricTestBase

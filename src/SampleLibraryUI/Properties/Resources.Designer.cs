@@ -63,27 +63,27 @@ namespace SampleLibraryUI.Properties {
         /// <summary>
         ///   Looks up a localized string similar to A sample UI node which displays custom UI..
         /// </summary>
-        internal static string CustomNodeModeDescription {
+        internal static string CustomNodeModelDescription {
             get {
-                return ResourceManager.GetString("CustomNodeModeDescription", resourceCulture);
+                return ResourceManager.GetString("CustomNodeModelDescription", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Input a string..
         /// </summary>
-        internal static string CustomNodeModePortDataInputToolTip {
+        internal static string CustomNodeModelPortDataInputToolTip {
             get {
-                return ResourceManager.GetString("CustomNodeModePortDataInputToolTip", resourceCulture);
+                return ResourceManager.GetString("CustomNodeModelPortDataInputToolTip", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to A result..
         /// </summary>
-        internal static string CustomNodeModePortDataOutputToolTip {
+        internal static string CustomNodeModelPortDataOutputToolTip {
             get {
-                return ResourceManager.GetString("CustomNodeModePortDataOutputToolTip", resourceCulture);
+                return ResourceManager.GetString("CustomNodeModelPortDataOutputToolTip", resourceCulture);
             }
         }
     }

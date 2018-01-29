@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SampleLibraryZeroTouch.Examples
+namespace Examples
 {
     /// <summary>
     /// An object which knows how to draw itself in the background preview and uses a transform to take 
@@ -20,9 +20,9 @@ namespace SampleLibraryZeroTouch.Examples
 
         //want to hide this constructor
         [Autodesk.DesignScript.Runtime.IsVisibleInDynamoLibrary(false)]
-        public TransformableExample(Geometry geo)
+        public TransformableExample(Geometry geometry)
         {
-            Geometry = geo;
+            Geometry = geometry;
             //initial transform is just at the origin
             transform = CoordinateSystem.ByOrigin(0, 0, 0);
         }

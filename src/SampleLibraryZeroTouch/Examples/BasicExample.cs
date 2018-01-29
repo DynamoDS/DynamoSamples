@@ -5,7 +5,7 @@ using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Interfaces;
 using Autodesk.DesignScript.Runtime;
 
-namespace SampleLibraryZeroTouch.Examples
+namespace Examples
 {
     /// <summary>
     /// The HelloDynamoZeroTouch class demonstrates

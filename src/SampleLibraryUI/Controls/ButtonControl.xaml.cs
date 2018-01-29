@@ -3,11 +3,11 @@
 namespace SampleLibraryUI.Controls
 {
     /// <summary>
-    /// Interaction logic for HellowDynamoControl.xaml
+    /// Interaction logic for ButtonDynamoControl.xaml
     /// </summary>
-    public partial class HelloDynamoControl : UserControl
+    public partial class ButtonControl : UserControl
     {
-        public HelloDynamoControl()
+        public ButtonControl()
         {
             InitializeComponent();
         }
