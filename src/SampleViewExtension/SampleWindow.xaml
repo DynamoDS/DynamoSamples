@@ -10,6 +10,12 @@
     <Grid Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
-        <TextBlock HorizontalAlignment="Stretch" Text="{Binding ActiveNodeTypes}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="18" Background="#2d2d2d" Foreground="White"/>
+        <TextBlock HorizontalAlignment="Stretch" Text="{Binding ActiveNodeTypes}"
+                   FontFamily="Arial" 
+                   Padding="10" 
+                   FontWeight="Medium" 
+                   FontSize="18"
+                   Background="#2d2d2d"
+                   Foreground="White"/>
     </Grid>
 </Window>
