@@ -9,7 +9,7 @@ using System.Text;
 namespace SampleExtension
 {
     /// <summary>
-    /// The Extension framework for Dynamo allowed you to extend
+    /// The Extension framework for Dynamo allows you to extend
     /// Dynamo by loading your own classes that can interact with Dynamo's API.
     /// An Extension has two components, an assembly containing your class and
     /// an xml manifest file telling Dynamo where to find your assembly. Extension
@@ -45,7 +45,7 @@ namespace SampleExtension
         }
         /// <summary>
         /// Ready is called when the DynamoModel is finished being built, or when the extension is installed
-        /// sometime after the DynamoModel is alreay built. ReadyParams provide access to references like the
+        /// sometime after the DynamoModel is already built. ReadyParams provide access to references like the
         /// CurrentWorkspace.
         /// </summary>
         /// <param name="sp"></param>
