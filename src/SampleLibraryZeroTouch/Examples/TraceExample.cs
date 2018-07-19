@@ -147,7 +147,6 @@ namespace Examples
 
     [IsVisibleInDynamoLibrary(false)]
     [Serializable]
-    [SupressImportIntoVM]
     public class TraceableId : ISerializable
     {
         public int IntID { get; set; }
