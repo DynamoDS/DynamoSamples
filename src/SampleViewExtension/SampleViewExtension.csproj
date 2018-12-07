@@ -161,12 +161,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>
-      copy /Y "$(ProjectDir)bin\Debug\SampleViewExtension.dll" "$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\bin"
-      copy /Y "$(ProjectDir)bin\Debug\SampleViewExtension_ViewExtensionDefinition.xml" "$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\extra"
-    </PostBuildEvent>
-  </PropertyGroup>
+  <Target Name="AfterBuild">
+      <Copy SourceFiles="$(ProjectDir)bin\Debug\SampleViewExtension.dll" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\bin" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
