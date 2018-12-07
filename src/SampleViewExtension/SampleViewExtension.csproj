@@ -166,8 +166,8 @@
       <PackageDll Include="$(ProjectDir)bin\Debug\SampleViewExtension.dll" />
       <PackageXml Include="$(ProjectDir)bin\Debug\SampleViewExtension_ViewExtensionDefinition.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\bin" />
-    <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\extra" />
+    <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\SampleViewExtension\bin" />
+    <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\SampleViewExtension\extra" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
