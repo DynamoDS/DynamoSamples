@@ -163,8 +163,8 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
     <ItemGroup>
-      <PackageDll Include="$(ProjectDir)bin\Debug\SampleViewExtension.dll" />
-      <PackageXml Include="$(ProjectDir)bin\Debug\SampleViewExtension_ViewExtensionDefinition.xml" />
+      <PackageDll Include="$(ProjectDir)bin\$(ConfigurationName)\SampleViewExtension.dll" />
+      <PackageXml Include="$(ProjectDir)bin\$(ConfigurationName)\SampleViewExtension_ViewExtensionDefinition.xml" />
     </ItemGroup>
     <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\SampleViewExtension\bin" />
     <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\SampleViewExtension\extra" />
