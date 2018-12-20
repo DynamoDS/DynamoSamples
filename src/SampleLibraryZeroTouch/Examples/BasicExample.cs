@@ -119,7 +119,7 @@ namespace Examples
         /// </summary>
         /// <param name="point">A point.</param>
         /// <returns>A BasicExample object.</returns>
-        public static BasicExample Create([DefaultArgumentAttribute("Point.ByCoordinates(5,5,5);")]Point point)
+        public static BasicExample Create([DefaultArgumentAttribute("Autodesk.DesignScript.Geometry.Point.ByCoordinates(5,5,5);")]Point point)
         {
             return new BasicExample(point.X, point.Y, point.Z);
         }
