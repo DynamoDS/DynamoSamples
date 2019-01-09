@@ -49,7 +49,7 @@ namespace SampleLibraryUI.Examples
             // has a pre-selection.
 
             SelectedIndex = 0;
-            return SelectionState.Done;
+            return SelectionState.Restore;
         }
 
         public override IEnumerable<AssociativeNode> BuildOutputAst(List<AssociativeNode> inputAstNodes)
