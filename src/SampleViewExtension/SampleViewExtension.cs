@@ -37,7 +37,7 @@ namespace SampleViewExtension
             // You'll need these later when you want to use
             // the supplied workspaces
 
-            sampleMenuItem = new MenuItem {Header = "Show View Extension Sample Window"};
+            sampleMenuItem = new MenuItem {Header = "DynaRender"};
             sampleMenuItem.Click += (sender, args) =>
             {
                 var viewModel = new SampleWindowViewModel(p);
@@ -75,7 +75,7 @@ namespace SampleViewExtension
         {
             get
             {
-                return "Sample View Extension";
+                return "DynaRender";
             }
         } 
 
