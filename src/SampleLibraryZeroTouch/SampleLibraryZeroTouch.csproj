@@ -53,13 +53,13 @@
     <Reference Include="DynamoInstallDetective">
       <HintPath>..\packages\DynamoVisualProgramming.Core.2.7.0.9206\lib\net48\DynamoInstallDetective.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoServices">
+    <Reference Include="DynamoServices, Version=2.7.0.9206, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.7.0.9206\lib\net48\DynamoServices.dll</HintPath>
     </Reference>
     <Reference Include="DynamoShapeManager">
       <HintPath>..\packages\DynamoVisualProgramming.Core.2.7.0.9206\lib\net48\DynamoShapeManager.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoUnits">
+    <Reference Include="DynamoUnits, Version=2.7.0.9206, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.7.0.9206\lib\net48\DynamoUnits.dll</HintPath>
     </Reference>
     <Reference Include="DynamoUtilities">
@@ -94,7 +94,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="PresentationFramework" />
-    <Reference Include="ProtoGeometry">
+    <Reference Include="ProtoGeometry, Version=2.7.0.8935, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.7.0.9206\lib\net48\ProtoGeometry.dll</HintPath>
     </Reference>
     <Reference Include="System" />
