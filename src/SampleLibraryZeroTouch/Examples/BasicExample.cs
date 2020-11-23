@@ -126,13 +126,40 @@ namespace Examples
 
         /// <summary>
         /// The MultiReturn attribute can be used to specify
-        /// the names of multiple output ports on a node that 
-        /// returns a dictionary. The node must return a dictionary
-        /// to be recognized as a multi-out node.
+        /// that a node is a multi-out node. This node must return
+        /// a Dictionary with its keys matching the attributes specified in the
+        /// MultiReturn attribute. The names of the output ports  
+        /// match the attribute names if there are no XML returns tags.
+        /// The returned dictionary displayed in the node preview is displayed
+        /// in the order of its keys as specified in the MultiReturn attribute.
         /// </summary>
         /// <returns></returns>
         [MultiReturn(new[] { "thing 1", "thing 2" })]
         public static Dictionary<string, List<string>> MultiReturnExample()
+        {
+            return new Dictionary<string, List<string>>()
+            {
+                { "thing 1", new List<string>{"apple", "banana", "cat"} },
+                { "thing 2", new List<string>{"Tywin", "Cersei", "Hodor"} }
+            };
+        }
+
+        /// <summary>
+        /// The MultiReturn attribute can be used to specify
+        /// that a node is a multi-out node. This node must return
+        /// a Dictionary with its keys matching the attributes specified in the
+        /// MultiReturn attribute. The names of the output ports  
+        /// match the XML returns tag only if they include descriptions.
+        /// Otherwise the output ports will match the attribute names.
+        /// The returned dictionary displayed in the node preview is displayed
+        /// in the order of its keys as specified in the MultiReturn attribute.
+        /// E.g. this node will display "thing1" and "thing2" in its output ports
+        /// but it will show "thing 1" and "thing 2" in the node preview.
+        /// </summary>
+        /// <returns name="thing1">thing one</returns>
+        /// <returns name="thing2">thing two</returns>
+        [MultiReturn(new[] { "thing 1", "thing 2" })]
+        public static Dictionary<string, List<string>> MultiReturnExample2()
         {
             return new Dictionary<string, List<string>>()
             {
