@@ -153,11 +153,11 @@ namespace Examples
         /// Otherwise the output ports will match the attribute names.
         /// The returned dictionary displayed in the node preview is displayed
         /// in the order of its keys as specified in the MultiReturn attribute.
-        /// E.g. this node will display "thing1" and "thing2" in its output ports
+        /// E.g. this node will display "thing one" and "thing two" in its output ports
         /// but it will show "thing 1" and "thing 2" in the node preview.
         /// </summary>
-        /// <returns name="thing1">thing one</returns>
-        /// <returns name="thing2">thing two</returns>
+        /// <returns name="thing one">first thing</returns>
+        /// <returns name="thing two">second thing</returns>
         [MultiReturn(new[] { "thing 1", "thing 2" })]
         public static Dictionary<string, List<string>> MultiReturnExample2()
         {
