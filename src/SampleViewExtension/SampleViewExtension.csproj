@@ -156,13 +156,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="images\logo.png" />
     <Content Include="SampleViewExtension_ViewExtensionDefinition.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
