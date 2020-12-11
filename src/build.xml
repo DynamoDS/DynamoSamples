@@ -4,7 +4,7 @@
     DefaultTargets="Build">
 
 <PropertyGroup>
-    <Solution>DynamoSamples.2013.sln</Solution>
+    <Solution>DynamoSamples.sln</Solution>
 </PropertyGroup>	
 	
 <ItemGroup>
