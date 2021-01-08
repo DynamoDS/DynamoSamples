@@ -35,7 +35,7 @@ namespace SampleExtension
         {
             get
             {
-                return Guid.NewGuid().ToString();
+                "49fee64a-4505-4f03-a6b6-0667a793f19a"
             }
         }
 
