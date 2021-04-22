@@ -151,6 +151,7 @@
     </Compile>
     <Compile Include="Examples\ButtonCustomNodeModel.cs" />
     <Compile Include="Examples\DropDown.cs" />
+    <Compile Include="Examples\LocalizedCustomNodeModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Examples\SliderCustomNodeModel.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -175,6 +176,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.es-ES.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -209,9 +211,11 @@
   <Target Name="AfterBuild">
     <ItemGroup>
       <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)\SampleLibraryUI.dll.config" />
-      <ResourceFiles Include="$(OutDir)\en-US\*.*" />
+      <ENResourceFiles Include="$(OutDir)\en-US\*.*" />
+      <ESResourceFiles Include="$(OutDir)\es-ES\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\" />
-    <Copy SourceFiles="@(ResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\en-US" />
+    <Copy SourceFiles="@(ENResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\en-US" />
+    <Copy SourceFiles="@(ESResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\es-ES" />
   </Target>
 </Project>

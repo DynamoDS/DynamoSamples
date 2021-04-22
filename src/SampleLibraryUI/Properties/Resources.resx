@@ -127,4 +127,7 @@
   <data name="CustomNodeModelPortDataOutputToolTip" xml:space="preserve">
     <value>A result.</value>
   </data>
+  <data name="LocalStringResult" xml:space="preserve">
+    <value>I am a localized string.</value>
+  </data>
 </root>

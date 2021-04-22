@@ -86,5 +86,14 @@ namespace SampleLibraryUI.Properties {
                 return ResourceManager.GetString("CustomNodeModelPortDataOutputToolTip", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I am a localized string..
+        /// </summary>
+        internal static string LocalStringResult {
+            get {
+                return ResourceManager.GetString("LocalStringResult", resourceCulture);
+            }
+        }
     }
 }
