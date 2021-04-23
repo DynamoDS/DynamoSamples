@@ -10,10 +10,11 @@ using System.Threading.Tasks;
 namespace SampleLibraryUI.Examples
 {
     /// <summary>
-    /// This example node uses .net .resx files and generated sattelite assemblies to perform runtime lookup of localized content
+    /// This example node uses .net .resx files and generated satellite assemblies to perform runtime lookup of localized content
     /// depending on the culture of the system Dynamo is running on.
     /// Read more: https://docs.microsoft.com/en-us/dotnet/framework/resources/creating-resource-files-for-desktop-apps
     /// You can use the -l "es-ES" flag when starting DynamoSandbox.exe to replace the English strings with Spanish ones.
+    /// For more info on the CLI interface read more: https://github.com/DynamoDS/Dynamo/wiki/Dynamo-Command-Line-Interface
     /// </summary>
     [NodeName("LocalizedNode")]
     [NodeDescription("CustomNodeModelDescription", typeof(Properties.Resources))]
