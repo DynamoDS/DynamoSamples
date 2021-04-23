@@ -35,7 +35,7 @@ namespace SampleExtension
         {
             get
             {
-                "49fee64a-4505-4f03-a6b6-0667a793f19a"
+                return "49fee64a-4505-4f03-a6b6-0667a793f19a";
             }
         }
 

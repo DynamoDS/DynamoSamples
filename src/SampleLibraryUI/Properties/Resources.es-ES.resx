@@ -118,16 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="CustomNodeModelDescription" xml:space="preserve">
-    <value>A sample UI node which displays custom UI.</value>
-    <comment>Description for Hello Dynamo</comment>
-  </data>
-  <data name="CustomNodeModePortDataInputToolTip" xml:space="preserve">
-    <value>Input a string.</value>
-  </data>
-  <data name="CustomNodeModePortDataOutputToolTip" xml:space="preserve">
-    <value>A result.</value>
+    <value>Un nodo de interfaz de usuario de muestra que muestra una interfaz de usuario personalizada.</value>
   </data>
   <data name="LocalStringResult" xml:space="preserve">
-    <value>I am a localized string.</value>
+    <value>Soy una cadena localizada.</value>
   </data>
 </root>
