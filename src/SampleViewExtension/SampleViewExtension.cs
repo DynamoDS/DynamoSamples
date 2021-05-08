@@ -51,7 +51,7 @@ namespace SampleViewExtension
             sampleMenuItem = new MenuItem { Header = "Show View Extension Sample Window", IsCheckable = true };
             sampleMenuItem.Checked += (sender, args) => p.AddToExtensionsSideBar(this, window);
             sampleMenuItem.Unchecked += (sender, args) => p.CloseExtensioninInSideBar(this);
-            p.AddMenuItem(MenuBarType.View, sampleMenuItem);
+            p.AddExtensionMenuItem(sampleMenuItem);
         }
 
         public override void Shutdown()
