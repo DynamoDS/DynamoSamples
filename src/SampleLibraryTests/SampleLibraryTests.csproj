@@ -36,38 +36,38 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="DesignScriptBuiltin, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DesignScriptBuiltin.dll</HintPath>
+    <Reference Include="DesignScriptBuiltin, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DesignScriptBuiltin.dll</HintPath>
     </Reference>
-    <Reference Include="DSCPython, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DSCPython.dll</HintPath>
+    <Reference Include="DSCPython, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DSCPython.dll</HintPath>
     </Reference>
-    <Reference Include="DSIronPython, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DSIronPython.dll</HintPath>
+    <Reference Include="DSIronPython, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DSIronPython.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoApplications, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DynamoApplications.dll</HintPath>
+    <Reference Include="DynamoApplications, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DynamoApplications.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoCore, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DynamoCore.dll</HintPath>
+    <Reference Include="DynamoCore, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DynamoCore.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoCoreTests, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.2.10.0.3455\lib\net48\DynamoCoreTests.dll</HintPath>
+    <Reference Include="DynamoCoreTests, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Tests.2.12.0-beta4933\lib\net48\DynamoCoreTests.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoInstallDetective, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DynamoInstallDetective.dll</HintPath>
+    <Reference Include="DynamoInstallDetective, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DynamoInstallDetective.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoServices, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.10.0.3455\lib\net48\DynamoServices.dll</HintPath>
+    <Reference Include="DynamoServices, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.DynamoServices.2.12.0-beta4933\lib\net48\DynamoServices.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoShapeManager, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DynamoShapeManager.dll</HintPath>
+    <Reference Include="DynamoShapeManager, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DynamoShapeManager.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoUnits, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.10.0.3455\lib\net48\DynamoUnits.dll</HintPath>
+    <Reference Include="DynamoUnits, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.12.0-beta4933\lib\net48\DynamoUnits.dll</HintPath>
     </Reference>
-    <Reference Include="DynamoUtilities, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\DynamoUtilities.dll</HintPath>
+    <Reference Include="DynamoUtilities, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\DynamoUtilities.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Prism.4.1.0.0\lib\NET40\Microsoft.Expression.Interactions.dll</HintPath>
@@ -96,11 +96,11 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="ProtoCore, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\ProtoCore.dll</HintPath>
+    <Reference Include="ProtoCore, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\ProtoCore.dll</HintPath>
     </Reference>
-    <Reference Include="ProtoGeometry, Version=2.9.0.3355, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.10.0.3455\lib\net48\ProtoGeometry.dll</HintPath>
+    <Reference Include="ProtoGeometry, Version=2.12.0.4706, Culture=neutral, processorArchitecture=AMD64">
+      <HintPath>..\packages\DynamoVisualProgramming.ZeroTouchLibrary.2.12.0-beta4933\lib\net48\ProtoGeometry.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -125,14 +125,14 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="System.Xaml" />
-    <Reference Include="SystemTestServices, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.2.10.0.3455\lib\net48\SystemTestServices.dll</HintPath>
+    <Reference Include="SystemTestServices, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Tests.2.12.0-beta4933\lib\net48\SystemTestServices.dll</HintPath>
     </Reference>
-    <Reference Include="TestServices, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Tests.2.10.0.3455\lib\net48\TestServices.dll</HintPath>
+    <Reference Include="TestServices, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Tests.2.12.0-beta4933\lib\net48\TestServices.dll</HintPath>
     </Reference>
-    <Reference Include="VMDataBridge, Version=2.10.0.3455, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DynamoVisualProgramming.Core.2.10.0.3455\lib\net48\VMDataBridge.dll</HintPath>
+    <Reference Include="VMDataBridge, Version=2.12.0.4933, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamoVisualProgramming.Core.2.12.0-beta4933\lib\net48\VMDataBridge.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -153,6 +153,9 @@
     <None Include="TestServices.dll.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="images\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="BeforeBuild">
