@@ -16,7 +16,7 @@ namespace SampleLinter
     internal class SampleSliderPlacedLinterRule : NodeLinterRule
     {
         public override string Id => "54EFD003-FF02-41B6-9F2E-52216BA23844";
-        public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Warning;
+        public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Error;
 
         public override string Description => "You have number sliders placed that are not inputs.";
 
@@ -26,7 +26,10 @@ namespace SampleLinter
             new List<string>()
             {
                 nameof(NodeModel.IsSetAsInput),
-                nameof(NodeModel.State)
+                nameof(NodeModel.State),
+                "NodeAdded",
+                "NodeRemoved",
+                "Modified"
             };
 
         

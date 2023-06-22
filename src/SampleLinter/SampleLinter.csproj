@@ -132,20 +132,10 @@
     <Compile Include="LinterRules.cs" />
     <Compile Include="SampleLinter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleWindow.xaml.cs">
-      <DependentUpon>SampleWindow.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SampleWindowViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="SampleWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Content Include="images\logo.png" />
-    <Content Include="SampleLinter_ViewExtensionDefinition.xml">
+    <Content Include="SampleLinter_ExtensionDefinition.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -157,7 +147,7 @@
   <Target Name="AfterBuild">
     <ItemGroup>
       <PackageDll Include="$(ProjectDir)bin\$(ConfigurationName)\SampleLinter.dll" />
-      <PackageXml Include="$(ProjectDir)bin\$(ConfigurationName)\SampleLinter_ViewExtensionDefinition.xml" />
+      <PackageXml Include="$(ProjectDir)bin\$(ConfigurationName)\SampleLinter_ExtensionDefinition.xml" />
     </ItemGroup>
     <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\bin" />
     <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\extra" />

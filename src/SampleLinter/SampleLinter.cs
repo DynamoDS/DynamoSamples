@@ -25,10 +25,7 @@ namespace SampleLinter
         public override void Ready(ReadyParams rp)
         {
             sliderPlacedRule = new SampleSliderPlacedLinterRule();
-
             AddLinterRule(sliderPlacedRule);
-
-            var stuff = base.IsActive;
         }
 
 
