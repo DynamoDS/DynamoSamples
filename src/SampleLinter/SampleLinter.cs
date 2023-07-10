@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using Dynamo.Extensions;
+using Dynamo.Logging;
 using SampleLinter.Rules;
 
 namespace SampleLinter
@@ -20,8 +21,8 @@ namespace SampleLinter
         public override void Ready(ReadyParams rp)
         {
             //load our settings
-            var extensionDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-            var settingsFile = Path.Combine(extensionDirectory, "extra", "LinterSettings.xml");
+            var extensionDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location)?.Replace("bin","extra");
+            var settingsFile = Path.Combine(extensionDirectory, "LinterSettings.xml");
             //if the settings file exists, use it, if not load with default 5 ungrouped allowed
             _linterSettings = File.Exists(settingsFile) ? LinterSettings.DeserializeModels(settingsFile) : new LinterSettings(){AllowedUngroupedNodes = 5};
 
@@ -39,6 +40,8 @@ namespace SampleLinter
             _noGroupsRule = new NoGroupsLinterRule(_linterSettings);
             AddLinterRule(_noGroupsRule);
         }
+
+      
 
 
         public override void Shutdown()

@@ -5,7 +5,6 @@ using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
 using Dynamo.Linting.Interfaces;
 using Dynamo.Linting.Rules;
-using Dynamo.ViewModels;
 
 namespace SampleLinter.Rules
 {
@@ -13,14 +12,14 @@ namespace SampleLinter.Rules
     {
         public override string Id => "EF17A093-4E94-4AE9-8876-18631396A23A"; //this id is unique to each linter rule
         public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Warning;
-        public override string Description => "There are nodes that are not in groups.";
-        public override string CallToAction => $"You have {_nodesNotInGroups.Count} nodes that are not in groups. Grouping your nodes is a best-practice when authoring Dynamo graphs.";
+        public override string Description => $"There are {_nodesNotInGroups.Count} nodes that are not in groups.";
+        public override string CallToAction => $"You have nodes that are not in groups. Grouping your nodes is a best-practice when authoring Dynamo graphs. {_ungroupedAllowed} nodes are allowed outside of groups based on the Linter Settings.";
 
         //To store our ungrouped nodes for counts and checks
         private readonly List<NodeModel> _nodesNotInGroups = new List<NodeModel>();
 
         //Allow the end-user to have a few nodes outside of groups. We don't want to be too overbearing.
-        private readonly int _ungroupedAllowed = 5;
+        private readonly int _ungroupedAllowed;
 
         public NoGroupsLinterRule(LinterSettings linterSettings)
         {
@@ -79,6 +78,7 @@ namespace SampleLinter.Rules
             //if there are no groups, return all of the current nodes
             if (!groups.Any())
             {
+                _nodesNotInGroups.Clear();
                 _nodesNotInGroups.AddRange(workspaceModel.Nodes);
 
                 return;
