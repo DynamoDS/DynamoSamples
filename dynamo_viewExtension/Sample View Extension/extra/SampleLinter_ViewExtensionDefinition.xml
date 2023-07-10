@@ -1,4 +1,0 @@
-﻿<ViewExtensionDefinition>
-  <AssemblyPath>..\bin\SampleLinter.dll</AssemblyPath>
-  <TypeName>SampleLinter.SampleLinter</TypeName>
-</ViewExtensionDefinition>
