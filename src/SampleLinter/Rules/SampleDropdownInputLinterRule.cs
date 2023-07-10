@@ -1,35 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CoreNodeModels.Input;
 using Dynamo.Graph.Nodes;
 using Dynamo.Graph.Workspaces;
 using Dynamo.Linting.Interfaces;
 using Dynamo.Linting.Rules;
-using Dynamo.Models;
-using ProtoCore.AST;
 
-namespace SampleLinter
+namespace SampleLinter.Rules
 {
-    internal class SampleSliderPlacedLinterRule : NodeLinterRule
+    internal class SampleDropdownInputLinterRule : NodeLinterRule
     {
-        public override string Id => "54EFD003-FF02-41B6-9F2E-52216BA23844";
-        public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Error;
+        public override string Id => "E4EC24B8-8F87-42B3-874F-A3DB3A69098A";
+        public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Warning;
 
-        public override string Description => "You have number sliders placed that are not inputs.";
+        public override string Description => "You have dropdown nodes placed that are not inputs.";
 
-        public override string CallToAction => "If the placed number sliders are needing to be inputs, remember to rename them and mark them as input. If you do not need these as inputs, consider an alternative node.";
+        public override string CallToAction => "If the placed dropdowns are needing to be inputs, remember to rename them and mark them as input. If you do not need these as inputs, consider an alternative node.";
 
         public override List<string> EvaluationTriggerEvents =>
             new List<string>()
             {
                 nameof(NodeModel.IsSetAsInput),
                 nameof(NodeModel.State),
-                "NodeAdded",
-                "NodeRemoved",
-                "Modified"
             };
 
         
@@ -37,16 +28,11 @@ namespace SampleLinter
         {
             if (nodeModel != null)
             {
-                if (nodeModel is DoubleSlider || (nodeModel is IntegerSlider64Bit))
+                if (nodeModel.NodeType.Equals("ExtensionNode"))
                 {
-                    if (nodeModel.IsSetAsInput)
+                    if (!nodeModel.IsSetAsInput)
                     {
-                        if (nodeModel.Name.Equals(nodeModel.CreationName))
-                        {
-                            return RuleEvaluationStatusEnum.Failed;
-                        }
-
-                        return RuleEvaluationStatusEnum.Passed;
+                        return RuleEvaluationStatusEnum.Failed;
                     }
                 }
             }

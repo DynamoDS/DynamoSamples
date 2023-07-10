@@ -1,71 +1,53 @@
 ﻿using System;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
+using System.IO;
 using Dynamo.Extensions;
-using Dynamo.Graph.Nodes;
-using Dynamo.Graph.Workspaces;
-using Dynamo.Linting;
-using Dynamo.Linting.Rules;
-using Dynamo.Wpf.Extensions;
+using SampleLinter.Rules;
 
 namespace SampleLinter
 {
     public class SampleLinter : LinterExtensionBase
     {
-        public override string UniqueId => "44BAAD49-4750-47BE-AB60-61DD30962FAE";
+        public override string UniqueId => "44BAAD49-4750-47BE-AB60-61DD30962FAE"; //this is unique to this linter
         public override string Name => "Sample Linter";
 
-        private HomeWorkspaceModel currentWorkspace;
+        
+        private SampleSliderInputLinterRule _sliderInputRule;
+        private SampleDropdownInputLinterRule _DropdownRule;
+        private NoGroupsLinterRule _noGroupsRule;
 
-        private SampleSliderPlacedLinterRule sliderPlacedRule;
-
-        private const string NODE_ADDED_PROPERTY = "NodeAdded";
+        private LinterSettings _linterSettings;
 
         public override void Ready(ReadyParams rp)
         {
-            sliderPlacedRule = new SampleSliderPlacedLinterRule();
-            AddLinterRule(sliderPlacedRule);
+            //load our settings
+            var extensionDirectory = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            var settingsFile = Path.Combine(extensionDirectory, "extra", "LinterSettings.xml");
+            //if the settings file exists, use it, if not load with default 5 ungrouped allowed
+            _linterSettings = File.Exists(settingsFile) ? LinterSettings.DeserializeModels(settingsFile) : new LinterSettings(){AllowedUngroupedNodes = 5};
+
+
+            //since we are inheriting from the LinterExtensionBase we need to mark it as ready here
+            base.Ready(rp);
+
+            //add each of our rules to the linter
+            _sliderInputRule = new SampleSliderInputLinterRule();
+            AddLinterRule(_sliderInputRule);
+
+            _DropdownRule = new SampleDropdownInputLinterRule();
+            AddLinterRule(_DropdownRule);
+
+            _noGroupsRule = new NoGroupsLinterRule(_linterSettings);
+            AddLinterRule(_noGroupsRule);
         }
 
 
         public override void Shutdown()
         {
-            throw new NotImplementedException();
+            RemoveLinterRule(_sliderInputRule);
+            RemoveLinterRule(_DropdownRule);
+            RemoveLinterRule(_noGroupsRule);
         }
 
-
-        //private void SubscribeGraphEvents()
-        //{
-        //    currentWorkspace.NodeAdded += OnNodeAdded;
-        //}
-        //private void OnNodeAdded(NodeModel node)
-        //{
-        //    EvaluateNodeRules(node, NODE_ADDED_PROPERTY);
-        //}
-        //private void EvaluateNodeRules(NodeModel modifiedNode, string changedProperty)
-        //{
-        //    //TODO:on demand or subscribed
-        //    sliderPlacedRule.
-
-        //    if (!IsActive)
-        //        return;
-
-        //    var nodeRules = LinterRules.
-        //        Where(x => x is NodeLinterRule).
-        //        Cast<NodeLinterRule>().
-        //        ToList();
-
-        //    if (nodeRules is null)
-        //        return;
-
-        //    foreach (var rule in nodeRules)
-        //    {
-        //        if (changedProperty != NODE_ADDED_PROPERTY && !rule.EvaluationTriggerEvents.Contains(changedProperty))
-        //            continue;
-
-        //        rule.
-        //    }
-        //}
+       
     }
 }
