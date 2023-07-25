@@ -130,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LinterSettings.cs" />
+    <Compile Include="MigrationSettingsView.xaml.cs">
+      <DependentUpon>MigrationSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Rules\SampleDropdownInputLinterRule.cs" />
     <Compile Include="Rules\NoGroupsLinterRule.cs" />
     <Compile Include="Rules\SampleSliderInputLinterRule.cs" />
@@ -145,15 +148,18 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Page Include="MigrationSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="AfterBuild">
     <ItemGroup>
       <PackageDll Include="$(ProjectDir)bin\$(ConfigurationName)\SampleLinter.dll" />
       <PackageXml Include="$(ProjectDir)bin\$(ConfigurationName)\SampleLinter_ExtensionDefinition.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\bin" />
-    <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\extra" />
   </Target>
   <PropertyGroup>
     <PostBuildEvent>copy "$(ProjectDir)$(OutputPath)SampleLinter.dll" "$(TargetDir)\..\..\..\..\dynamo_linter\Sample Linter\bin\SampleLinter.dll"</PostBuildEvent>
