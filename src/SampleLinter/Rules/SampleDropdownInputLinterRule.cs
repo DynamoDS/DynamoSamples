@@ -7,6 +7,9 @@ using Dynamo.Linting.Rules;
 
 namespace SampleLinter.Rules
 {
+    /// <summary>
+    /// Similar to the slider rule, but for dropdowns. If you aren't using it as an input, it is worth considering an alternative.
+    /// </summary>
     internal class SampleDropdownInputLinterRule : NodeLinterRule
     {
         public override string Id => "E4EC24B8-8F87-42B3-874F-A3DB3A69098A";

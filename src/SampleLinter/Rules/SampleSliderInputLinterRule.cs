@@ -8,6 +8,9 @@ using Dynamo.Linting.Rules;
 
 namespace SampleLinter.Rules
 {
+    /// <summary>
+    /// This rule alerts the end user that they might want to do so if the slider is not input or renamed. If a slider is not being used as input, it is typically unnecessary and a number node or a code block would suffice.
+    /// </summary>
     internal class SampleSliderInputLinterRule : NodeLinterRule
     {
         public override string Id => "54EFD003-FF02-41B6-9F2E-52216BA23844";

@@ -8,6 +8,9 @@ using Dynamo.Linting.Rules;
 
 namespace SampleLinter.Rules
 {
+    /// <summary>
+    /// Having ungrouped nodes is a bad practice. This section allows the linter to flag this behavior based on linter settings in the extra folder in the extension directory.
+    /// </summary>
     public class NoGroupsLinterRule : GraphLinterRule
     {
         public override string Id => "EF17A093-4E94-4AE9-8876-18631396A23A"; //this id is unique to each linter rule
