@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <ProjectGuid>{146EBF48-E7A0-4ABE-809D-D7F3059E4EE1}</ProjectGuid>
+    <ProjectGuid>{5F559FDB-99B9-4F4A-9A91-C9EC94C771D8}</ProjectGuid>
     <TargetFramework>net48</TargetFramework>
     <AssemblyTitle>SampleLinter</AssemblyTitle>
     <Product>SampleLinter</Product>
@@ -9,9 +9,6 @@
     <FileVersion>2.0.1.0</FileVersion>
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <BuildDependsOn>$(BuildDependsOn);AfterBuildMigrated</BuildDependsOn>
-    <PostBuildEvent>copy "$(ProjectDir)$(OutputPath)SampleLinter.dll" "$(TargetDir)\..\..\..\..\dynamo_linter\Sample Linter\bin\SampleLinter.dll"</PostBuildEvent>
-    <PostBuildEvent>copy "$(ProjectDir)$(OutputPath)SampleLinter.dll" "$(TargetDir)\..\..\..\..\dynamo_linter\Sample Linter\bin\SampleLinter.dll"</PostBuildEvent>
-    <PostBuildEvent>copy "$(ProjectDir)$(OutputPath)SampleLinter.dll" "$(TargetDir)\..\..\..\..\dynamo_linter\Sample Linter\bin\SampleLinter.dll"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -19,9 +16,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
   </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)$(OutputPath)SampleLinter.dll" "$(TargetDir)\..\..\..\..\dynamo_linter\Sample Linter\bin\SampleLinter.dll"</PostBuildEvent>
-  </PropertyGroup>
+  <PropertyGroup />
   <Target Name="AfterBuildMigrated">
     <ItemGroup>
       <PackageDll Include="$(ProjectDir)bin\$(ConfigurationName)\SampleLinter.dll" />
@@ -134,19 +129,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="MigrationSettingsView.xaml.cs">
-      <DependentUpon>MigrationSettingsView.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="SampleLinter_ExtensionDefinition.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="MigrationSettingsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
 </Project>

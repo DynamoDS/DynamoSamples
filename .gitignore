@@ -136,7 +136,6 @@ publish/
 
 src/packages/
 !src/packages/repositories.config
-src/SampleLinter/packages
 
 # Windows Azure Build Output
 csx
