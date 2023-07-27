@@ -10,13 +10,20 @@ namespace SampleLinter.Rules
 {
     /// <summary>
     /// Having ungrouped nodes is a bad practice. This section allows the linter to flag this behavior based on linter settings in the extra folder in the extension directory.
+    /// This example node uses .net .resx files and generated satellite assemblies to perform runtime lookup of localized content
+    /// depending on the culture of the system Dynamo is running on.
+    /// Read more: https://docs.microsoft.com/en-us/dotnet/framework/resources/creating-resource-files-for-desktop-apps
+    /// You can use the -l "es-ES" flag when starting DynamoSandbox.exe to replace the English strings with Spanish ones.
+    /// For more info on the CLI interface read more: https://github.com/DynamoDS/Dynamo/wiki/Dynamo-Command-Line-Interface
     /// </summary>
     public class NoGroupsLinterRule : GraphLinterRule
     {
         public override string Id => "EF17A093-4E94-4AE9-8876-18631396A23A"; //this id is unique to each linter rule
         public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Warning;
-        public override string Description => $"There are {_nodesNotInGroups.Count} nodes that are not in groups.";
-        public override string CallToAction => $"You have nodes that are not in groups. Grouping your nodes is a best-practice when authoring Dynamo graphs. {_ungroupedAllowed} nodes are allowed outside of groups based on the Linter Settings.";
+
+        public override string Description =>
+            string.Format(Properties.Resources.NodesNotInGroupsDescription, _nodesNotInGroups.Count);
+        public override string CallToAction => string.Format(Properties.Resources.NodesNotInGroupsDescription, _ungroupedAllowed);
 
         //To store our ungrouped nodes for counts and checks
         private readonly List<NodeModel> _nodesNotInGroups = new List<NodeModel>();

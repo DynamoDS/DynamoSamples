@@ -16,9 +16,9 @@ namespace SampleLinter.Rules
         public override string Id => "54EFD003-FF02-41B6-9F2E-52216BA23844";
         public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Warning;
 
-        public override string Description => "You have number sliders placed that are not inputs.";
+        public override string Description => Properties.Resources.SlidersDescription;
 
-        public override string CallToAction => "If the placed number sliders are needing to be inputs, remember to rename them and mark them as input. If you do not need these as inputs, consider an alternative node.";
+        public override string CallToAction => Properties.Resources.SlidersCallToAction;
 
         public override List<string> EvaluationTriggerEvents =>
             new List<string>()

@@ -9,15 +9,21 @@ namespace SampleLinter.Rules
 {
     /// <summary>
     /// Similar to the slider rule, but for dropdowns. If you aren't using it as an input, it is worth considering an alternative.
+    /// Having ungrouped nodes is a bad practice. This section allows the linter to flag this behavior based on linter settings in the extra folder in the extension directory.
+    /// This example node uses .net .resx files and generated satellite assemblies to perform runtime lookup of localized content
+    /// depending on the culture of the system Dynamo is running on.
+    /// Read more: https://docs.microsoft.com/en-us/dotnet/framework/resources/creating-resource-files-for-desktop-apps
+    /// You can use the -l "es-ES" flag when starting DynamoSandbox.exe to replace the English strings with Spanish ones.
+    /// For more info on the CLI interface read more: https://github.com/DynamoDS/Dynamo/wiki/Dynamo-Command-Line-Interface
     /// </summary>
     internal class SampleDropdownInputLinterRule : NodeLinterRule
     {
         public override string Id => "E4EC24B8-8F87-42B3-874F-A3DB3A69098A";
         public override SeverityCodesEnum SeverityCode => SeverityCodesEnum.Warning;
 
-        public override string Description => "You have dropdown nodes placed that are not inputs.";
+        public override string Description => Properties.Resources.DropdownDescription;
 
-        public override string CallToAction => "If the placed dropdowns are needing to be inputs, remember to rename them and mark them as input. If you do not need these as inputs, consider an alternative node.";
+        public override string CallToAction => Properties.Resources.DropdownDescription;
 
         public override List<string> EvaluationTriggerEvents =>
             new List<string>()
