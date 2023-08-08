@@ -22,7 +22,7 @@ namespace SampleLinter.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace SampleLinter.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SampleLinter.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace SampleLinter.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace SampleLinter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to If the placed dropdowns are needing to be inputs, remember to rename them and mark them as input. If you do not need these as inputs, consider an alternative node..
         /// </summary>
-        internal static string DropdownCallToAction {
+        public static string DropdownCallToAction {
             get {
                 return ResourceManager.GetString("DropdownCallToAction", resourceCulture);
             }
@@ -72,7 +72,7 @@ namespace SampleLinter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to You have dropdown nodes placed that are not inputs..
         /// </summary>
-        internal static string DropdownDescription {
+        public static string DropdownDescription {
             get {
                 return ResourceManager.GetString("DropdownDescription", resourceCulture);
             }
@@ -81,7 +81,7 @@ namespace SampleLinter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to You have nodes that are not in groups. Grouping your nodes is a best-practice when authoring Dynamo graphs. {0} nodes are allowed outside of groups based on the Linter Settings..
         /// </summary>
-        internal static string NodesNotInGroupsCallToAction {
+        public static string NodesNotInGroupsCallToAction {
             get {
                 return ResourceManager.GetString("NodesNotInGroupsCallToAction", resourceCulture);
             }
@@ -90,7 +90,7 @@ namespace SampleLinter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to There are {0} nodes that are not in groups..
         /// </summary>
-        internal static string NodesNotInGroupsDescription {
+        public static string NodesNotInGroupsDescription {
             get {
                 return ResourceManager.GetString("NodesNotInGroupsDescription", resourceCulture);
             }
@@ -99,7 +99,7 @@ namespace SampleLinter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to If the placed number sliders are needing to be inputs, remember to rename them and mark them as input. If you do not need these as inputs, consider an alternative node..
         /// </summary>
-        internal static string SlidersCallToAction {
+        public static string SlidersCallToAction {
             get {
                 return ResourceManager.GetString("SlidersCallToAction", resourceCulture);
             }
@@ -108,7 +108,7 @@ namespace SampleLinter.Properties {
         /// <summary>
         ///   Looks up a localized string similar to You have number sliders placed that are not inputs..
         /// </summary>
-        internal static string SlidersDescription {
+        public static string SlidersDescription {
             get {
                 return ResourceManager.GetString("SlidersDescription", resourceCulture);
             }
