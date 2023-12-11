@@ -7,7 +7,8 @@
     <RootNamespace>SampleLibraryTests</RootNamespace>
     <AssemblyName>SampleLibraryTests</AssemblyName>
     <TargetFramework>net8.0-windows</TargetFramework>
-      <UseWPF>true</UseWPF>
+    <UICulture>en-US</UICulture>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <None Include="HelloDynamoSystemTest.dyn">
@@ -16,5 +17,13 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.0.0-beta7064" />
+    <PackageReference Include="NUnit" Version="3.13.3" />
+    <PackageReference Include="NUnit3TestAdapter" Version="4.2.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="TestServices.dll.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
