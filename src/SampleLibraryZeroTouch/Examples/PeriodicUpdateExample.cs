@@ -18,7 +18,7 @@ namespace Examples
         private const int width = 20;
         private const int length = 20;
 
-        private PeriodicUpdateExample(double t, int id)
+        private PeriodicUpdateExample(double t, string id)
         {
             vertexCoords = new Point[width, length];
 
@@ -53,7 +53,7 @@ namespace Examples
             var traceId = TraceableObjectManager.GetObjectIdFromTrace();
 
             var t = 0.0;
-            int id;
+            string id;
             if (traceId == null)
             {
                 // If there's no id stored in trace for this object,
@@ -64,8 +64,8 @@ namespace Examples
             {
                 // If there's and id stored in trace, then retrieve the object stored
                 // with that id from the trace object manager.
-                id = traceId.IntID;
-                t = (double)TraceableObjectManager.GetTracedObjectById(traceId.IntID);
+                id = traceId;
+                t = (double)TraceableObjectManager.GetTracedObjectById(traceId);
             }
 
             return new PeriodicUpdateExample(t, id);

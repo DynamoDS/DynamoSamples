@@ -56,7 +56,7 @@ namespace Examples
 
             TraceExampleItem item = null;
 
-            int id;
+            string id;
             if (traceId == null)
             {
                 // If there's no id stored in trace for this object,
@@ -74,7 +74,7 @@ namespace Examples
             {
                 // If there's and id stored in trace, then retrieve the object stored
                 // with that id from the trace object manager.
-                item = (TraceExampleItem)TraceableObjectManager.GetTracedObjectById(traceId.IntID)
+                item = (TraceExampleItem)TraceableObjectManager.GetTracedObjectById(traceId)
                     ?? new TraceExampleItem(description);
 
                 // Update the item
@@ -104,28 +104,28 @@ namespace Examples
 
         private static int id = 0;
 
-        public static int GetNextUnusedID()
+        public static string GetNextUnusedID()
         {
             var next = id;
             id++;
-            return next;
+            return $"{next}";
         }
 
-        private static Dictionary<int, object> traceableObjectManager = new Dictionary<int, object>();
+        private static Dictionary<string, object> traceableObjectManager = new Dictionary<string, object>();
 
-        public static TraceableId GetObjectIdFromTrace()
+        public static string GetObjectIdFromTrace()
         {
-            return TraceUtils.GetTraceData(REVIT_TRACE_ID) as TraceableId;
+            return TraceUtils.GetTraceData(REVIT_TRACE_ID);
         }
 
-        public static object GetTracedObjectById(int id)
+        public static object GetTracedObjectById(string id)
         {
             object ret;
             traceableObjectManager.TryGetValue(id, out ret);
             return ret;
         }
 
-        public static void RegisterTraceableObjectForId(int id, object objectToTrace)
+        public static void RegisterTraceableObjectForId(string id, object objectToTrace)
         {
             if (traceableObjectManager.ContainsKey(id))
             {
@@ -134,7 +134,7 @@ namespace Examples
             else
             {
                 traceableObjectManager.Add(id, objectToTrace);
-                TraceUtils.SetTraceData(REVIT_TRACE_ID, new TraceableId(id));
+                TraceUtils.SetTraceData(REVIT_TRACE_ID, id);
             }
         }
 
