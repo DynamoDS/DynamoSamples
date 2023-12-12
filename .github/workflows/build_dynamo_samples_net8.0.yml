@@ -1,0 +1,50 @@
+# Build DynamoAll.sln with .NET 8.0
+name: Build DynamoSamples.sln net8.0
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+ build:
+  runs-on: windows-latest
+  steps:
+    - name: Checkout DynamoSamples Repo
+      uses: actions/checkout@v4
+      with:
+        path: DynamoSamples
+        repository: DynamoDS/DynamoSamples
+    - name: Setup dotnet
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+    - name: Disable problem matcher
+      run: echo "::remove-matcher owner=csc::"
+
+    - name: Install dependencies for windows runtime
+      run: |
+        dotnet restore $Env:GITHUB_WORKSPACE\DynamoSamples\src\DynamoSamples.All.sln /p:Configuration=Release --runtime=win-x64 -p:DotNet=net8.0
+    - name: Build DynamoSamples with MSBuild for Windows
+      run: |
+        echo "***Continue with the build, Good luck developer!***"
+        cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
+        .\MSBuild.exe $Env:GITHUB_WORKSPACE\DynamoSamples\src\DynamoSamples.sln  /p:Configuration=Release /p:DotNet=net8.0
+    # look for Dynamo
+    - name: Navigate to DynamoSamples Folder
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\DynamoSamples\src\SampleExtension\bin\Release"
+        echo "***Locating SampleExtension.dll for Windows!***"
+        test ".\SampleExtension.dll" && echo "SampleExtension.dll exists!"
+    - name: Save Pull Request Number
+      env:
+        PR_NUMBER: ${{ github.event.number }}
+      run: $env:PR_NUMBER | Out-File -FilePath pr_number.txt
+    - name: Upload Pull Request Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: pr_number
+        path: ${{ github.workspace }}\pr_number.txt
+        if-no-files-found: warn
+        retention-days: 3
