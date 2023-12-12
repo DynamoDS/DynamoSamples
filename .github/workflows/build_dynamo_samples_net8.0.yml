@@ -25,18 +25,28 @@ jobs:
 
     - name: Install dependencies for windows runtime
       run: |
-        dotnet restore $Env:GITHUB_WORKSPACE\DynamoSamples\src\DynamoSamples.All.sln /p:Configuration=Release --runtime=win-x64 -p:DotNet=net8.0
+        dotnet restore $Env:GITHUB_WORKSPACE\DynamoSamples\src\DynamoSamples.sln /p:Configuration=Release --runtime=win-x64 -p:DotNet=net8.0
     - name: Build DynamoSamples with MSBuild for Windows
       run: |
         echo "***Continue with the build, Good luck developer!***"
         cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\DynamoSamples\src\DynamoSamples.sln  /p:Configuration=Release /p:DotNet=net8.0
-    # look for Dynamo
-    - name: Navigate to DynamoSamples Folder
+    # look for DynamoSamples outputs
+    - name: Navigate to dynamo_linter Folder
       run: |
-        cd "$Env:GITHUB_WORKSPACE\DynamoSamples\src\SampleExtension\bin\Release"
-        echo "***Locating SampleExtension.dll for Windows!***"
-        test ".\SampleExtension.dll" && echo "SampleExtension.dll exists!"
+        cd "$Env:GITHUB_WORKSPACE\DynamoSamples\dynamo_linter\Sample Linter\bin"
+        echo "***Locating SampleLinter.dll for Windows!***"
+        test ".\SampleLinter.dll" && echo "SampleLinter.dll exists!"
+    - name: Navigate to dynamo_package Folder
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\DynamoSamples\dynamo_package\Dynamo Samples\bin"
+        echo "***Locating dynamo_package dlls for Windows!***"
+        test ".\SampleLibraryUI.dll" && echo "SampleLibraryUI.dll exists!" &&  test ".\SampleLibraryZeroTouch.dll" && echo "SampleLibraryZeroTouch.dll exists!"
+    - name: Navigate to dynamo_viewExtension Folder
+      run: |
+        cd "$Env:GITHUB_WORKSPACE\DynamoSamples\dynamo_viewExtension\Sample View Extension\bin"
+        echo "***Locating SampleViewExtension.dll for Windows!***"
+        test ".\SampleViewExtension.dll" && echo "SampleViewExtension.dll exists!"
     - name: Save Pull Request Number
       env:
         PR_NUMBER: ${{ github.event.number }}

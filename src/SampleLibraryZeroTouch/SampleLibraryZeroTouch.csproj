@@ -8,15 +8,16 @@
     <AssemblyName>SampleLibraryZeroTouch</AssemblyName>
     <DocumentationFile>bin\$(Configuration)\SampleLibraryZeroTouch.XML</DocumentationFile>
   </PropertyGroup>
-  <Target Name="AfterBuild">
-    <ItemGroup>
-      <PackageFiles Include="$(OutDir)\SampleLibraryZeroTouch.dll;$(OutDir)\SampleLibraryZeroTouch.XML;" />
-    </ItemGroup>
-    <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\" />
-  </Target>
   <ItemGroup>
     <PackageReference Include="DynamoVisualProgramming.Core" Version="3.0.0-beta7064" />
     <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.0.0-beta7064" />
     <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.0-beta7064" />
   </ItemGroup>
+  <Target Name="AfterBuildOps" AfterTargets="Build">
+    <Message Text="Should run after build" Importance="High" />
+    <ItemGroup>
+      <PackageFiles Include="$(OutDir)\SampleLibraryZeroTouch.dll;$(OutDir)\SampleLibraryZeroTouch.XML;" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\" />
+  </Target>
 </Project>

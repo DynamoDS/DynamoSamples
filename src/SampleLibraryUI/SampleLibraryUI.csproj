@@ -25,9 +25,9 @@
     <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.0.0-beta7064" />
     <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.0-beta7064" />
   </ItemGroup>
-  <Target Name="AfterBuild">
+  <Target Name="AfterBuildOps" AfterTargets="Build">
     <ItemGroup>
-      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)\SampleLibraryUI.dll.config" />
+      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML" />
       <ENResourceFiles Include="$(OutDir)\en-US\*.*" />
       <ESResourceFiles Include="$(OutDir)\es-ES\*.*" />
     </ItemGroup>

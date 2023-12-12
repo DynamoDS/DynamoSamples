@@ -13,7 +13,12 @@
     <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.0.0-beta7064" />
     <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.0-beta7064" />
   </ItemGroup>
-  <Target Name="AfterBuild">
+  <ItemGroup>
+    <None Update="SampleViewExtension_ViewExtensionDefinition.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Target Name="AfterBuildOps" AfterTargets="Build">
     <ItemGroup>
       <PackageDll Include="$(ProjectDir)bin\$(ConfigurationName)\SampleViewExtension.dll" />
       <PackageXml Include="$(ProjectDir)bin\$(ConfigurationName)\SampleViewExtension_ViewExtensionDefinition.xml" />
