@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Autodesk.DesignScript.Runtime;
 using DynamoServices;
+using Newtonsoft.Json;
 
 namespace Examples
 {
@@ -56,7 +57,7 @@ namespace Examples
 
             TraceExampleItem item = null;
 
-            string id;
+            int id;
             if (traceId == null)
             {
                 // If there's no id stored in trace for this object,
@@ -74,7 +75,7 @@ namespace Examples
             {
                 // If there's and id stored in trace, then retrieve the object stored
                 // with that id from the trace object manager.
-                item = (TraceExampleItem)TraceableObjectManager.GetTracedObjectById(traceId)
+                item = (TraceExampleItem)TraceableObjectManager.GetTracedObjectById(traceId.IntID)
                     ?? new TraceExampleItem(description);
 
                 // Update the item
@@ -104,28 +105,28 @@ namespace Examples
 
         private static int id = 0;
 
-        public static string GetNextUnusedID()
+        public static int GetNextUnusedID()
         {
             var next = id;
             id++;
-            return $"{next}";
+            return next;
         }
 
-        private static Dictionary<string, object> traceableObjectManager = new Dictionary<string, object>();
+        private static Dictionary<int, object> traceableObjectManager = new Dictionary<int, object>();
 
-        public static string GetObjectIdFromTrace()
+        public static TraceableId GetObjectIdFromTrace()
         {
-            return TraceUtils.GetTraceData(REVIT_TRACE_ID);
+            return JsonConvert.DeserializeObject<TraceableId>(TraceUtils.GetTraceData(REVIT_TRACE_ID));
         }
 
-        public static object GetTracedObjectById(string id)
+        public static object GetTracedObjectById(int id)
         {
             object ret;
             traceableObjectManager.TryGetValue(id, out ret);
             return ret;
         }
 
-        public static void RegisterTraceableObjectForId(string id, object objectToTrace)
+        public static void RegisterTraceableObjectForId(int id, object objectToTrace)
         {
             if (traceableObjectManager.ContainsKey(id))
             {
@@ -134,7 +135,8 @@ namespace Examples
             else
             {
                 traceableObjectManager.Add(id, objectToTrace);
-                TraceUtils.SetTraceData(REVIT_TRACE_ID, id);
+
+                TraceUtils.SetTraceData(REVIT_TRACE_ID, JsonConvert.SerializeObject(objectToTrace));
             }
         }
 
