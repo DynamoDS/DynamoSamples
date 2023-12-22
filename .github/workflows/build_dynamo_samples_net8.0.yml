@@ -31,7 +31,7 @@ jobs:
         cd "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\MSBuild\Current\Bin\"
         .\MSBuild.exe $Env:GITHUB_WORKSPACE\DynamoSamples\src\SampleIntegration\SampleIntegration.sln  /p:Configuration=Release /p:DotNet=net8.0
     # look for DynamoSamples outputs
-    - name: Navigate to dynamo_linter Folder
+    - name: Navigate to SampleIntegration Folder
       run: |
         cd "$Env:GITHUB_WORKSPACE\DynamoSamples\src\SampleIntegration\bin\Release"
         echo "***Locating SampleIntegration.dll for Windows!***"
@@ -60,14 +60,3 @@ jobs:
         cd "$Env:GITHUB_WORKSPACE\DynamoSamples\dynamo_viewExtension\Sample View Extension\bin"
         echo "***Locating SampleViewExtension.dll for Windows!***"
         test ".\SampleViewExtension.dll" && echo "SampleViewExtension.dll exists!"
-    - name: Save Pull Request Number
-      env:
-        PR_NUMBER: ${{ github.event.number }}
-      run: $env:PR_NUMBER | Out-File -FilePath pr_number.txt
-    - name: Upload Pull Request Artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: pr_number
-        path: ${{ github.workspace }}\pr_number.txt
-        if-no-files-found: warn
-        retention-days: 3
