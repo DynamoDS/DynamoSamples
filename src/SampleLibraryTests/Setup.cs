@@ -38,12 +38,8 @@ public class Setup
 
         resolutionPaths = new List<string>
         {
-            // Search for culture specific resources
-            Path.Combine(moduleRootFolder, CultureInfo.CurrentUICulture.Name),
             // Search for nodes
-            Path.Combine(moduleRootFolder, "nodes"),
-            // Search for culture specific node resources
-            Path.Combine(moduleRootFolder, "nodes", CultureInfo.CurrentUICulture.Name)
+            Path.Combine(moduleRootFolder, "nodes")
         };
         AppDomain.CurrentDomain.AssemblyResolve += CurrentDomain_AssemblyResolve; ;
     }
