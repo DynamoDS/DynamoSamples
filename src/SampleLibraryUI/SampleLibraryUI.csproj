@@ -5,9 +5,12 @@
   <PropertyGroup>
     <RootNamespace>SampleLibraryUI</RootNamespace>
     <AssemblyName>SampleLibraryUI</AssemblyName>
+    <!--Windows and WPF APIs are needed to support dynamo UI libs-->
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <UICulture>en-US</UICulture>
+    <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
+    <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
     <DocumentationFile>bin\$(Configuration)\$(UICulture)\SampleLibraryUI.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
@@ -21,9 +24,9 @@
     <Content Include="images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.0.0-beta7064" />
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.0.0-beta7064" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.0-beta7064" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.0.0-beta7064" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.0.0-beta7064" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.0-beta7064" ExcludeAssets="runtime" />
   </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
     <ItemGroup>

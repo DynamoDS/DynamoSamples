@@ -6,8 +6,8 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <RootNamespace>SampleLibraryTests</RootNamespace>
     <AssemblyName>SampleLibraryTests</AssemblyName>
+    <!--Windows and WPF APIs are needed to support dynamo UI libs-->
     <TargetFramework>net8.0-windows</TargetFramework>
-    <UICulture>en-US</UICulture>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
@@ -16,6 +16,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Tests" Version="1.0.0" />
+    <PackageReference Include="DynamoVisualProgramming.Tests" Version="0.0.1" />
   </ItemGroup>
 </Project>
