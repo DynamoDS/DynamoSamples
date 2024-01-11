@@ -16,6 +16,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Tests" Version="0.0.1" />
+    <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3755" />
   </ItemGroup>
 </Project>

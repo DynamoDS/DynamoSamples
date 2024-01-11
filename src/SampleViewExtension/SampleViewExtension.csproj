@@ -10,9 +10,9 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.0.0-beta7064" />
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.0.0-beta7064" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.0.0-beta7064" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta3755" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta3755" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta3755" />
   </ItemGroup>
   <ItemGroup>
     <None Update="SampleViewExtension_ViewExtensionDefinition.xml">
