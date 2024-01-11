@@ -1,82 +1,40 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(SolutionDir)Config\CS.props" />
+  </ImportGroup>
   <PropertyGroup>
-    <ProjectGuid>{5F559FDB-99B9-4F4A-9A91-C9EC94C771D8}</ProjectGuid>
-    <TargetFramework>net48</TargetFramework>
     <AssemblyTitle>SampleLinter</AssemblyTitle>
     <Product>SampleLinter</Product>
     <Copyright>Copyright ©  2023</Copyright>
     <AssemblyVersion>2.0.1.0</AssemblyVersion>
     <FileVersion>2.0.1.0</FileVersion>
+    <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
+    <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
+    <EnableDynamicLoading>true</EnableDynamicLoading>
     <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugType>full</DebugType>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-  </PropertyGroup>
-  <PropertyGroup />
-  <Target Name="AfterBuildOps" AfterTargets="Build">
-	  <Message Text="Should run after build" Importance="High" />
-	  <ItemGroup><PackageDll Include="$(OutputPath)SampleLinter.dll" />
-      <PackageXml Include="$(OutputPath)SampleLinter_ExtensionDefinition.xml" />
-      <SettingsXml Include="$(OutputPath)LinterSettings.xml" />
-	  </ItemGroup>
-	  <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_linter\Sample Linter\bin" />
-	  <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_linter\Sample Linter\extra" />
-	  <Copy SourceFiles="@(SettingsXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_linter\Sample Linter\extra" />
-  </Target>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Core" Version="2.18.1.5096">
-      <IncludeAssets></IncludeAssets>
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>Runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="2.18.1.5096">
-      <IncludeAssets></IncludeAssets>
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>Runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="2.18.1.5096">
-      <IncludeAssets></IncludeAssets>
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>Runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="2.18.1.5096">
-      <IncludeAssets></IncludeAssets>
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>Runtime</ExcludeAssets>
-    </PackageReference>
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1">
-      <IncludeAssets></IncludeAssets>
-      <PrivateAssets></PrivateAssets>
-      <ExcludeAssets>Runtime</ExcludeAssets>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="SampleLinter_ExtensionDefinition.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Update="Properties\Resources.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Update="Properties\Resources.en-US.resx">
-      <Generator></Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
+      <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
     <None Update="LinterSettings.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="SampleLinter_ExtensionDefinition.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
+  <Target Name="AfterBuildOps" AfterTargets="Build">
+    <Message Text="Should run after build" Importance="High" />
+    <ItemGroup>
+        <PackageDll Include="$(OutputPath)SampleLinter.dll" />
+        <PackageXml Include="$(OutputPath)SampleLinter_ExtensionDefinition.xml" />
+        <SettingsXml Include="$(OutputPath)LinterSettings.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_linter\Sample Linter\bin" />
+    <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_linter\Sample Linter\extra" />
+    <Copy SourceFiles="@(SettingsXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_linter\Sample Linter\extra" />
+  </Target>
 </Project>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.Serialization;
 using Autodesk.DesignScript.Runtime;
 using DynamoServices;
+using Newtonsoft.Json;
 
 namespace Examples
 {
@@ -115,7 +116,7 @@ namespace Examples
 
         public static TraceableId GetObjectIdFromTrace()
         {
-            return TraceUtils.GetTraceData(REVIT_TRACE_ID) as TraceableId;
+            return JsonConvert.DeserializeObject<TraceableId>(TraceUtils.GetTraceData(REVIT_TRACE_ID));
         }
 
         public static object GetTracedObjectById(int id)
@@ -134,7 +135,8 @@ namespace Examples
             else
             {
                 traceableObjectManager.Add(id, objectToTrace);
-                TraceUtils.SetTraceData(REVIT_TRACE_ID, new TraceableId(id));
+
+                TraceUtils.SetTraceData(REVIT_TRACE_ID, JsonConvert.SerializeObject(objectToTrace));
             }
         }
 

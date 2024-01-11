@@ -49,7 +49,7 @@ namespace SampleLibraryTests
 
         // The RequiresSTA attribute is required by
         // NUNit to run tests that use the UI.
-        [Test, RequiresSTA]
+        [Test, Apartment(System.Threading.ApartmentState.STA)]
         public void HelloDynamoTest()
         {
             // HelloWorldSystemTest.dyn is a test .dyn file which

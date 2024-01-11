@@ -12,7 +12,7 @@ namespace Examples
     // requires a parameter, 't', that is incremented during each run. 
     // This example also demonstrates how to use trace to store data that
     // you want to carry over between evaluations.
-    public class  PeriodicUpdateExample : IGraphicItem
+    public class PeriodicUpdateExample : IGraphicItem
     {
         private Point[,] vertexCoords;
         private const int width = 20;
@@ -32,7 +32,7 @@ namespace Examples
             }
 
             t += 0.1;
-            if (t > Math.PI*2) t = 0.0;
+            if (t > Math.PI * 2) t = 0.0;
 
             // Remember to store the updated object in the trace object manager,
             // so it's available to use the next time around.
@@ -78,8 +78,8 @@ namespace Examples
             {
                 for (var j = 0; j < length - 1; j++)
                 {
-                    var a = vertexCoords[i , j];
-                    var b = vertexCoords[i , j + 1];
+                    var a = vertexCoords[i, j];
+                    var b = vertexCoords[i, j + 1];
                     var c = vertexCoords[i + 1, j];
                     var d = vertexCoords[i + 1, j + 1];
 
@@ -101,8 +101,8 @@ namespace Examples
         {
             package.AddTriangleVertex(p.X, p.Y, p.Z);
             package.AddTriangleVertexColor(255, 255, 255, 255);
-            package.AddTriangleVertexNormal(n.X,n.Y,n.Z);
-            package.AddTriangleVertexUV(0,0);
+            package.AddTriangleVertexNormal(n.X, n.Y, n.Z);
+            package.AddTriangleVertexUV(0, 0);
         }
     }
 }

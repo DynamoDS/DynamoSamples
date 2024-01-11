@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.Text;
-
+using Dynamo.Events;
 using DynamoServices;
+using Newtonsoft.Json;
 
 class TracedHogManager
 {
@@ -69,8 +70,6 @@ public class HogID : ISerializable
     }
 }
 
-
-[RegisterForTrace]
 public class TracedHog : IDisposable
 {
     //TODO(lukechurch): This really should have been moved into the attribute already
@@ -107,7 +106,7 @@ public class TracedHog : IDisposable
     {
         TracedHog tHog;
 
-        HogID hid = TraceUtils.GetTraceData(REVIT_TRACE_ID) as HogID;
+        HogID hid = JsonConvert.DeserializeObject<HogID>(TraceUtils.GetTraceData(REVIT_TRACE_ID));
 
         if (hid == null)
         {
@@ -120,7 +119,7 @@ public class TracedHog : IDisposable
         }
 
         // Set the trace data on the return to be this hog.
-        TraceUtils.SetTraceData(REVIT_TRACE_ID, new HogID { IntID = tHog.ID });
+        TraceUtils.SetTraceData(REVIT_TRACE_ID, JsonConvert.SerializeObject(new HogID { IntID = tHog.ID }));
         return tHog;
     }
 

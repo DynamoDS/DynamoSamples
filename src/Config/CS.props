@@ -1,14 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-   <ImportGroup Label="PropertySheets" Condition=" Exists('$(SolutionDir)Config/user_local.props') ">
-    <Import Project="$(SolutionDir)Config/user_local.props" />
-  </ImportGroup>
+<Project>
   <PropertyGroup>
-	<DynamoCorePath Condition = "!Exists('$(DynamoCorePath)')">$(SolutionDir)\packages\DynamoVisualProgramming.Core.1.0.0-beta3\lib\net45</DynamoCorePath>
-	<DynamoZeroTouchPath Condition = "!Exists('$(DynamoZeroTouchPath)')">$(SolutionDir)\packages\DynamoVisualProgramming.ZeroTouchLibrary.1.0.0-beta3\lib\net45</DynamoZeroTouchPath>
-	<DynamoWpfUIPath Condition = "!Exists('$(DynamoWpfUIPath)')">$(SolutionDir)\packages\DynamoVisualProgramming.WpfUILibrary.1.0.0-beta4\lib\net45</DynamoWpfUIPath>
-	<DynamoWpfUINodesPath Condition = "!Exists('$(DynamoWpfUINodesPath)')">$(DynamoWpfUIPath)</DynamoWpfUINodesPath>
-	<DynamoServicesPath Condition = "!Exists('$(DynamoServicesPath)')">$(SolutionDir)\packages\DynamoVisualProgramming.DynamoServices.1.0.0-beta3\lib\net45</DynamoServicesPath>
-	<DynamoTestPackagePath Condition = "!Exists('$(DynamoTestPackagePath)')">$(SolutionDir)\packages\DynamoVisualProgramming.Tests.1.0.0-beta4\lib\net45</DynamoTestPackagePath>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <PlatformTarget >x64</PlatformTarget>
+    <TargetFramework>net8.0</TargetFramework>
+    <FileAlignment>512</FileAlignment>
+    <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+    <AppendRuntimeIdentifierToOutputPath>false</AppendRuntimeIdentifierToOutputPath> 
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <UICulture>en-US</UICulture>
+    <OutputType Condition=" '$(OutputType)' == '' ">Library</OutputType>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>None</ResolveAssemblyWarnOrErrorOnTargetArchitectureMismatch>
+    <DebugSymbols>true</DebugSymbols>
+    <SelfContained>false</SelfContained>
   </PropertyGroup>
-</Project>
+    <PropertyGroup>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  </Project>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using Autodesk.DesignScript.Geometry;
 using Autodesk.DesignScript.Interfaces;
 using Autodesk.DesignScript.Runtime;
