@@ -1,0 +1,61 @@
+# Build SampleIntegration.sln and DynamoSamples.sln with .NET 8.0
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout DynamoSamples Repo
+        uses: actions/checkout@v4
+        with:
+          path: DynamoSamples
+          repository: DynamoDS/DynamoSamples
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Disable problem matcher
+        run: echo "::remove-matcher owner=csc::"
+      - name: Setup msbuild
+        uses: microsoft/setup-msbuild@v1.3
+      - name: Install dependencies for SampleIntegration
+        run: |
+          dotnet restore ${{ github.workspace }}\DynamoSamples\src\SampleIntegration\SampleIntegration.sln /p:Configuration=Release --runtime=win-x64
+      - name: Build SampleIntegration
+        run: |
+          msbuild ${{ github.workspace }}\DynamoSamples\src\SampleIntegration\SampleIntegration.sln /p:Configuration=Release
+      - name: Look for Sample Integration
+        run: |
+          if (Test-Path -Path "${{ github.workspace }}\DynamoSamples\src\SampleIntegration\bin\Release\SampleIntegration.dll") {
+            Write-Output "SampleIntegration.dll exists!"
+          } else {
+            Write-Error "SampleIntegration.dll was not found!"
+          }
+      - name: Install dependencies for DynamoSamples
+        run: |
+          dotnet restore ${{ github.workspace }}\DynamoSamples\src\DynamoSamples.sln /p:Configuration=Release --runtime=win-x64
+      - name: Build DynamoSamples
+        run: |
+          msbuild ${{ github.workspace }}\DynamoSamples\src\DynamoSamples.sln /p:Configuration=Release
+      - name: Look for Sample Packages
+        run: |
+          $paths = @(
+            "${{ github.workspace }}\DynamoSamples\dynamo_linter\Sample Linter\bin\SampleLinter.dll",
+            "${{ github.workspace }}\DynamoSamples\dynamo_package\Dynamo Samples\bin\SampleLibraryUI.dll",
+            "${{ github.workspace }}\DynamoSamples\dynamo_package\Dynamo Samples\bin\SampleLibraryZeroTouch.dll",
+            "${{ github.workspace }}\DynamoSamples\dynamo_viewExtension\Sample View Extension\bin\SampleViewExtension.dll"
+          )
+
+          foreach ($path in $paths) {
+            if (Test-Path -Path $path) {
+              Write-Output "$path exists!"
+            } else {
+              Write-Error "$path was not found!"
+            }
+          }
