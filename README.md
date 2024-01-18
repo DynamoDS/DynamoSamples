@@ -1,22 +1,25 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/qjdj92r86xb2tbq3?svg=true)](https://ci.appveyor.com/project/ikeough/dynamosamples)
+[![Build](https://github.com/DynamoDS/DynamoSamples/actions/workflows/build.yml/badge.svg)](https://github.com/DynamoDS/DynamoSamples/actions/workflows/build.yml)
 
 ![Image](https://raw.github.com/ikeough/Dynamo/master/doc/distrib/Images/dynamo_logo_dark.png)
 
 # Dynamo Samples
+
 A collection of samples demonstrating how to develop libraries for Dynamo.
 
-These samples make use of the [Dynamo NuGet packages](https://www.nuget.org/packages?q=DynamoVisualProgramming). NuGet should take care of restoring these packages if they are not available on your system at build time. 
+These samples make use of the [Dynamo NuGet packages](https://www.nuget.org/packages?q=DynamoVisualProgramming). NuGet should take care of restoring these packages if they are not available on your system at build time.
 
 # Building the Samples
 
 ## Requirements
+
 - Visual Studio 2019
 - .NET Framework 4.8
 
 ## Instructions
+
 - Clone the repository.
 - Choose a branch:
-  - The master branch of Dynamo Samples corresponds to the master branch of Dynamo. To build against a specific version, choose that version's branch. I.e. 0.8.0, 0.9.0, etc.
+  - The master branch of Dynamo Samples corresponds to the master branch of Dynamo. To build against a specific version, choose that version's branch. i.e. 0.8.0, 0.9.0, etc.
 - Open `DynamoSamples.sln` with Visual Studio.
 - Build using the `Debug/Any CPU` configuration.
 - The `dynamo_package` folder at the root of the repository will now have the built libraries. The `Dynamo Samples` folder in that directory can be copied directly to your Dynamo packages directory:`C:\Users\<you>\AppData\Roaming\Dynamo Core\<version>\packages`.
