@@ -3,17 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLibraryTests", "SampleLibraryTests\SampleLibraryTests.csproj", "{933B8108-4E74-470A-86C7-4B7F633115B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleLibraryTests", "SampleLibraryTests\SampleLibraryTests.csproj", "{933B8108-4E74-470A-86C7-4B7F633115B9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLibraryUI", "SampleLibraryUI\SampleLibraryUI.csproj", "{0A4B4EEA-8FAB-4AC8-90D4-27DBC5B0CF2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleLibraryUI", "SampleLibraryUI\SampleLibraryUI.csproj", "{0A4B4EEA-8FAB-4AC8-90D4-27DBC5B0CF2A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleLibraryZeroTouch", "SampleLibraryZeroTouch\SampleLibraryZeroTouch.csproj", "{BD13C4DC-9045-4E49-B637-B6182B0E3A7F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleLibraryZeroTouch", "SampleLibraryZeroTouch\SampleLibraryZeroTouch.csproj", "{BD13C4DC-9045-4E49-B637-B6182B0E3A7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleViewExtension", "SampleViewExtension\SampleViewExtension.csproj", "{146EBF48-E7A0-4ABE-809D-D7F3059E4EE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleViewExtension", "SampleViewExtension\SampleViewExtension.csproj", "{146EBF48-E7A0-4ABE-809D-D7F3059E4EE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleExtension", "SampleExtension\SampleExtension.csproj", "{8B27B070-8434-49C8-8D43-41A4AE53BC36}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleExtension", "SampleExtension\SampleExtension.csproj", "{8B27B070-8434-49C8-8D43-41A4AE53BC36}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleLinter", "SampleLinter\SampleLinter.csproj", "{5F559FDB-99B9-4F4A-9A91-C9EC94C771D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleZeroTouchUnits", "SampleZeroTouchUnits\SampleZeroTouchUnits.csproj", "{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{5F559FDB-99B9-4F4A-9A91-C9EC94C771D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F559FDB-99B9-4F4A-9A91-C9EC94C771D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F559FDB-99B9-4F4A-9A91-C9EC94C771D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

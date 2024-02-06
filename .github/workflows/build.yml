@@ -49,6 +49,7 @@ jobs:
             "${{ github.workspace }}\DynamoSamples\dynamo_linter\Sample Linter\bin\SampleLinter.dll",
             "${{ github.workspace }}\DynamoSamples\dynamo_package\Dynamo Samples\bin\SampleLibraryUI.dll",
             "${{ github.workspace }}\DynamoSamples\dynamo_package\Dynamo Samples\bin\SampleLibraryZeroTouch.dll",
+            "${{ github.workspace }}\DynamoSamples\dynamo_package\Dynamo Samples\bin\SampleZeroTouchUnits.dll,
             "${{ github.workspace }}\DynamoSamples\dynamo_viewExtension\Sample View Extension\bin\SampleViewExtension.dll"
           )
 
