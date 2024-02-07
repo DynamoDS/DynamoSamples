@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <ImportGroup Label="PropertySheets">
+        <Import Project="$(SolutionDir)Config\CS.props" />
+    </ImportGroup>
+    <PropertyGroup>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>SampleZeroTouchUnits</RootNamespace>
+        <AssemblyName>SampleZeroTouchUnits</AssemblyName>
+        <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
+        <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
+        <EnableDynamicLoading>true</EnableDynamicLoading>
+        <DocumentationFile>bin\$(Configuration)\SampleZeroTouchUnits.XML</DocumentationFile>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DynamoVisualProgramming.Core" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
+        <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
+        <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
+    </ItemGroup>
+    <Target Name="AfterBuildOps" AfterTargets="Build">
+        <Message Text="Should run after build" Importance="High" />
+        <ItemGroup>
+            <PackageFiles Include="$(OutDir)\SampleZeroTouchUnits.dll;$(OutDir)\SampleZeroTouchUnits.XML;" />
+        </ItemGroup>
+        <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\" />
+    </Target>
+</Project>
