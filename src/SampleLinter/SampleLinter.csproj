@@ -8,6 +8,7 @@
     <Copyright>Copyright ©  2023</Copyright>
     <AssemblyVersion>2.0.1.0</AssemblyVersion>
     <FileVersion>2.0.1.0</FileVersion>
+    <TargetFramework>net8.0</TargetFramework>
     <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
     <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
     <EnableDynamicLoading>true</EnableDynamicLoading>
