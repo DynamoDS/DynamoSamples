@@ -1,18 +1,235 @@
-<Workspace Version="0.7.5.3240" X="146.89726815586" Y="9.96610837046791" zoom="1.05281788169755" Description="" Category="" Name="Home">
-  <Elements>
-    <Dynamo.Nodes.Watch type="Dynamo.Nodes.Watch" guid="2c4cdf29-f078-497c-86b8-fed323f4b77d" nickname="Watch" x="613.408069206988" y="243.832684826672" isVisible="true" isUpstreamVisible="true" lacing="Disabled" />
-    <Dynamo.Nodes.DSFunction type="Dynamo.Nodes.DSFunction" guid="4964a3ed-b14b-46dd-8e61-4d64fad42128" nickname="+" x="404.715400784895" y="238.891755796865" isVisible="true" isUpstreamVisible="true" lacing="Shortest" assembly="" function="+@," />
-    <Dynamo.Nodes.DoubleInput type="Dynamo.Nodes.DoubleInput" guid="77af56fb-6e37-4324-85e0-08870d79cb40" nickname="Number" x="213.542102183797" y="205.878060420374" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
-      <System.Double value="21" />
-    </Dynamo.Nodes.DoubleInput>
-    <Dynamo.Nodes.DoubleInput type="Dynamo.Nodes.DoubleInput" guid="a603bf14-8040-4297-bea8-5441d71645ed" nickname="Number" x="209.475123227426" y="283.764275525103" isVisible="true" isUpstreamVisible="true" lacing="Disabled">
-      <System.Double value="21" />
-    </Dynamo.Nodes.DoubleInput>
-  </Elements>
-  <Connectors>
-    <Dynamo.Models.ConnectorModel start="4964a3ed-b14b-46dd-8e61-4d64fad42128" start_index="0" end="2c4cdf29-f078-497c-86b8-fed323f4b77d" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="77af56fb-6e37-4324-85e0-08870d79cb40" start_index="0" end="4964a3ed-b14b-46dd-8e61-4d64fad42128" end_index="0" portType="0" />
-    <Dynamo.Models.ConnectorModel start="a603bf14-8040-4297-bea8-5441d71645ed" start_index="0" end="4964a3ed-b14b-46dd-8e61-4d64fad42128" end_index="1" portType="0" />
-  </Connectors>
-  <Notes />
-</Workspace>
+{
+  "Uuid": "3c9d0464-8643-5ffe-96e5-ab1769818209",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "HelloDynamoSystemTest",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 35.0,
+      "WatchHeight": 38.0,
+      "Id": "2c4cdf29f078497c86b8fed323f4b77d",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "a249fef4a4ce43ed9fa47a4ace364c8c",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6bb8cd0394254f268082f176f97a233a",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "4964a3edb14b46dd8e614d64fad42128",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "2e564722e153444292ce3cf2fd1ea4df",
+          "Name": "x",
+          "Description": "Integer value, double value or string\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c878418229554a8081a2add69a669b4c",
+          "Name": "y",
+          "Description": "Integer value, double value or string\n\nvar[]..[]",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "f648d8c8b1b7407eb51174f21f2d4908",
+          "Name": "var",
+          "Description": "The sum of two input numbers, or the concatenation of two strings",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "+@var[]..[],var[]..[]",
+      "Replication": "Auto",
+      "Description": "Returns addition of x and y\n\n+ (x: var[]..[], y: var[]..[]): var[]..[]"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NumberType": "Double",
+      "Id": "77af56fb6e37432485e008870d79cb40",
+      "NodeType": "NumberInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "982234929f014a7dacf16d38836763a1",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number",
+      "InputValue": 21.0
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NumberType": "Double",
+      "Id": "a603bf1480404297bea85441d71645ed",
+      "NodeType": "NumberInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "e57dc497431840b98db808aca08d846b",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number",
+      "InputValue": 21.0
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "f648d8c8b1b7407eb51174f21f2d4908",
+      "End": "a249fef4a4ce43ed9fa47a4ace364c8c",
+      "Id": "b47128bfe4304b74a01f7b8db90d2c34",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "982234929f014a7dacf16d38836763a1",
+      "End": "2e564722e153444292ce3cf2fd1ea4df",
+      "Id": "73b3eba3b10e4b1f86c836c5164e01e9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "e57dc497431840b98db808aca08d846b",
+      "End": "c878418229554a8081a2add69a669b4c",
+      "Id": "0ebc660b634b4281814460827fd4fa78",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [],
+  "EnableLegacyPolyCurveBehavior": null,
+  "Thumbnail": null,
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "3.1",
+      "Data": {}
+    }
+  ],
+  "Author": "None provided",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "3.1.0.3755",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "2c4cdf29f078497c86b8fed323f4b77d",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 613.408069206988,
+        "Y": 243.832684826672
+      },
+      {
+        "Id": "4964a3edb14b46dd8e614d64fad42128",
+        "Name": "+",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 404.715400784895,
+        "Y": 238.891755796865
+      },
+      {
+        "Id": "77af56fb6e37432485e008870d79cb40",
+        "Name": "Number",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 159.40168436709547,
+        "Y": 106.14571181066069
+      },
+      {
+        "Id": "a603bf1480404297bea85441d71645ed",
+        "Name": "Number",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 157.2343691937667,
+        "Y": 282.8144436335819
+      }
+    ],
+    "Annotations": [],
+    "X": 146.89726815586,
+    "Y": 9.96610837046791,
+    "Zoom": 1.05281788169755
+  }
+}

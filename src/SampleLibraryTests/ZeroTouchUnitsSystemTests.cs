@@ -9,37 +9,38 @@ using NUnit.Framework;
 
 namespace SampleLibraryTests
 {
-  /// <summary>
-  /// ZeroTouchUnitsSystemTests is a test fixture that contains
-  /// system tests for Dynamo using Units APIs. System tests test the entire 
-  /// Dynamo system including the UI. They do this by starting
-  /// a session of Dynamo, then opening .dyn files, executing them
-  /// and comparing the values returned from Dynamo with those
-  /// stored on our test class.
-  /// 
-  /// IMPORTANT! 
-  /// System tests have dependencies on Dynamo core dlls. In 
-  /// order for these tests to work, your test dll needs to be 
-  /// located in the Dynamo core directory. The project currently assumes
-  /// that Dynamo is built in a directory adjacent to the DynamoSamples
-  /// repository, so a relative path is set to the debug build folder for Dynamo.
-  /// If your setup is different, then you will need to explicitly set the output path
-  /// to your Dynamo installation directory.
-  /// </summary>
-  [TestFixture]
+    /// <summary>
+    /// ZeroTouchUnitsSystemTests is a test fixture that contains
+    /// system tests for Dynamo using Units APIs. System tests test the entire 
+    /// Dynamo system including the UI. They do this by starting
+    /// a session of Dynamo, then opening .dyn files, executing them
+    /// and comparing the values returned from Dynamo with those
+    /// stored on our test class.
+    /// 
+    /// IMPORTANT! 
+    /// System tests have dependencies on Dynamo core dlls. In 
+    /// order for these tests to work, your test dll needs to be 
+    /// located in the Dynamo core directory. The project currently assumes
+    /// that Dynamo is built in a directory adjacent to the DynamoSamples
+    /// repository, so a relative path is set to the debug build folder for Dynamo.
+    /// If your setup is different, then you will need to explicitly set the output path
+    /// to your Dynamo installation directory.
+    /// </summary>
+    [TestFixture]
+
     public class ZeroTouchUnitsSystemTests : SystemTestBase
     {
         protected override void GetLibrariesToPreload(List<string> libraries)
         {
-          libraries.Add("FunctionObject.ds");
-          libraries.Add("BuiltIn.ds");
-          libraries.Add("DSCoreNodes.dll");
-          libraries.Add("VMDataBridge.dll");
-          libraries.Add("DynamoConversions.dll");
-          libraries.Add("DynamoUnits.dll");
-          libraries.Add("DesignScriptBuiltin.dll");
-          libraries.Add("..\\..\\..\\..\\dynamo_package\\Dynamo Samples\\bin\\SampleZeroTouchUnits.dll");
-          base.GetLibrariesToPreload(libraries);
+            libraries.Add("FunctionObject.ds");
+            libraries.Add("BuiltIn.ds");
+            libraries.Add("DSCoreNodes.dll");
+            libraries.Add("VMDataBridge.dll");
+            libraries.Add("DynamoConversions.dll");
+            libraries.Add("DynamoUnits.dll");
+            libraries.Add("DesignScriptBuiltin.dll");
+            libraries.Add("..\\..\\..\\..\\dynamo_package\\Dynamo Samples\\bin\\SampleZeroTouchUnits.dll");
+            base.GetLibrariesToPreload(libraries);
         }
 
         // The RequiresSTA attribute is required by
@@ -74,6 +75,6 @@ namespace SampleLibraryTests
             Assert.AreEqual(out1.CachedValue, 500);
             Assert.AreEqual(out2.CachedValue, 5);
             Assert.AreEqual(out3.CachedValue, "538.195520835486ft^2");
-    }
+        }
     }
 }
