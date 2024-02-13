@@ -44,7 +44,7 @@ namespace SampleLibraryTests
     class HelloDynamoZeroTouchTests : GeometricTestBase
     {
         [Test]
-        [Category("NEEDS_ASM")]
+        [Category("NEEDS_GEOM_LIB")]
         public void PassingTest()
         {
             var myObject = Point.ByCoordinates(5, 5, 5);
@@ -52,7 +52,7 @@ namespace SampleLibraryTests
         }
 
         [Test]
-        [Category("NEEDS_ASM")]
+        [Category("NEEDS_GEOM_LIB")]
         public void FailingTest()
         {
             var p1 = Point.ByCoordinates(0, 0, 0);
