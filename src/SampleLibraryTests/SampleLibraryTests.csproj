@@ -12,10 +12,17 @@
   </PropertyGroup>
   <ItemGroup>
     <None Include="HelloDynamoSystemTest.dyn">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="RectangleUnitsExample.dyn">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="TestServices.dll.config">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta3755" />
+    <PackageReference Include="DynamoVisualProgramming.Tests" Version="3.1.0-beta4081" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
   </ItemGroup>
 </Project>

@@ -60,3 +60,26 @@ jobs:
               Write-Error "$path was not found!"
             }
           }
+      - name: Get DynamoRuntime from s3
+        run: |
+          curl -o DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime_3.1.0.4081_20240212T2057.zip
+          ls
+      - name: Extract DynamoRuntime
+        run: |
+            7z x DynamoRuntime.zip -o${{ github.workspace }}\DynamoSamples\src\SampleLibraryTests\bin\Release\DynamoRuntime
+
+      - name: Run test with the dotnet CLI
+        run: |
+          dotnet test ${{ github.workspace }}\DynamoSamples\src\SampleLibraryTests -p:Configuration=Release --filter "TestCategory!=Failure&TestCategory!=NEEDS_GEOM_LIB" --logger "trx;LogFileName=results.trx" --results-directory ${{ github.workspace }}\DynamoSamples\TestResults
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3.1.3
+        with:
+          name: DynamoSamples
+          path: ${{ github.workspace }}\DynamoSamples\dynamo_package
+          retention-days: 7
+      - name: Upload test artifact
+        uses: actions/upload-artifact@v3.1.3
+        with:
+          name: TestResults
+          path: ${{ github.workspace }}\DynamoSamples\TestResults
+          retention-days: 1

@@ -13,7 +13,7 @@ namespace SampleZeroTouchUnits
   /// </summary>
   public class RectangleExample
   {
-    const string meters = "autodesk.unit.unit:meters";
+    const string meters = "autodesk.unit.unit:meters";  
     const string meters2 = "autodesk.unit.unit:squareMeters";
 
     /// <summary>
@@ -31,10 +31,10 @@ namespace SampleZeroTouchUnits
     private Unit AreaUnit;
 
     /// <summary>
-    /// 
+    /// Creates an instance of RectangleExample with all units defaulted to metric
     /// </summary>
-    /// <param name="width"></param>
-    /// <param name="length"></param>
+    /// <param name="width">The width of RectangleExample, defaulted to meters</param>
+    /// <param name="length">The length of RectangleExample, defaulted to meters</param>
     public RectangleExample(double width, double length)
     {
       Length = length;
@@ -45,12 +45,12 @@ namespace SampleZeroTouchUnits
     }
 
     /// <summary>
-    /// 
+    /// Creates an instance of RectangleExample with customizable untis
     /// </summary>
-    /// <param name="width"></param>
-    /// <param name="length"></param>
-    /// <param name="widthUnit"></param>
-    /// <param name="lengthUnit"></param>
+    /// <param name="width">The width of RectangleExample</param>
+    /// <param name="length">The length of RectangleExample</param>
+    /// <param name="widthUnit">The unit for width</param>
+    /// <param name="lengthUnit">The unit for length</param>
     public RectangleExample(double width, double length, Unit widthUnit, Unit lengthUnit)
     {
       Width = width;
@@ -63,9 +63,9 @@ namespace SampleZeroTouchUnits
     }
 
     /// <summary>
-    /// 
+    /// Get the length converted to a target unit.
     /// </summary>
-    /// <param name="targetUnit"></param>
+    /// <param name="targetUnit">The target unit. Defaults to null</param>
     /// <returns></returns>
     /// <exception cref="ArgumentException"></exception>
     public double GetLength(Unit targetUnit = null)
@@ -83,9 +83,9 @@ namespace SampleZeroTouchUnits
     }
 
     /// <summary>
-    /// 
+    /// Get the width converted to a target unit.
     /// </summary>
-    /// <param name="targetUnit"></param>
+    /// <param name="targetUnit">The target unit. Defaults to null</param>
     /// <returns></returns>
     /// <exception cref="ArgumentException"></exception>
     public double GetWidth(Unit targetUnit)
@@ -112,10 +112,10 @@ namespace SampleZeroTouchUnits
     }
 
     /// <summary>
-    /// 
+    /// Get the area of the rectangle. Computed as width * length
     /// </summary>
-    /// <param name="targetUnit"></param>
-    /// <returns></returns>
+    /// <param name="targetUnit">The target unit for the area value, defaults to null</param>
+    /// <returns>A string containing the area value and unit symbol. Ex. "100ft^2"</returns>
     /// <exception cref="ArgumentException"></exception>
     public string GetArea(Unit targetUnit = null)
     {

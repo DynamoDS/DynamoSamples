@@ -1,0 +1,616 @@
+{
+  "Uuid": "3ac347e0-9d70-4b12-b979-f0727b83d645",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "RectangleUnitsExample",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "1468a989f8d8470d8a1891ffe2a63c04",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "523c2c6971f34847968b5910114b17c5",
+          "Name": "width",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "342cfe4682354c68bbf2b6111463608c",
+          "Name": "length",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "c6fe1be34aa94c2c90c94a6eb687068f",
+          "Name": "RectangleExample",
+          "Description": "RectangleExample",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "SampleZeroTouchUnits.RectangleExample.RectangleExample@double,double",
+      "Replication": "Auto",
+      "Description": "RectangleExample.RectangleExample (width: double, length: double): RectangleExample"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NumberType": "Double",
+      "Id": "ed3d204c241345fba0b32a7aa03ee3c9",
+      "NodeType": "NumberInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "d38f49da7d684924a77eeb9cc49833f9",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number",
+      "InputValue": 10.0
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.DoubleInput, CoreNodeModels",
+      "NumberType": "Double",
+      "Id": "c9ac861739704856bbe0adaa53c14bbf",
+      "NodeType": "NumberInputNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "f374de24406041318a14a9a45588b464",
+          "Name": "",
+          "Description": "Double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Creates a number",
+      "InputValue": 5.0
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "c71a8875053e4e11b8caa8c89f7d2f5b",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "01e1ca45e9d949b39fb78704b084485c",
+          "Name": "rectangleExample",
+          "Description": "SampleZeroTouchUnits.RectangleExample",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "6f8baaafc728429f8816c0ca7f109688",
+          "Name": "targetUnit",
+          "Description": "Unit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "660c8e52a9724e9eb3826e45b364304a",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "SampleZeroTouchUnits.RectangleExample.GetLength@DynamoUnits.Unit",
+      "Replication": "Auto",
+      "Description": "RectangleExample.GetLength (targetUnit: Unit): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "225fd1f75d68410f8a3b41f589105447",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "a39eac5d78a045fdbbeb5ea85a7704ca",
+          "Name": "rectangleExample",
+          "Description": "SampleZeroTouchUnits.RectangleExample",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "0cb47f72df45457bad4583e55b88824b",
+          "Name": "targetUnit",
+          "Description": "Unit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "7cae6a8028f24be48c1313ef8d3135b6",
+          "Name": "double",
+          "Description": "double",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "SampleZeroTouchUnits.RectangleExample.GetWidth@DynamoUnits.Unit",
+      "Replication": "Auto",
+      "Description": "RectangleExample.GetWidth (targetUnit: Unit): double"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "Id": "aa5a7e113ff94999922b1e4d14295c4d",
+      "NodeType": "FunctionNode",
+      "Inputs": [
+        {
+          "Id": "d4d1e255723246a6b3d87c073d1c2f5e",
+          "Name": "rectangleExample",
+          "Description": "SampleZeroTouchUnits.RectangleExample",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e9cdb2478e374180b9b721f30c1066ec",
+          "Name": "targetUnit",
+          "Description": "Unit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "2bcd40f1919841f7b19d3279db495ec1",
+          "Name": "string",
+          "Description": "string",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "FunctionSignature": "SampleZeroTouchUnits.RectangleExample.GetArea@DynamoUnits.Unit",
+      "Replication": "Auto",
+      "Description": "RectangleExample.GetArea (targetUnit: Unit): string"
+    },
+    {
+      "ConcreteType": "UnitsUI.Units, UnitsNodeModels",
+      "SelectedIndex": 25,
+      "SelectedString": "Centimeters",
+      "Id": "e4c3a5250ea4473d99bb4e046319a6bf",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b247c85016d648ed96695930382df729",
+          "Name": "Unit",
+          "Description": "The selected Unit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a Unit type"
+    },
+    {
+      "ConcreteType": "UnitsUI.Units, UnitsNodeModels",
+      "SelectedIndex": 199,
+      "SelectedString": "Meters",
+      "Id": "f795ea681a5f496ba73ec083e8ddff00",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "a4bcecb84c4b4c42b58c8887e48441b8",
+          "Name": "Unit",
+          "Description": "The selected Unit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a Unit type"
+    },
+    {
+      "ConcreteType": "UnitsUI.Units, UnitsNodeModels",
+      "SelectedIndex": 295,
+      "SelectedString": "Square feet",
+      "Id": "69941e465d0a447482ff87f7d208fdc8",
+      "NodeType": "ExtensionNode",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "6fd7cb28a036466295fa375667bed5a4",
+          "Name": "Unit",
+          "Description": "The selected Unit",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Select a Unit type"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 42.0,
+      "WatchHeight": 38.0,
+      "Id": "15b2e81d84df4a17ae348ee982ab87d9",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "8958560939ac47f28472e3d20917fe1d",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "fd6fa7d1a0f84b53bc403b0bc71a0c47",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 28.0,
+      "WatchHeight": 38.0,
+      "Id": "77e2a5bb3d464c5694f444ea1e064deb",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "a4b19c323ae04f139046bf61232ffb65",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "1c4ff92ffdaa42d3b31484717ae29926",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Watch, CoreNodeModels",
+      "WatchWidth": 170.0,
+      "WatchHeight": 38.0,
+      "Id": "bbb9d9f6be8e498e8b9cb8cae214c921",
+      "NodeType": "ExtensionNode",
+      "Inputs": [
+        {
+          "Id": "69d539c959d04a4faaccd014bde7ca31",
+          "Name": "",
+          "Description": "Node to show output from",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "b6add764bf564344a4f3fa93f3108a8f",
+          "Name": "",
+          "Description": "Node output",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Visualizes a node's output"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "c6fe1be34aa94c2c90c94a6eb687068f",
+      "End": "01e1ca45e9d949b39fb78704b084485c",
+      "Id": "40f11139baf94cc7b0a741c070987e25",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c6fe1be34aa94c2c90c94a6eb687068f",
+      "End": "a39eac5d78a045fdbbeb5ea85a7704ca",
+      "Id": "0638b5e3dec84aef90079122f4dd20f1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "c6fe1be34aa94c2c90c94a6eb687068f",
+      "End": "d4d1e255723246a6b3d87c073d1c2f5e",
+      "Id": "7cbc02d5c04140fd9fa2addf9a620e84",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "d38f49da7d684924a77eeb9cc49833f9",
+      "End": "523c2c6971f34847968b5910114b17c5",
+      "Id": "797a725db51c426782fd50dce6cfaada",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "f374de24406041318a14a9a45588b464",
+      "End": "342cfe4682354c68bbf2b6111463608c",
+      "Id": "6da49122485442aa8a9d605741434d4e",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "660c8e52a9724e9eb3826e45b364304a",
+      "End": "8958560939ac47f28472e3d20917fe1d",
+      "Id": "9bd621413636438dba36c0e7c2deeea2",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "7cae6a8028f24be48c1313ef8d3135b6",
+      "End": "a4b19c323ae04f139046bf61232ffb65",
+      "Id": "1d162031b0fe4401afcf5c3b69cdbf11",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "2bcd40f1919841f7b19d3279db495ec1",
+      "End": "69d539c959d04a4faaccd014bde7ca31",
+      "Id": "2a220a5a2a68450c894a8963931783a9",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b247c85016d648ed96695930382df729",
+      "End": "6f8baaafc728429f8816c0ca7f109688",
+      "Id": "b94c50890dcb42b78188ace645d66178",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "a4bcecb84c4b4c42b58c8887e48441b8",
+      "End": "0cb47f72df45457bad4583e55b88824b",
+      "Id": "2bdf345697d6455da45a27029ed58d75",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6fd7cb28a036466295fa375667bed5a4",
+      "End": "e9cdb2478e374180b9b721f30c1066ec",
+      "Id": "de3724ee2ce04af0b9b9e512327fe096",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "SampleZeroTouchUnits.dll",
+      "ReferenceType": "ZeroTouch",
+      "Nodes": [
+        "1468a989f8d8470d8a1891ffe2a63c04",
+        "c71a8875053e4e11b8caa8c89f7d2f5b",
+        "225fd1f75d68410f8a3b41f589105447",
+        "aa5a7e113ff94999922b1e4d14295c4d"
+      ]
+    }
+  ],
+  "EnableLegacyPolyCurveBehavior": null,
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Properties",
+      "Version": "3.1",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "None",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "3.1.0.3411",
+      "RunType": "Automatic",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "_Background Preview",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Id": "1468a989f8d8470d8a1891ffe2a63c04",
+        "Name": "RectangleExample.RectangleExample",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": true,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 561.5,
+        "Y": 33.5
+      },
+      {
+        "Id": "ed3d204c241345fba0b32a7aa03ee3c9",
+        "Name": "Number",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 339.11603418889285,
+        "Y": 35.62147890968433
+      },
+      {
+        "Id": "c9ac861739704856bbe0adaa53c14bbf",
+        "Name": "Number",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 350.15809208781684,
+        "Y": 163.6425078591463
+      },
+      {
+        "Id": "c71a8875053e4e11b8caa8c89f7d2f5b",
+        "Name": "RectangleExample.GetLength",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1053.5,
+        "Y": 33.5
+      },
+      {
+        "Id": "225fd1f75d68410f8a3b41f589105447",
+        "Name": "RectangleExample.GetWidth",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1052.5,
+        "Y": 192.5
+      },
+      {
+        "Id": "aa5a7e113ff94999922b1e4d14295c4d",
+        "Name": "RectangleExample.GetArea",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1063.5,
+        "Y": 377.5
+      },
+      {
+        "Id": "e4c3a5250ea4473d99bb4e046319a6bf",
+        "Name": "Units",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 626.0,
+        "Y": 250.0
+      },
+      {
+        "Id": "f795ea681a5f496ba73ec083e8ddff00",
+        "Name": "Units",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 625.0,
+        "Y": 383.0
+      },
+      {
+        "Id": "69941e465d0a447482ff87f7d208fdc8",
+        "Name": "Units",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 623.0,
+        "Y": 519.0
+      },
+      {
+        "Id": "15b2e81d84df4a17ae348ee982ab87d9",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1431.4173995248607,
+        "Y": 8.41299750528276
+      },
+      {
+        "Id": "77e2a5bb3d464c5694f444ea1e064deb",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1429.1072443762355,
+        "Y": 189.94506627386255
+      },
+      {
+        "Id": "bbb9d9f6be8e498e8b9cb8cae214c921",
+        "Name": "Watch",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "ShowGeometry": true,
+        "X": 1421.8472359898235,
+        "Y": 374.27115097662556
+      }
+    ],
+    "Annotations": [],
+    "X": -42.2040696713932,
+    "Y": 53.81309391588489,
+    "Zoom": 0.5974870948157864
+  }
+}

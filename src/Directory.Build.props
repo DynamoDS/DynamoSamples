@@ -1,0 +1,10 @@
+<Project>
+  <PropertyGroup>
+    <!--
+      SolutionDir is mostly useful for running the dotnet test command
+      Ex. open a command line in the DynamoSamples directory and run:
+          dotnet test %cd%\src\SampleLibraryTests -p:Configuration=Release - -filter "TestCategory!=Failure" - -logger "trx;LogFileName=results.trx" - -results-directory TestResults
+      Note: The - -filter, - -logger and - -results-directory should have double dashes without a space in between. -->
+    <SolutionDir>$(MSBuildThisFileDirectory)\</SolutionDir>
+  </PropertyGroup>
+</Project>

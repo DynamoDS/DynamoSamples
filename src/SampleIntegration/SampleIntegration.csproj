@@ -5,6 +5,7 @@
   <PropertyGroup>
     <RootNamespace>SampleIntegration</RootNamespace>
     <AssemblyName>SampleIntegration</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="DynamoVisualProgramming.Core" Version="3.0.0-beta7064" />

@@ -6,15 +6,16 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SampleLibraryZeroTouch</RootNamespace>
     <AssemblyName>SampleLibraryZeroTouch</AssemblyName>
+    <TargetFramework>net8.0</TargetFramework>
     <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
     <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <DocumentationFile>bin\$(Configuration)\SampleLibraryZeroTouch.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Core" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta3755" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
   </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
     <Message Text="Should run after build" Importance="High" />
