@@ -62,7 +62,7 @@ jobs:
           }
       - name: Get DynamoRuntime from s3
         run: |
-          curl -o DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime_3.1.0.3755_20240111T1041.zip
+          curl -o DynamoRuntime.zip https://dyn-builds-data.s3-us-west-2.amazonaws.com/DynamoCoreRuntime_3.1.0.4081_20240212T2057.zip
           ls
       - name: Extract DynamoRuntime
         run: |
