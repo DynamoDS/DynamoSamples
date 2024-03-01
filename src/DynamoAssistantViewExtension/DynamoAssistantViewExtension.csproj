@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(SolutionDir)Config\CS.props" />
+  </ImportGroup>
+  <PropertyGroup>
+    <RootNamespace>DynamoAssistant</RootNamespace>
+    <AssemblyName>DynamoAssistantViewExtension</AssemblyName>
+    <!--Windows and WPF APIs are needed to support dynamo UI extensions-->
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4081" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4081" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4081" />
+    <PackageReference Include="RestSharp" Version="108.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="DynamoAssistantViewExtension_ViewExtensionDefinition.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Target Name="AfterBuildOps" AfterTargets="Build">
+    <ItemGroup>
+      <PackageDll Include="$(ProjectDir)bin\$(ConfigurationName)\DynamoAssistantViewExtension.dll" />
+      <PackageXml Include="$(ProjectDir)bin\$(ConfigurationName)\DynamoAssistantViewExtension_ViewExtensionDefinition.xml" />
+    </ItemGroup>
+    <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\bin" />
+    <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\extra" />
+  </Target>
+</Project>

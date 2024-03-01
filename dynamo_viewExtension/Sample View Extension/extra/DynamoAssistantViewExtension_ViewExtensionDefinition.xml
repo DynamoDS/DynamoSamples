@@ -1,0 +1,4 @@
+﻿<ViewExtensionDefinition>
+  <AssemblyPath>..\bin\DynamoAssistantViewExtension.dll</AssemblyPath>
+  <TypeName>DynamoAssistant.DynamoAssistantViewExtension</TypeName>
+</ViewExtensionDefinition>
