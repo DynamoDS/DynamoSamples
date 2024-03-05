@@ -1,6 +1,9 @@
 ﻿using Dynamo.Core;
 using Dynamo.Extensions;
 using Dynamo.UI.Commands;
+using OpenAI_API;
+using OpenAI_API.Chat;
+using OpenAI_API.Models;
 using System;
 using System.Collections.ObjectModel;
 using System.Windows.Input;
@@ -11,8 +14,9 @@ namespace DynamoAssistant
     {
         private string userInput;
         private readonly ReadyParams readyParams;
-        private readonly ChatGPTClient chatGPTClient;
-        private static readonly string apikey = "Your API";
+        private readonly OpenAIAPI chatGPTClient;
+        private readonly Conversation conversation;
+        private static readonly string apikey = "Your API Key";
 
         /// <summary>
         /// 
@@ -39,15 +43,20 @@ namespace DynamoAssistant
             readyParams = p;
 
             // Create a ChatGPTClient instance with the API key
-            chatGPTClient = new ChatGPTClient(apikey);
+            chatGPTClient = new OpenAIAPI(new APIAuthentication(apikey));
+            // ChatGPT lets you start a new chat. 
+            conversation = chatGPTClient.Chat.CreateConversation();
+            conversation.Model = Model.DefaultChatModel;
+            conversation.RequestParameters.Temperature = 0;
             // Display a welcome message
             Messages.Add("Assistant:\nWelcome to Dynamo world and ask me anything to get started!");
         }
 
-        internal void SendMessage(string msg)
+        internal async void SendMessage(string msg)
         {
             // Send the user's input to the ChatGPT API and receive a response
-            string response = chatGPTClient?.SendMessage(msg);
+            conversation?.AppendUserInput(msg);
+            string response = await conversation.GetResponseFromChatbotAsync();
             // Display user message first
             Messages.Add("You:\n" + msg);
             // Display the chatbot's response
