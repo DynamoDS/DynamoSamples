@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Dynamo.ViewModels;
 using Dynamo.Wpf.Extensions;
 
 namespace DynamoAssistant
@@ -47,8 +48,8 @@ namespace DynamoAssistant
                 // Set the owner of the window to the Dynamo window.
                 Owner = p.DynamoWindow
             };
-
-            assistantMenuItem = new MenuItem { Header = "Show Dynamo Assistant", IsCheckable = true };
+            viewModel.dynamoViewModel = p.DynamoWindow.DataContext as DynamoViewModel;
+            assistantMenuItem = new MenuItem { Header = "Open Copilot", IsCheckable = true };
             assistantMenuItem.Checked += (sender, args) => p.AddToExtensionsSideBar(this, window);
             assistantMenuItem.Unchecked += (sender, args) => p.CloseExtensioninInSideBar(this);
             p.AddExtensionMenuItem(assistantMenuItem);
@@ -78,7 +79,7 @@ namespace DynamoAssistant
         {
             get
             {
-                return "Dynamo Assistant";
+                return "Copilot";
             }
         }
 
