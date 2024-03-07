@@ -53,7 +53,8 @@
                 Grid.Column="0">
                 <TextBox 
                     Name="UserInput"
-                    Text="{Binding UserInput, UpdateSourceTrigger=PropertyChanged}" 
+                    Text="{Binding UserInput, UpdateSourceTrigger=PropertyChanged}"
+                    IsEnabled="{Binding IsWaitingForInput}"
                     FontFamily="Arial" 
                     Padding="10" 
                     FontWeight="Medium" 
@@ -76,7 +77,8 @@
                 Command="{Binding SendMessagesCommand}"
                 Click="Button_Click"
                 Height="50"
-                Grid.Column="1"/>
+                Grid.Column="1"
+                IsEnabled="{Binding IsWaitingForInput}"/>
         </Grid>
 
 

@@ -46,6 +46,11 @@ namespace DynamoAssistant
         /// </summary>
         internal DynamoModel dynamoModel => dynamoViewModel.Model;
 
+        /// <summary>
+        /// Is Gopilot waiting for input, this boolean dominates certain UX aspects
+        /// </summary>
+        public bool IsWaitingForInput = true;
+
         public ObservableCollection<string> Messages { get; set; } = new ObservableCollection<string>();
 
         public DynamoAssistantWindowViewModel(ReadyParams p)
@@ -65,8 +70,11 @@ namespace DynamoAssistant
 
         internal async void SendMessage(string msg)
         {
+            if(string.IsNullOrEmpty(msg)) return;
+
             // Send the user's input to the ChatGPT API and receive a response
             conversation?.AppendUserInput(msg);
+            IsWaitingForInput = false;
             // Display user message first
             Messages.Add("You:\n" + msg + "\n");
             string response = await conversation.GetResponseFromChatbotAsync();
@@ -81,6 +89,7 @@ namespace DynamoAssistant
 
             // create a Dynamo note example
             // CreateNote((new Guid()).ToString(), "This is a sample Note.", 0, 0, true);
+            IsWaitingForInput = true;
         }
 
         /// <summary>
