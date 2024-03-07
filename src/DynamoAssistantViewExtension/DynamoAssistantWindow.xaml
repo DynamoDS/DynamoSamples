@@ -19,7 +19,24 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <ListView
+        <Grid Name="Messages"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <ListView
             ItemsSource="{Binding Messages}"
             FontFamily="Arial" 
             Padding="10" 
@@ -28,22 +45,66 @@
             Background="#2d2d2d"
             Foreground="White"
             Grid.Row="0"
+            Grid.Column="0"
             Width="Auto"
             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
             ScrollViewer.CanContentScroll="True">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap"></TextBlock>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button
+                Content="Tell me what this graph does"
+                Width="400"
+                Height="50"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="1"/>
+            <Button
+                Content="Generate annotations for me"
+                Width="400"
+                Height="50"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="2"/>
+            <Button
+                Content="Make groups for me"
+                Width="400"
+                Height="50"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="3"/>
+            <Button
+                Content="Optimize my graph for me"
+                Width="400"
+                Height="50"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="4"/>
+            <Button
+                Content="Help me create a graph"
+                Width="400"
+                Height="50"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="5"/>
+            <Button
+                Content="Show me what's new in Dynamo"
+                Width="400"
+                Height="50"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="6"/>
+        </Grid>
 
         <Grid Name="TextInput"
               HorizontalAlignment="Stretch"
               VerticalAlignment="Stretch"
               Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="8*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
@@ -73,11 +134,14 @@
             </ScrollViewer>
 
             <Button 
-                Content="Send" 
-                Command="{Binding SendMessagesCommand}"
+                Content="➡" 
+                FontSize="25"
                 Click="Button_Click"
+                Width="50"
                 Height="50"
                 Grid.Column="1"
+                Background="#2d2d2d"
+                Foreground="White"
                 IsEnabled="{Binding IsWaitingForInput}"/>
         </Grid>
 

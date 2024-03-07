@@ -22,7 +22,7 @@ namespace DynamoAssistant
         // Chat GPT related fields
         private readonly OpenAIAPI chatGPTClient;
         private readonly Conversation conversation;
-        private static readonly string apikey = "Your API";
+        private static readonly string apikey = "Your API Key";
 
         /// <summary>
         /// User input to the Copilot
@@ -74,7 +74,7 @@ namespace DynamoAssistant
             if (string.IsNullOrEmpty(msg)) return;
 
             // Set Dynamo file location
-            string filePath = @"filepath";
+            string filePath = readyParams.CurrentWorkspaceModel.FileName;
 
             // A set of instructions to prepare GBT to analyze Dynamo nodes better
             string preInfo = "Given a JSON file representing a Dynamo for Revit project, perform a comprehensive analysis focusing on the graph's node structure. Your tasks include:\r\n\r\nReview Node Connections: Ensure each node is connected correctly according to Dynamo's expected data types and functionalities. Identify any instances where inputs may be receiving incorrect data types or where outputs are not utilized efficiently.\r\n\r\nData Type Validation: For each node input and output, validate that the data types are compatible with their intended functions. Highlight mismatches, such as a string data type connected to a numeric input without appropriate conversion.\r\n\r\nIdentify Unnecessary Nodes: Detect nodes that do not contribute to the final output or create redundant processes within the graph. This includes nodes with default values that never change or intermediary nodes that could be bypassed without altering the graph's outcome.\r\n\r\nOptimization Recommendations: Based on your analysis, recommend specific changes to the node structure. This might involve reordering nodes for logical flow, changing node types for efficiency, or altering connections to ensure data type compatibility.\r\n\r\nUpdate JSON Structure: Apply the optimization recommendations to the JSON file. Directly modify the \"Nodes\" and \"Connectors\" sections to reflect the optimized graph layout. Ensure that all other elements of the JSON file, such as \"Uuid\", \"Description\", \"ElementResolver\", and metadata, remain unchanged to preserve the file's integrity and additional context.\r\n\r\nOutput an Optimized JSON: Provide a revised JSON file, focusing exclusively on an updated node structure that reflects your analysis and optimizations. This file should retain all original details except for the modifications to nodes and their connections to address identified issues and enhance efficiency.";
@@ -142,14 +142,6 @@ namespace DynamoAssistant
             Messages.Add("Copilot:\nYour note has been created!\n");
         }
 
-        /// <summary>
-        /// Dispose function
-        /// </summary>
-        public void Dispose()
-        {
-            // Do nothing
-        }
-
         private DelegateCommand enterCommand;
 
         public ICommand EnterCommand
@@ -165,8 +157,16 @@ namespace DynamoAssistant
         private void Enter(object commandParameter)
         {
             SendMessage(commandParameter as string);
-            // Raise event to update the UI
+            // Raise event to update the UI and clear the input box
             UserInput = string.Empty;
+        }
+
+        /// <summary>
+        /// Dispose function
+        /// </summary>
+        public void Dispose()
+        {
+            // Do nothing
         }
     }
 }
