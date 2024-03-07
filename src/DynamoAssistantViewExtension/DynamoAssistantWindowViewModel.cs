@@ -72,11 +72,25 @@ namespace DynamoAssistant
             string response = await conversation.GetResponseFromChatbotAsync();
             // Display the chatbot's response
             Messages.Add("Copilot:\n" + response + "\n");
-            //var pythonNode = new PythonNodeModels.PythonNode();
-            //dynamoModel.ExecuteCommand(new DynamoModel.CreateNodeCommand(pythonNode, 0, 0, false, false));
-            
+
+            // Use Regex to split only the Python code from the response
+            CreatePythonNode(response);
+
             // create a Dynamo note example
-            CreateNote("A1BE9F01-55C4-495E-B24C-099D018A29CE", "This is a sample Note.", 0, 0, true);
+            // CreateNote((new Guid()).ToString(), "This is a sample Note.", 0, 0, true);
+        }
+
+        /// <summary>
+        /// Create a python node in Dynamo, use latest Nuget package for this
+        /// </summary>
+        /// <param name="pythonScript"></param>
+        internal void CreatePythonNode(string pythonScript)
+        {
+            var pythonNode = new PythonNodeModels.PythonNode
+            {
+                Script = pythonScript
+            };
+            dynamoModel.ExecuteCommand(new DynamoModel.CreateNodeCommand(pythonNode, 0, 0, true, false));
         }
 
         internal void CreateNote(string nodeId, string noteText, double x, double y, bool defaultPosition)
