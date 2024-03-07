@@ -72,9 +72,12 @@ namespace DynamoAssistant
             string response = await conversation.GetResponseFromChatbotAsync();
             // Display the chatbot's response
             Messages.Add("Copilot:\n" + response + "\n");
-
+            var responseToLower = response.ToLower();
             // Use Regex to split only the Python code from the response
-            CreatePythonNode(response);
+            if (responseToLower.Contains("python script") || responseToLower.Contains("python node"))
+            {
+                CreatePythonNode(response);
+            }
 
             // create a Dynamo note example
             // CreateNote((new Guid()).ToString(), "This is a sample Note.", 0, 0, true);
@@ -83,9 +86,20 @@ namespace DynamoAssistant
         /// <summary>
         /// Create a python node in Dynamo, use latest Nuget package for this
         /// </summary>
-        /// <param name="pythonScript"></param>
-        internal void CreatePythonNode(string pythonScript)
+        /// <param name="response"></param>
+        internal void CreatePythonNode(string response)
         {
+            string pythonScript = string.Empty;
+            if (response.Contains("```python"))
+            {
+                pythonScript = response.Split("```python")[1];
+                if(pythonScript.Contains("```"))
+                {
+                    pythonScript = pythonScript.Split("```")[0];
+                }
+            }
+            else return;
+
             var pythonNode = new PythonNodeModels.PythonNode
             {
                 Script = pythonScript
