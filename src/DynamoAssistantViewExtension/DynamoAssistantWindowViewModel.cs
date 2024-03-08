@@ -24,6 +24,12 @@ namespace DynamoAssistant
         private readonly Conversation conversation;
         private static readonly string apikey = "Your API Key";
 
+        // Chat GPT pre instruction fields
+        // A set of instructions to prepare GPT to describe Dynamo graph better
+        private const string DescribePreInstruction = "Given a JSON file representing a Dynamo for Revit project, perform a comprehensive analysis focusing on the graph's node structure. Your tasks include:\r\n\r\nReview Node Connections: Ensure each node is connected correctly according to Dynamo's expected data types and functionalities. Identify any instances where inputs may be receiving incorrect data types or where outputs are not utilized efficiently.\r\n\r\nData Type Validation: For each node input and output, validate that the data types are compatible with their intended functions. Highlight mismatches, such as a string data type connected to a numeric input without appropriate conversion.";
+
+        // A set of instructions to prepare GPT to optimize Dynamo graph better
+        private const string OptimizePreInstruction = "Given a JSON file representing a Dynamo for Revit project, perform a comprehensive analysis focusing on the graph's node structure. Your tasks include:\r\n\r\nIdentify Unnecessary Nodes: Detect nodes that do not contribute to the final output or create redundant processes within the graph. This includes nodes with default values that never change or intermediary nodes that could be bypassed without altering the graph's outcome.\r\n\r\nOptimization Recommendations: Based on your analysis, recommend specific changes to the node structure. This might involve reordering nodes for logical flow, changing node types for efficiency, or altering connections to ensure data type compatibility.\r\n\r\nUpdate JSON Structure: Apply the optimization recommendations to the JSON file. Directly modify the \"Nodes\" and \"Connectors\" sections to reflect the optimized graph layout. Ensure that all other elements of the JSON file, such as \"Uuid\", \"Description\", \"ElementResolver\", and metadata, remain unchanged to preserve the file's integrity and additional context.\r\n\r\nOutput an Optimized JSON: Provide a revised JSON file, focusing exclusively on an updated node structure that reflects your analysis and optimizations. This file should retain all original details except for the modifications to nodes and their connections to address identified issues and enhance efficiency.";
         /// <summary>
         /// User input to the Copilot
         /// </summary>
@@ -64,7 +70,7 @@ namespace DynamoAssistant
             conversation = chatGPTClient.Chat.CreateConversation();
             conversation.Model = Model.GPT4_Turbo;
             // Adjust this value for more or less "creativity" in the response
-            conversation.RequestParameters.Temperature = 0.2;
+            conversation.RequestParameters.Temperature = 0.1;
             // Display a welcome message
             Messages.Add("Copilot:\nWelcome to Dynamo world and ask me anything to get started!\n");
         }
@@ -73,44 +79,60 @@ namespace DynamoAssistant
         {
             if (string.IsNullOrEmpty(msg)) return;
 
-            // Set Dynamo file location
-            string filePath = readyParams.CurrentWorkspaceModel.FileName;
-
-            // A set of instructions to prepare GBT to analyze Dynamo nodes better
-            string preInfo = "Given a JSON file representing a Dynamo for Revit project, perform a comprehensive analysis focusing on the graph's node structure. Your tasks include:\r\n\r\nReview Node Connections: Ensure each node is connected correctly according to Dynamo's expected data types and functionalities. Identify any instances where inputs may be receiving incorrect data types or where outputs are not utilized efficiently.\r\n\r\nData Type Validation: For each node input and output, validate that the data types are compatible with their intended functions. Highlight mismatches, such as a string data type connected to a numeric input without appropriate conversion.\r\n\r\nIdentify Unnecessary Nodes: Detect nodes that do not contribute to the final output or create redundant processes within the graph. This includes nodes with default values that never change or intermediary nodes that could be bypassed without altering the graph's outcome.\r\n\r\nOptimization Recommendations: Based on your analysis, recommend specific changes to the node structure. This might involve reordering nodes for logical flow, changing node types for efficiency, or altering connections to ensure data type compatibility.\r\n\r\nUpdate JSON Structure: Apply the optimization recommendations to the JSON file. Directly modify the \"Nodes\" and \"Connectors\" sections to reflect the optimized graph layout. Ensure that all other elements of the JSON file, such as \"Uuid\", \"Description\", \"ElementResolver\", and metadata, remain unchanged to preserve the file's integrity and additional context.\r\n\r\nOutput an Optimized JSON: Provide a revised JSON file, focusing exclusively on an updated node structure that reflects your analysis and optimizations. This file should retain all original details except for the modifications to nodes and their connections to address identified issues and enhance efficiency.";
-
-            //Read the file 
-            string jsonData = PickFile(filePath);
-
             IsWaitingForInput = false;
-
             // Display user message first
             Messages.Add("You:\n" + msg + "\n");
-
-            msg = msg + "This is my Dynamo project JSON structure." + jsonData;
             // Send the user's input to the ChatGPT API and receive a response
-            conversation?.AppendUserInput(preInfo + msg);
+            conversation?.AppendUserInput(msg);
             string response = await conversation.GetResponseFromChatbotAsync();
             // Display the chatbot's response
             Messages.Add("Copilot:\n" + response + "\n");
-            File.WriteAllText(filePath, response);
 
             var responseToLower = response.ToLower();
             if (responseToLower.Contains("python script") || responseToLower.Contains("python node"))
             {
                 CreatePythonNode(response);
             }
-
             // create a Dynamo note example
             // CreateNote((new Guid()).ToString(), "This is a sample Note.", 0, 0, true);
             IsWaitingForInput = true;
         }
-        internal string PickFile(string filePath)
+
+        internal async void DescribeGraph()
         {
-            // Read the file into a string
-            var jsonData = File.ReadAllText(filePath);
-            return jsonData;
+            // Set Dynamo file location
+            string filePath = readyParams.CurrentWorkspaceModel.FileName;
+
+            //Read the file 
+            string jsonData = File.ReadAllText(filePath);
+
+            var msg = "This is my Dynamo project JSON structure." + jsonData;
+
+            // Send the user's input to the ChatGPT API and receive a response
+            conversation?.AppendUserInput(DescribePreInstruction + msg);
+            string response = await conversation.GetResponseFromChatbotAsync();
+            // Display the chatbot's graph description
+            Messages.Add("Copilot:\n" + response + "\n");
         }
+
+        internal async void OptimizeGraph()
+        {
+            // Set Dynamo file location
+            string filePath = readyParams.CurrentWorkspaceModel.FileName;
+
+            //Read the file 
+            string jsonData = File.ReadAllText(filePath);
+
+            var msg = "This is my Dynamo project JSON structure." + jsonData;
+
+            // Send the user's input to the ChatGPT API and receive a response
+            conversation?.AppendUserInput(OptimizePreInstruction + msg);
+            string response = await conversation.GetResponseFromChatbotAsync();
+            File.WriteAllText(filePath, response);
+            // Display the chatbot's response
+            Messages.Add("Copilot:\n" + response + "\n");
+        }
+
         /// <summary>
         /// Create a python node in Dynamo, use latest Nuget package for this
         /// </summary>

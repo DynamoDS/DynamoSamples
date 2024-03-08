@@ -24,7 +24,7 @@
               VerticalAlignment="Stretch"
               Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="6*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -35,20 +35,20 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            
+
             <ListView
-            ItemsSource="{Binding Messages}"
-            FontFamily="Arial" 
-            Padding="10" 
-            FontWeight="Medium" 
-            FontSize="15"
-            Background="#2d2d2d"
-            Foreground="White"
-            Grid.Row="0"
-            Grid.Column="0"
-            Width="Auto"
-            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-            ScrollViewer.CanContentScroll="True">
+                ItemsSource="{Binding Messages}"
+                FontFamily="Arial" 
+                Padding="10" 
+                FontWeight="Medium" 
+                FontSize="15"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="0"
+                Grid.Column="0"
+                Width="Auto"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.CanContentScroll="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap"></TextBlock>
@@ -61,7 +61,8 @@
                 Height="50"
                 Background="#2d2d2d"
                 Foreground="White"
-                Grid.Row="1"/>
+                Grid.Row="1"
+                Click="DescribeGraphButton_Click"/>
             <Button
                 Content="Generate annotations for me"
                 Width="400"
@@ -82,7 +83,8 @@
                 Height="50"
                 Background="#2d2d2d"
                 Foreground="White"
-                Grid.Row="4"/>
+                Grid.Row="4"
+                Click="OptimizeGraphButton_Click"/>
             <Button
                 Content="Help me create a graph"
                 Width="400"
@@ -136,7 +138,7 @@
             <Button 
                 Content="➡" 
                 FontSize="25"
-                Click="Button_Click"
+                Click="SendButton_Click"
                 Width="50"
                 Height="50"
                 Grid.Column="1"
