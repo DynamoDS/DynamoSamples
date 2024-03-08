@@ -68,7 +68,7 @@ namespace DynamoAssistant
             chatGPTClient = new OpenAIAPI(new APIAuthentication(apikey));
             // ChatGPT lets you start a new chat. 
             conversation = chatGPTClient.Chat.CreateConversation();
-            conversation.Model = Model.GPT4_Turbo;
+            conversation.Model = Model.GPT4;
             // Adjust this value for more or less "creativity" in the response
             conversation.RequestParameters.Temperature = 0.1;
             // Display a welcome message
@@ -102,11 +102,17 @@ namespace DynamoAssistant
         {
             // Set Dynamo file location
             string filePath = readyParams.CurrentWorkspaceModel.FileName;
+            if (filePath == null)
+            {
+                // Alternatively, export Json from current workspace model to continue
+                Messages.Add("Copilot:\nPlease save the workspace first.\n");
+                return;
+            }
 
             //Read the file 
             string jsonData = File.ReadAllText(filePath);
 
-            var msg = "This is my Dynamo project JSON structure." + jsonData;
+            var msg = "This is my Dynamo project JSON structure.\n" + jsonData;
 
             // Send the user's input to the ChatGPT API and receive a response
             conversation?.AppendUserInput(DescribePreInstruction + msg);
@@ -129,6 +135,15 @@ namespace DynamoAssistant
             conversation?.AppendUserInput(OptimizePreInstruction + msg);
             string response = await conversation.GetResponseFromChatbotAsync();
             File.WriteAllText(filePath, response);
+            // Display the chatbot's response
+            Messages.Add("Copilot:\n" + response + "\n");
+        }
+
+        internal async void WhatsNew()
+        {
+            // Send the user's input to the ChatGPT API and receive a response
+            conversation?.AppendUserInput("What's new in Dynamo 3.0?");
+            string response = await conversation.GetResponseFromChatbotAsync();
             // Display the chatbot's response
             Messages.Add("Copilot:\n" + response + "\n");
         }

@@ -98,7 +98,8 @@
                 Height="50"
                 Background="#2d2d2d"
                 Foreground="White"
-                Grid.Row="6"/>
+                Grid.Row="6"
+                Click="WhatsNewButton_Click"/>
         </Grid>
 
         <Grid Name="TextInput"

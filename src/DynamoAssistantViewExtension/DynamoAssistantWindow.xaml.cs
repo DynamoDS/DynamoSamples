@@ -28,5 +28,10 @@ namespace DynamoAssistant
         {
             ViewModel.OptimizeGraph();
         }
+
+        private void WhatsNewButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.WhatsNew();
+        }
     }
 }
