@@ -93,8 +93,6 @@ namespace DynamoAssistant
             {
                 CreatePythonNode(response);
             }
-            // create a Dynamo note example
-            // CreateNote((new Guid()).ToString(), "This is a sample Note.", 0, 0, true);
             IsWaitingForInput = true;
         }
 
@@ -102,7 +100,7 @@ namespace DynamoAssistant
         {
             // Set Dynamo file location
             string filePath = readyParams.CurrentWorkspaceModel.FileName;
-            if (filePath == null)
+            if (string.IsNullOrEmpty(filePath))
             {
                 // Alternatively, export Json from current workspace model to continue
                 Messages.Add("Copilot:\nPlease save the workspace first.\n");
@@ -146,6 +144,18 @@ namespace DynamoAssistant
             string response = await conversation.GetResponseFromChatbotAsync();
             // Display the chatbot's response
             Messages.Add("Copilot:\n" + response + "\n");
+        }
+
+        internal void MakeNote()
+        {
+            // create a Dynamo note example
+            CreateNote((new Guid()).ToString(), "This is a sample Note.", 0, 0, true);
+        }
+
+        internal void MakeGroup()
+        {
+            // create a Dynamo group example
+            dynamoModel.ExecuteCommand(new DynamoModel.CreateAnnotationCommand(new Guid(), "This is a sample Group.", string.Empty, 0, 0, true));
         }
 
         /// <summary>

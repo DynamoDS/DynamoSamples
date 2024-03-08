@@ -33,5 +33,15 @@ namespace DynamoAssistant
         {
             ViewModel.WhatsNew();
         }
+
+        private void MakeNoteButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.MakeNote();
+        }
+
+        private void MakeGroupButton_Click(object sender, RoutedEventArgs e)
+        {
+            ViewModel.MakeGroup();
+        }
     }
 }

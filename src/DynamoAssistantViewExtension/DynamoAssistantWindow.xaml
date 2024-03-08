@@ -69,14 +69,16 @@
                 Height="50"
                 Background="#2d2d2d"
                 Foreground="White"
-                Grid.Row="2"/>
+                Grid.Row="2"
+                Click="MakeNoteButton_Click"/>
             <Button
                 Content="Make groups for me"
                 Width="400"
                 Height="50"
                 Background="#2d2d2d"
                 Foreground="White"
-                Grid.Row="3"/>
+                Grid.Row="3"
+                Click="MakeGroupButton_Click"/>
             <Button
                 Content="Optimize my graph for me"
                 Width="400"
