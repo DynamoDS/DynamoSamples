@@ -26,15 +26,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="6*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
 
             <ListView
                 ItemsSource="{Binding Messages}"
@@ -45,7 +37,6 @@
                 Background="#2d2d2d"
                 Foreground="White"
                 Grid.Row="0"
-                Grid.Column="0"
                 Width="Auto"
                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                 ScrollViewer.CanContentScroll="True">
@@ -55,53 +46,96 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button
-                Content="Tell me what this graph does"
-                Width="400"
-                Height="50"
-                Background="#2d2d2d"
-                Foreground="White"
-                Grid.Row="1"
-                Click="DescribeGraphButton_Click"/>
-            <Button
-                Content="Generate annotations for me"
-                Width="400"
-                Height="50"
-                Background="#2d2d2d"
-                Foreground="White"
-                Grid.Row="2"
-                Click="MakeNoteButton_Click"/>
-            <Button
-                Content="Make groups for me"
-                Width="400"
-                Height="50"
-                Background="#2d2d2d"
-                Foreground="White"
-                Grid.Row="3"
-                Click="MakeGroupButton_Click"/>
-            <Button
-                Content="Optimize my graph for me"
-                Width="400"
-                Height="50"
-                Background="#2d2d2d"
-                Foreground="White"
-                Grid.Row="4"
-                Click="OptimizeGraphButton_Click"/>
-            <Button
-                Content="Help me create a graph"
-                Width="400"
-                Height="50"
-                Background="#2d2d2d"
-                Foreground="White"
-                Grid.Row="5"/>
-            <Button
-                Content="Show me what's new in Dynamo"
-                Width="400"
-                Height="50"
-                Background="#2d2d2d"
-                Foreground="White"
-                Grid.Row="6"
-                Click="WhatsNewButton_Click"/>
+
+            <Grid Name="Suggestions"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                    Content="Suggestions:"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Background="#2d2d2d"
+                    Foreground="White"/>
+
+                <Button
+                    Content="Tell me what this graph does"
+                    Width="250"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Padding="10"
+                    Click="DescribeGraphButton_Click"/>
+                <Button
+                    Content="Generate annotations for me"
+                    Width="250"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="10"
+                    Click="MakeNoteButton_Click"/>
+                <Button
+                    Content="Make groups for me"
+                    Width="250"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Padding="10"
+                    Click="MakeGroupButton_Click"/>
+                <Button
+                    Content="Optimize my graph for me"
+                    Width="250"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Padding="10"
+                    Click="OptimizeGraphButton_Click"/>
+                <Button
+                    Content="Help me create a graph"
+                    Width="250"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Right"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Padding="10"/>
+                <Button
+                    Content="Show me what's new in Dynamo"
+                    Width="250"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Padding="10"
+                    Click="WhatsNewButton_Click"/>
+            </Grid>
         </Grid>
 
         <Grid Name="TextInput"

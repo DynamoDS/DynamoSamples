@@ -49,7 +49,7 @@ namespace DynamoAssistant
                 Owner = p.DynamoWindow
             };
             viewModel.dynamoViewModel = p.DynamoWindow.DataContext as DynamoViewModel;
-            assistantMenuItem = new MenuItem { Header = "Open Copilot", IsCheckable = true };
+            assistantMenuItem = new MenuItem { Header = "Dynamo Copilot", IsCheckable = true };
             assistantMenuItem.Checked += (sender, args) => p.AddToExtensionsSideBar(this, window);
             assistantMenuItem.Unchecked += (sender, args) => p.CloseExtensioninInSideBar(this);
             p.AddExtensionMenuItem(assistantMenuItem);
