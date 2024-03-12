@@ -1,0 +1,189 @@
+﻿<Window x:Class="DynamoAssistant.DynamoAssistantWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:local="clr-namespace:DynamoAssistant" 
+        d:DataContext="{d:DesignInstance Type=local:DynamoAssistantWindowViewModel}"
+        mc:Ignorable="d" 
+        d:DesignHeight="300" 
+        d:DesignWidth="300"
+        Width="500" 
+        Height="100">
+    <Grid Name="MainGrid" 
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Name="Messages"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="6*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <ListView
+                ItemsSource="{Binding Messages}"
+                FontFamily="Arial" 
+                Padding="10" 
+                FontWeight="Medium" 
+                FontSize="15"
+                Background="#2d2d2d"
+                Foreground="White"
+                Grid.Row="0"
+                Width="Auto"
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                ScrollViewer.CanContentScroll="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Path=.}" TextWrapping="Wrap"></TextBlock>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Grid Name="Suggestions"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Stretch"
+                  Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                    Content="Suggestions:"
+                    FontSize="15"
+                    FontWeight="Bold"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Background="#2d2d2d"
+                    Foreground="White"/>
+
+                <Button
+                    Content="Tell me what this graph does"
+                    Width="200"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Padding="10"
+                    Click="DescribeGraphButton_Click"/>
+                <Button
+                    Content="Generate annotations for me"
+                    Width="200"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Padding="10"
+                    Click="MakeNoteButton_Click"/>
+                <Button
+                    Content="Make groups for me"
+                    Width="200"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Padding="10"
+                    Click="MakeGroupButton_Click"/>
+                <Button
+                    Content="Optimize my graph for me"
+                    Width="200"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Center"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Padding="10"
+                    Click="OptimizeGraphButton_Click"/>
+                <Button
+                    Content="Help me create a graph"
+                    Width="200"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    HorizontalAlignment="Right"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Padding="10"/>
+                <Button
+                    Content="Show me what's new in Dynamo"
+                    Width="200"
+                    Height="50"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Padding="10"
+                    Click="WhatsNewButton_Click"/>
+            </Grid>
+        </Grid>
+
+        <Grid Name="TextInput"
+              HorizontalAlignment="Stretch"
+              VerticalAlignment="Stretch"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer 
+                HorizontalScrollBarVisibility="Disabled"
+                VerticalScrollBarVisibility="Auto" 
+                Grid.Column="0">
+                <TextBox 
+                    Name="UserInput"
+                    Text="{Binding UserInput, UpdateSourceTrigger=PropertyChanged}"
+                    IsEnabled="{Binding IsWaitingForInput}"
+                    FontFamily="Arial" 
+                    Padding="10" 
+                    FontWeight="Medium" 
+                    FontSize="15"
+                    Background="#2d2d2d"
+                    Foreground="White"
+                    AcceptsReturn="True"
+                    TextWrapping="Wrap"
+                    Height="50">
+                    <TextBox.InputBindings>
+                        <KeyBinding Key="Return" 
+                        Command="{Binding EnterCommand}"
+                        CommandParameter="{Binding ElementName=UserInput, Path=Text}"/>
+                    </TextBox.InputBindings>
+                </TextBox>
+            </ScrollViewer>
+
+            <Button 
+                Content="➡" 
+                FontSize="25"
+                Click="SendButton_Click"
+                Width="50"
+                Height="50"
+                Grid.Column="1"
+                Background="#2d2d2d"
+                Foreground="White"
+                IsEnabled="{Binding IsWaitingForInput}"/>
+        </Grid>
+
+
+    </Grid>
+</Window>

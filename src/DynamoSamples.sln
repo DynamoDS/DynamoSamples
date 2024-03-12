@@ -15,7 +15,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleExtension", "SampleEx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleLinter", "SampleLinter\SampleLinter.csproj", "{5F559FDB-99B9-4F4A-9A91-C9EC94C771D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SampleZeroTouchUnits", "SampleZeroTouchUnits\SampleZeroTouchUnits.csproj", "{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleZeroTouchUnits", "SampleZeroTouchUnits\SampleZeroTouchUnits.csproj", "{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DynamoAssistantViewExtension", "DynamoAssistantViewExtension\DynamoAssistantViewExtension.csproj", "{2B701ADF-1E6F-4FA0-84BC-6FD86E3A62B6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,8 +53,15 @@ Global
 		{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F9ECB35-D321-482A-8ED4-CC8E9342AACE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B701ADF-1E6F-4FA0-84BC-6FD86E3A62B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B701ADF-1E6F-4FA0-84BC-6FD86E3A62B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B701ADF-1E6F-4FA0-84BC-6FD86E3A62B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B701ADF-1E6F-4FA0-84BC-6FD86E3A62B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F0D2A6B7-67C9-497C-B186-4E19BDD88E1E}
 	EndGlobalSection
 EndGlobal
