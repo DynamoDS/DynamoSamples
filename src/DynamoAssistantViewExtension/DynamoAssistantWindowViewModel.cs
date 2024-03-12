@@ -123,6 +123,12 @@ namespace DynamoAssistant
         {
             // Set Dynamo file location
             string filePath = readyParams.CurrentWorkspaceModel.FileName;
+            if (string.IsNullOrEmpty(filePath))
+            {
+                // Alternatively, export Json from current workspace model to continue
+                Messages.Add("Copilot:\nPlease save the workspace first.\n");
+                return;
+            }
 
             //Read the file 
             string jsonData = File.ReadAllText(filePath);

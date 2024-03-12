@@ -15,7 +15,7 @@
           VerticalAlignment="Stretch">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="6*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
@@ -74,7 +74,7 @@
 
                 <Button
                     Content="Tell me what this graph does"
-                    Width="250"
+                    Width="200"
                     Height="50"
                     Background="#2d2d2d"
                     Foreground="White"
@@ -85,7 +85,7 @@
                     Click="DescribeGraphButton_Click"/>
                 <Button
                     Content="Generate annotations for me"
-                    Width="250"
+                    Width="200"
                     Height="50"
                     Background="#2d2d2d"
                     Foreground="White"
@@ -95,7 +95,7 @@
                     Click="MakeNoteButton_Click"/>
                 <Button
                     Content="Make groups for me"
-                    Width="250"
+                    Width="200"
                     Height="50"
                     Background="#2d2d2d"
                     Foreground="White"
@@ -106,7 +106,7 @@
                     Click="MakeGroupButton_Click"/>
                 <Button
                     Content="Optimize my graph for me"
-                    Width="250"
+                    Width="200"
                     Height="50"
                     Background="#2d2d2d"
                     Foreground="White"
@@ -117,7 +117,7 @@
                     Click="OptimizeGraphButton_Click"/>
                 <Button
                     Content="Help me create a graph"
-                    Width="250"
+                    Width="200"
                     Height="50"
                     Background="#2d2d2d"
                     Foreground="White"
@@ -127,7 +127,7 @@
                     Padding="10"/>
                 <Button
                     Content="Show me what's new in Dynamo"
-                    Width="250"
+                    Width="200"
                     Height="50"
                     Background="#2d2d2d"
                     Foreground="White"
