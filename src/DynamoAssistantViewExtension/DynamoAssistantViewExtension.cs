@@ -49,7 +49,7 @@ namespace DynamoAssistant
                 Owner = p.DynamoWindow
             };
             viewModel.dynamoViewModel = p.DynamoWindow.DataContext as DynamoViewModel;
-            assistantMenuItem = new MenuItem { Header = "Dynamo Copilot", IsCheckable = true };
+            assistantMenuItem = new MenuItem { Header = "Dynamo Gen-AI assistant", IsCheckable = true };
             assistantMenuItem.Checked += (sender, args) => p.AddToExtensionsSideBar(this, window);
             assistantMenuItem.Unchecked += (sender, args) => p.CloseExtensioninInSideBar(this);
             p.AddExtensionMenuItem(assistantMenuItem);
@@ -79,7 +79,7 @@ namespace DynamoAssistant
         {
             get
             {
-                return "Copilot";
+                return "Gen-AI assistant";
             }
         }
 
