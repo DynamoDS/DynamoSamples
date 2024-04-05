@@ -10,11 +10,11 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4307" />
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4307" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4307" />
-    <PackageReference Include="OpenAI" Version="1.10.0" />
-    <PackageReference Include="RestSharp" Version="108.0.1" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4307" ExcludeAssets="runtime"/>
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4307" ExcludeAssets="runtime"/>
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4307" ExcludeAssets="runtime"/>
+    <PackageReference Include="OpenAI" Version="1.11.0"/>
+    <PackageReference Include="RestSharp" Version="108.0.1" ExcludeAssets="runtime"/>
   </ItemGroup>
   <ItemGroup>
     <None Update="DynamoAssistantViewExtension_ViewExtensionDefinition.xml">
@@ -26,7 +26,7 @@
       <PackageDll Include="$(ProjectDir)bin\$(ConfigurationName)\DynamoAssistantViewExtension.dll" />
       <PackageXml Include="$(ProjectDir)bin\$(ConfigurationName)\DynamoAssistantViewExtension_ViewExtensionDefinition.xml" />
     </ItemGroup>
-    <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\bin" />
-    <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Sample View Extension\extra" />
+    <Copy SourceFiles="@(PackageDll)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Dynamo Gen AI assistant\bin" />
+    <Copy SourceFiles="@(PackageXml)" DestinationFolder="$(ProjectDir)..\..\dynamo_viewExtension\Dynamo Gen AI assistant\extra" />
   </Target>
 </Project>
