@@ -48,7 +48,7 @@
   </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
     <ItemGroup>
-      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML" />
+	  <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)\SampleLibraryUI.customization.dll;$(ProjectDir)\Resources\SampleLibraryUIImages.resources" />
       <ENResourceFiles Include="$(OutDir)\en-US\*.*" />
       <ESResourceFiles Include="$(OutDir)\es-ES\*.*" />
     </ItemGroup>
