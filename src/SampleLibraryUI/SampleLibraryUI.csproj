@@ -28,6 +28,23 @@
     <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
     <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\LargeIcons\" />
+    <Folder Include="Resources\SmallIcons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\SampleLibraryUI.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SampleLibraryUI.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\SampleLibraryUI.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SampleLibraryUI.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
     <ItemGroup>
       <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML" />
@@ -39,11 +56,7 @@
     <Copy SourceFiles="@(ESResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\es-ES" />
 
     <!-- Generate customization dll for SampleLibraryUI -->
-    <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true"
-      Sources="$(ProjectDir)/Resources/SampleLibraryUI.resx"
-      OutputResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" />
-    <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library"
-      EmbedResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources"
-      OutputAssembly="$(OutDir)SampleLibraryUI.customization.dll" Version="%(AssemblyInfo.Version)" />
+    <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)/Resources/SampleLibraryUI.resx" OutputResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" />
+    <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" OutputAssembly="$(OutDir)SampleLibraryUI.customization.dll" Version="%(AssemblyInfo.Version)" />
   </Target>
 </Project>
