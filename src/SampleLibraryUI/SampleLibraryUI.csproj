@@ -37,5 +37,13 @@
     <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\" />
     <Copy SourceFiles="@(ENResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\en-US" />
     <Copy SourceFiles="@(ESResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\es-ES" />
+
+    <!-- Generate customization dll for SampleLibraryUI -->
+    <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true"
+      Sources="$(ProjectDir)/Resources/SampleLibraryUI.resx"
+      OutputResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" />
+    <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library"
+      EmbedResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources"
+      OutputAssembly="$(OutDir)SampleLibraryUI.customization.dll" Version="%(AssemblyInfo.Version)" />
   </Target>
 </Project>
