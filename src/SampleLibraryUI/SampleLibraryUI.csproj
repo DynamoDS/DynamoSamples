@@ -5,8 +5,9 @@
   <PropertyGroup>
     <RootNamespace>SampleLibraryUI</RootNamespace>
     <AssemblyName>SampleLibraryUI</AssemblyName>
-    <!--Windows and WPF APIs are needed to support dynamo UI libs-->
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <!--Windows
+    and WPF APIs are needed to support dynamo UI libs-->
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
     <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->

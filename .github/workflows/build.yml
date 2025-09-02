@@ -1,4 +1,4 @@
-# Build SampleIntegration.sln and DynamoSamples.sln with .NET 8.0
+# Build SampleIntegration.sln and DynamoSamples.sln with .NET 10.0
 name: Build
 
 on:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v4
         with:
-          dotnet-version: '8.0.x'
+          dotnet-version: "10.0.x"
       - name: Disable problem matcher
         run: echo "::remove-matcher owner=csc::"
       - name: Setup msbuild
@@ -66,7 +66,7 @@ jobs:
           ls
       - name: Extract DynamoRuntime
         run: |
-            7z x DynamoRuntime.zip -o${{ github.workspace }}\DynamoSamples\src\SampleLibraryTests\bin\Release\DynamoRuntime
+          7z x DynamoRuntime.zip -o${{ github.workspace }}\DynamoSamples\src\SampleLibraryTests\bin\Release\DynamoRuntime
 
       - name: Run test with the dotnet CLI
         run: |

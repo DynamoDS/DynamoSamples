@@ -13,7 +13,7 @@ These samples make use of the [Dynamo NuGet packages](https://www.nuget.org/pack
 ## Requirements
 
 - Visual Studio 2022
-- .NET8
+- .NET 10.0
 
 ## Instructions
 
