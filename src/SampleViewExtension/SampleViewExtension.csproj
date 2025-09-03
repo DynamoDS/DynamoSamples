@@ -5,8 +5,7 @@
   <PropertyGroup>
     <RootNamespace>SampleViewExtension</RootNamespace>
     <AssemblyName>SampleViewExtension</AssemblyName>
-    <!--Windows
-    and WPF APIs are needed to support dynamo UI extensions-->
+    <!--Windows and WPF APIs are needed to support dynamo UI extensions-->
     <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>

@@ -6,8 +6,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <RootNamespace>SampleLibraryTests</RootNamespace>
     <AssemblyName>SampleLibraryTests</AssemblyName>
-    <!--Windows
-    and WPF APIs are needed to support dynamo UI libs-->
+    <!--Windows and WPF APIs are needed to support dynamo UI libs-->
     <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>

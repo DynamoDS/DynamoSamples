@@ -7,8 +7,7 @@
     <RootNamespace>SampleExtension</RootNamespace>
     <AssemblyName>SampleExtension</AssemblyName>
     <TargetFramework>net10.0</TargetFramework>
-    <!--EnableDynamicLoading
-    prepares the project so that it can be used as a plugin -->
+    <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
     <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
     <EnableDynamicLoading>true</EnableDynamicLoading>
   </PropertyGroup>
