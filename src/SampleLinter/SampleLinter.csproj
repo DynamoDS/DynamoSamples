@@ -15,9 +15,9 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-      <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
-      <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
-      <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
     <None Update="LinterSettings.xml">
