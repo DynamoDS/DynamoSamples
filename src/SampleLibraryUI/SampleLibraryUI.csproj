@@ -33,16 +33,8 @@
     <Folder Include="Resources\SmallIcons\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Resources\SampleLibraryUI.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>SampleLibraryUI.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Update="Resources\SampleLibraryUI.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>SampleLibraryUI.Designer.cs</LastGenOutput>
+      <Generator></Generator>
     </EmbeddedResource>
   </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
