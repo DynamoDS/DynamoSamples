@@ -24,9 +24,9 @@
     <Content Include="images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\LargeIcons\" />

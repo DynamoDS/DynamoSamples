@@ -22,7 +22,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Tests" Version="4.0.0-beta2527" />
-    <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.Tests" Version="4.0.0-beta2685" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoCoreNodes" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
   </ItemGroup>
 </Project>

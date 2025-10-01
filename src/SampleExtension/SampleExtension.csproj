@@ -17,6 +17,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Core" Version="4.0.0-beta2527" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
   </ItemGroup>
 </Project>
