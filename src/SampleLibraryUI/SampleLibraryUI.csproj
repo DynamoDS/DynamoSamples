@@ -24,9 +24,9 @@
     <Content Include="images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\LargeIcons\" />
@@ -38,17 +38,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
+    <!-- Generate customization dll for SampleLibraryUI -->
+    <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)/Resources/SampleLibraryUI.resx" OutputResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" />
+    <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" OutputAssembly="$(OutDir)/SampleLibraryUI.customization.dll" Version="%(AssemblyInfo.Version)" />
+
     <ItemGroup>
-	  <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)\SampleLibraryUI.customization.dll;$(ProjectDir)\Resources\SampleLibraryUIImages.resources" />
+	  <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)SampleLibraryUI.customization.dll;$(ProjectDir)\Resources\SampleLibraryUIImages.resources" />
       <ENResourceFiles Include="$(OutDir)\en-US\*.*" />
       <ESResourceFiles Include="$(OutDir)\es-ES\*.*" />
     </ItemGroup>
     <Copy SourceFiles="@(PackageFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\" />
     <Copy SourceFiles="@(ENResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\en-US" />
     <Copy SourceFiles="@(ESResourceFiles)" DestinationFolder="$(SolutionDir)..\dynamo_package\Dynamo Samples\bin\es-ES" />
-
-    <!-- Generate customization dll for SampleLibraryUI -->
-    <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)/Resources/SampleLibraryUI.resx" OutputResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" />
-    <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" OutputAssembly="$(OutDir)SampleLibraryUI.customization.dll" Version="%(AssemblyInfo.Version)" />
   </Target>
 </Project>

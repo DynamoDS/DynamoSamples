@@ -8,6 +8,6 @@
     <TargetFramework>net10.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Core" Version="4.0.0-beta2685" />
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="4.0.0-beta2860" />
   </ItemGroup>
 </Project>

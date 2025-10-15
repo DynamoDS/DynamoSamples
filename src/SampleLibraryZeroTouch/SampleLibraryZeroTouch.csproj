@@ -13,9 +13,9 @@
     <DocumentationFile>bin\$(Configuration)\SampleLibraryZeroTouch.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.Core" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2685" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.Core" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
   </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
     <Message Text="Should run after build" Importance="High" />
