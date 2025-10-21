@@ -6,13 +6,13 @@
     <RootNamespace>SampleViewExtension</RootNamespace>
     <AssemblyName>SampleViewExtension</AssemblyName>
     <!--Windows and WPF APIs are needed to support dynamo UI extensions-->
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4081" />
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4081" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4081" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2860" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2860" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2860" />
   </ItemGroup>
   <ItemGroup>
     <None Update="SampleViewExtension_ViewExtensionDefinition.xml">

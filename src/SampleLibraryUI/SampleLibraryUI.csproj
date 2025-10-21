@@ -6,7 +6,7 @@
     <RootNamespace>SampleLibraryUI</RootNamespace>
     <AssemblyName>SampleLibraryUI</AssemblyName>
     <!--Windows and WPF APIs are needed to support dynamo UI libs-->
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
     <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
     <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
@@ -24,13 +24,26 @@
     <Content Include="images\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
-    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+    <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\LargeIcons\" />
+    <Folder Include="Resources\SmallIcons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\SampleLibraryUI.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
   </ItemGroup>
   <Target Name="AfterBuildOps" AfterTargets="Build">
+    <!-- Generate customization dll for SampleLibraryUI -->
+    <GenerateResource SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" UseSourcePath="true" Sources="$(ProjectDir)/Resources/SampleLibraryUI.resx" OutputResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" />
+    <AL SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" TargetType="library" EmbedResources="$(ProjectDir)/Resources/SampleLibraryUIImages.resources" OutputAssembly="$(OutDir)/SampleLibraryUI.customization.dll" Version="%(AssemblyInfo.Version)" />
+
     <ItemGroup>
-      <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML" />
+	  <PackageFiles Include="$(OutDir)\SampleLibraryUI.dll;$(OutDir)\SampleLibraryUI.XML;$(OutDir)SampleLibraryUI.customization.dll;$(ProjectDir)\Resources\SampleLibraryUIImages.resources" />
       <ENResourceFiles Include="$(OutDir)\en-US\*.*" />
       <ESResourceFiles Include="$(OutDir)\es-ES\*.*" />
     </ItemGroup>

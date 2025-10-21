@@ -8,16 +8,16 @@
     <Copyright>Copyright ©  2023</Copyright>
     <AssemblyVersion>2.0.1.0</AssemblyVersion>
     <FileVersion>2.0.1.0</FileVersion>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <!--EnableDynamicLoading prepares the project so that it can be used as a plugin -->
     <!--https://learn.microsoft.com/en-us/dotnet/core/tutorials/creating-app-with-plugin-support#simple-plugin-with-no-dependencies-->
     <EnableDynamicLoading>true</EnableDynamicLoading>
     <OutputPath>bin\$(Configuration)\</OutputPath>
   </PropertyGroup>
   <ItemGroup>
-      <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
-      <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
-      <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="3.1.0-beta4081" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.DynamoServices" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.WpfUILibrary" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
+      <PackageReference Include="DynamoVisualProgramming.ZeroTouchLibrary" Version="4.0.0-beta2860" ExcludeAssets="runtime" />
   </ItemGroup>
   <ItemGroup>
     <None Update="LinterSettings.xml">
